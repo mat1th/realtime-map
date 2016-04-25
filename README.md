@@ -1,1 +1,8 @@
-# project-3
+# Project 3
+
+#### Participants:
+- Dylan
+- Matthias
+- Heleen
+- Fons
+- Lisa
