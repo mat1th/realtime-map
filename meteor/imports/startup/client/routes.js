@@ -8,6 +8,7 @@ import '/imports/ui/layouts/index.js';
 //Import pages
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/api/api.js';
+import '../../ui/pages/chart/chart.js';
 
 // Define home router
 Router.route('/', function() {
@@ -23,4 +24,9 @@ Router.route('/', function() {
 Router.route('/apitest', function() {
     this.layout('applicationLayout');
     this.render('api');
+});
+
+Router.route('/chart', function() {
+    //this.layout('applicationLayout');
+    this.render('chart');
 });
