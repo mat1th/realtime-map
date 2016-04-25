@@ -1,6 +1,6 @@
 'use strict';
 
-var sensorsdata = {
+var sensorsValue = {
     sensor1: undefined,
     sensor2: undefined,
     sensor3: undefined
@@ -10,17 +10,17 @@ export const database = (function() {
     function set(postData) {
         var now = moment().format('YYYY-MM-DD HH:mm:ss');
 
-        sensorsdata.sensor1 = sensorsdata.sensor1 || postData.sensor1;
-        sensorsdata.sensor2 = sensorsdata.sensor2 || postData.sensor2;
-        sensorsdata.sensor3 = sensorsdata.sensor3 || postData.sensor3;
-        if (sensorsdata.sensor1 && sensorsdata.sensor2 && sensorsdata.sensor3) {
-            sensors.insert({
+        sensorsValue.sensor1 = sensorsValue.sensor1 || postData.sensor1;
+        sensorsValue.sensor2 = sensorsValue.sensor2 || postData.sensor2;
+        sensorsValue.sensor3 = sensorsValue.sensor3 || postData.sensor3;
+        if (sensorsValue.sensor1 && sensorsValue.sensor2 && sensorsValue.sensor3) {
+            SensorData.insert({
                 date: now,
-                sensor1: sensorsdata.sensor1,
-                sensor2: sensorsdata.sensor2,
-                sensor3: sensorsdata.sensor3
+                sensor1: sensorsValue.sensor1,
+                sensor2: sensorsValue.sensor2,
+                sensor3: sensorsValue.sensor3
             });
-            sensorsdata = {
+            sensorsValue = {
                 sensor1: undefined,
                 sensor2: undefined,
                 sensor3: undefined
@@ -29,7 +29,7 @@ export const database = (function() {
     }
 
     function getStatus() {
-        var data = sensors.find({}, {
+        var data = SensorData.find({}, {
             sort: {
                 date: -1
             },
@@ -47,7 +47,7 @@ export const database = (function() {
     }
 
     function get(limit) {
-        return JSON.stringify(sensors.find({}, {
+        return JSON.stringify(SensorData.find({}, {
             limit: limit
         }).fetch({}));
     }
@@ -57,5 +57,4 @@ export const database = (function() {
         get: get,
         getStatus: getStatus
     };
-
 })();

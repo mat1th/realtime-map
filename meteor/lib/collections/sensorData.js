@@ -1,6 +1,6 @@
-sensors = new Mongo.Collection('sensors');
+SensorData = new Mongo.Collection('sensorData');
 
-sensors.schema = new SimpleSchema({
+SensorData.schema = new SimpleSchema({
     date: {
         type: String
     },
@@ -15,4 +15,4 @@ sensors.schema = new SimpleSchema({
     }
 });
 
-sensors.attachSchema(sensors.schema);
+SensorData.attachSchema(SensorData.schema);
