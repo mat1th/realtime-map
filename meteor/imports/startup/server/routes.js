@@ -39,7 +39,29 @@ Router.route('/api/data', {
         where: 'server'
     })
     .get(function() {
-        this.response.end(JSON.stringify(sensors.find({
-          limit: 100
+        this.response.end(JSON.stringify(sensors.find({}, {
+            limit: 100
         }).fetch({})));
+    });
+
+
+Router.route('/api/status', {
+        where: 'server'
+    })
+    .get(function() {
+        var data = sensors.find({}, {
+            sort: {
+                date: -1
+            },
+            limit: 1
+        }).fetch({});
+        var status = {
+            date: data[0].date,
+            sensorStatus: {
+                sensor1: data[0].sensor1,
+                sensor2: data[0].sensor2,
+                sensor3: data[0].sensor3
+            }
+        }
+        this.response.end(JSON.stringify(status));
     });
