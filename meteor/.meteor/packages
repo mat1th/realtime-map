@@ -27,3 +27,5 @@ momentjs:moment
 kadira:blaze-layout
 msavin:mongol
 iron:router
+accounts-base
+aldeed:autoform
