@@ -11,10 +11,10 @@ Sensors.schema = new SimpleSchema({
         type: String
     },
     lon: {
-        type: Number
+        type: String
     },
     lat: {
-        type: Number
+        type: String
     },
     user: {
         type: String
