@@ -4,8 +4,16 @@
 Gemeente Amsterdam-Oost
 
 #### Participants:
-- Dylan
-- Matthias
-- Heleen
-- Fons
-- Lisa
+- Dylan Vens
+- Matthias Dolstra
+- Heleen Snoeck
+- Fons Hettema
+- Lisa Klein
+
+#### Sensoren
+- Afstandsensor
+- Geluidsensor
+- Licht sensor
+
+
+#### Concept
