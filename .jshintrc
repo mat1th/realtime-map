@@ -1,0 +1,11 @@
+{
+    "globals": {
+        "Meteor": true,
+        "HTTP": true,
+        "console": true,
+        "d3": true,
+        "ValidatedMethod": true
+    },
+    "esversion": 6,
+    "strict": true
+}
