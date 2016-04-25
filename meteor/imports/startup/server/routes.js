@@ -20,7 +20,6 @@ Router.route('/api', {
         sensorsdata.sensor2 = sensorsdata.sensor2 || postData.sensor2;
         sensorsdata.sensor3 = sensorsdata.sensor3 || postData.sensor3;
         if (sensorsdata.sensor1 && sensorsdata.sensor2 && sensorsdata.sensor3) {
-            console.log(sensorsdata);
             sensors.insert({
                 date: now,
                 sensor1: sensorsdata.sensor1,
@@ -33,13 +32,14 @@ Router.route('/api', {
                 sensor3: undefined
             };
         }
-
-        this.response.end('post acept\n');
+        this.response.end('post acepted\n');
     });
 
 Router.route('/api/data', {
         where: 'server'
     })
     .get(function() {
-        this.response.end(JSON.stringify(sensors.find({}).fetch({})));
+        this.response.end(JSON.stringify(sensors.find({
+          limit: 100
+        }).fetch({})));
     });
