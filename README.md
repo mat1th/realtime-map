@@ -1,6 +1,6 @@
 # Project 3
 
-#### Opdrachtgever:
+#### Client:
 Gemeente Amsterdam-Oost
 
 #### Participants:
