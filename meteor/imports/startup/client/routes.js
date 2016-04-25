@@ -1,8 +1,5 @@
 'use strict';
 
-import { FlowRouter } from 'meteor/kadira:flow-router';
-import { BlazeLayout } from 'meteor/kadira:blaze-layout';
-
 // Import components
 
 //Import base
@@ -12,25 +9,12 @@ import '/imports/ui/layouts/index.js';
 import '../../ui/pages/home/home.js';
 
 // Define home router
-FlowRouter.route( '/', {
-	name: 'home',
-	action: function() {
+Router.route('/', function () {
+  // use the template named ApplicationLayout for our layout
+  this.layout('applicationLayout');
 
-		BlazeLayout.render( 'applicationLayout', {
-		  header: 'header',
-		  main: 'home',
-		  footer: 'footer'
-		});
+  // render the Post template into the "main" region
+  // {{> yield}}
+  this.render('home');
 
-	}
 });
-
-// the App_notFound template is used for unknown routes and missing lists
-FlowRouter.notFound = {
-    action() {
-        BlazeLayout.render('layout1', {
-            top: 'nav',
-            main: 'page-not-found'
-        });
-    },
-};

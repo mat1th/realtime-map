@@ -1,11 +1,11 @@
 <template name="applicationLayout">
 
-	{{> Template.dynamic template=header}}
+	{{> header}}
 
 	<main>
-		{{> Template.dynamic template=main}}
+		{{> yield}}
 	</main>
 
-	{{> Template.dynamic template=footer}}
+	{{> footer}}
 
 </template>
