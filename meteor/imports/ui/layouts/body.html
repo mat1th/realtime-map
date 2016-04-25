@@ -1,0 +1,13 @@
+
+<template name="layout1">
+  <header>
+      {{> Template.dynamic template=top}}
+  </header>
+
+
+  {{#if Template.subscriptionsReady}}
+        {{> Template.dynamic template=main data=data}}
+      {{else}}
+        {{> loading}}
+      {{/if}}
+</template>

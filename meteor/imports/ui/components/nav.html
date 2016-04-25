@@ -1,0 +1,21 @@
+<template name="nav">
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            {{#if currentUser}}
+            <li >
+                <a href="/vis">Vis</a>
+            </li>
+            <li class="right">
+                <a href="/accounts" class="logout">Logout</a>
+            </li>
+            {{else}}
+            <li class="right">
+              <a href="/accounts">Login</a>
+            </li>
+            {{/if}}
+        </ul>
+    </nav>
+</template>

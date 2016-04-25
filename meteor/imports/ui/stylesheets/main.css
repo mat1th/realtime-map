@@ -1,0 +1,30 @@
+body {
+    font-family: helvetica, Slack-Lato, arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.59rem;
+    color: #4A4A4A;
+    background: #f9f9f9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+    text-align: center;
+}
+
+.background{
+  padding: 2em;
+  color: #fff;
+  height: calc(100vh - 50px);
+  background: #1E283D;
+  background: url(/img/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.none{
+  display: none;
+}
