@@ -1,3 +1,14 @@
 <template name="addsensor">
-  {{> quickForm collection="Sensors" id="Sensors" type="insert"}}
+    <form action="post">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+
+        <div>
+            <label for="location">location</label>
+            <input type="text" name="location" id="location">
+        </div>
+        <button type="submit" class="">Insert</button>
+    </form>
 </template>
