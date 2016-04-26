@@ -11,6 +11,7 @@ Template.chart.rendered = function() {
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
+
     var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S").parse,
         formatDate = d3.time.format("%Y");
 
@@ -41,8 +42,6 @@ Template.chart.rendered = function() {
         .y1(function(d) {
             return y(d.value);
         });
-
-
 
     var line = d3.svg.line()
         .interpolate("step-after")
@@ -91,7 +90,7 @@ Template.chart.rendered = function() {
         .attr("transform", "translate(" + width + ",0)");
 
     svg.append("path")
-        .attr("class", "area")
+        .attr("class", "area graph")
         .attr("clip-path", "url(#clip)")
         .style("fill", "url(#gradient)");
 
@@ -102,34 +101,32 @@ Template.chart.rendered = function() {
     svg.append("path")
         .attr("class", "line")
         .attr("clip-path", "url(#clip)");
-
-    svg.append("rect")
-        .attr("class", "pane")
-        .attr("width", width)
-        .attr("height", height)
-        .call(zoom);
+    //
+    // svg.append("rect")
+    //     .attr("class", "pane")
+    //     .attr("width", width)
+    //     .attr("height", height)
+    //     .call(zoom);
 
     var data = SensorData.find({
         sensorId: "53180077-cfc9-49b7-b807-ec01cd02b4d4"
     }).fetch({})
 
-    d3.csv("csv/sound.csv", function(error) {
-
-        data.forEach(function(d) {
-            d.date = parseDate(d.date);
-            d.value = +d.sensorvalue;
-        });
-
-        x.domain([new Date(2016, 0, 1), new Date(2020, 0, 0)]);
-        y.domain([0, d3.max(data, function(d) {
-            return d.sensorvalue;
-        })]);
-        zoom.x(x);
-
-        svg.select("path.area").data([data]);
-        svg.select("path.line").data([data]);
-        draw();
+    data.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.value = +d.sensorvalue;
     });
+
+    x.domain([new Date(2016, 0, 1), new Date(2020, 0, 0)]);
+    y.domain([0, d3.max(data, function(d) {
+        return d.sensorvalue;
+    })]);
+    zoom.x(x);
+
+    svg.select("path.area").data([data]);
+    svg.select("path.line").data([data]);
+    draw();
+
 
     function draw() {
         svg.select("g.x.axis").call(xAxis);
@@ -137,6 +134,24 @@ Template.chart.rendered = function() {
         svg.select("path.area").attr("d", area);
         svg.select("path.line").attr("d", line);
     }
+    var graph = svg.select(".graph");
+    graph.on("mouseout", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseout", mouseout);
+}
 
+function mousemove() {
+    var div = d3.select(".tooltip");
+    div.text("testje")
+        .style("left", (d3.event.pageX + 0) + "px")
+        .style("top", (d3.event.pageY - 12) + "px");
+}
 
+function mouseover() {
+    console.log('in');
+
+}
+
+function mouseout() {
+    console.log('out');
 }

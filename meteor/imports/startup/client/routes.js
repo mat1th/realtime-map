@@ -91,7 +91,6 @@ Router.route('/chart', {
         return Meteor.subscribe('sensorData');
     },
     action: function() {
-
         var _this = this;
 
         userLoggedIn(function(){
