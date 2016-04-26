@@ -31,22 +31,18 @@ Template.map.onRendered(function() {
     sensorPoints.forEach(function(element, index) {
         L.marker([element.lat, element.lon], {
             icon: sensorIcon,
-        }).addTo(map);
+            data: element.sensorId
+        }).addTo(map).on('click', onClick);
     });
 
-    map.on('click', function(e) {
-      console.log(e.target.classList);
-        // var popLocation= e.latlng;
-        // var popup = L.popup()
-        // .setLatLng(popLocation)
-        // .setContent('<p>Hello world!<br />This is a nice popup.</p>')
-        // .openOn(map);
-    });
+    function onClick(e) {
+      var id = e.target.options.data;
+        console.log(id);
+    }
 });
 
 
-//
-//
+
 // //What happens when a layer is clicked
 //    function clickFeature(e) {
 //        //check if the map isn't in the zoom state, if it is in zoomstate, clickfeature doesn't work
