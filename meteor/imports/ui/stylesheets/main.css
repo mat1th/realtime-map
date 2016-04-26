@@ -1,3 +1,11 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: helvetica, Slack-Lato, arial, sans-serif;
     margin: 0;
@@ -16,15 +24,21 @@ body {
 
 .background{
   padding: 2em;
-  color: #fff;
   height: calc(100vh - 50px);
-  background: #1E283D;
-  background: url(/img/background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-.none{
-  display: none;
+
+
+#map {
+  min-height: 350px;
+  min-width: 100%;
+}
+
+.sensor-icon{
+  height: 10px;
+  width: 10px;
+  background: red;
 }

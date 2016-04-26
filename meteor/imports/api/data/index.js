@@ -1,30 +1,27 @@
 'use strict';
 
 var sensorsValue = {
-    sensor1: undefined,
-    sensor2: undefined,
-    sensor3: undefined
+    sensor: undefined,
+    sensorId: undefined
 }
 
 export const database = (function() {
     function set(postData) {
         var now = moment().format('YYYY-MM-DD HH:mm:ss');
 
-        sensorsValue.sensor1 = sensorsValue.sensor1 || postData.sensor1;
-        sensorsValue.sensor2 = sensorsValue.sensor2 || postData.sensor2;
-        sensorsValue.sensor3 = sensorsValue.sensor3 || postData.sensor3;
-        if (sensorsValue.sensor1 && sensorsValue.sensor2 && sensorsValue.sensor3) {
+        sensorsValue.sensor = sensorsValue.sensor || postData.sensor;
+        sensorsValue.sensorId = sensorsValue.sensorId || postData.sensorId;
+
+        if (sensorsValue.sensor && sensorsValue.sensorId) {
             SensorData.insert({
                 date: now,
-                sensor1: sensorsValue.sensor1,
-                sensor2: sensorsValue.sensor2,
-                sensor3: sensorsValue.sensor3
+                sensorId: sensorsValue.sensorId,
+                sensorvalue: sensorsValue.sensor
             });
             sensorsValue = {
-                sensor1: undefined,
-                sensor2: undefined,
-                sensor3: undefined
-            };
+                sensor: undefined,
+                sensorId: undefined
+            }
         }
     }
 
@@ -35,12 +32,15 @@ export const database = (function() {
             },
             limit: 1
         }).fetch({});
+
+        console.log(data);
+
         var status = {
             date: data[0].date,
             sensorStatus: {
-                sensor1: data[0].sensor1,
-                sensor2: data[0].sensor2,
-                sensor3: data[0].sensor3
+                date: data[0].date,
+                sensorId: data[0].sensorvalue,
+                sensorvalue: data[0].sensorvalue,
             }
         }
         return JSON.stringify(status);

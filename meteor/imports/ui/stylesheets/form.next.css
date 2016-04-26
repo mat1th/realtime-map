@@ -1,0 +1,46 @@
+.form {
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    padding: 1em;
+    min-width: 20em;
+    max-width: 30em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form label {
+    font-weight: bold;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+.form span {
+    font-size: 0.8em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 1em;
+    color: #878789;
+    font-weight: normal;
+}
+
+    .form__block {
+        margin-bottom: 1em;
+    }
+
+    .form__subtitle {
+        margin-bottom: 1em;
+    }
+
+    .form__buttons {
+        text-align: center;
+    }
+
+    .form__link {
+        color: grey;
+    }

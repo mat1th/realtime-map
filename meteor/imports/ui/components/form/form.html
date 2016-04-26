@@ -1,0 +1,63 @@
+<template name="form">
+
+    <div class="form">
+
+        <h2 class="form__title">{{title}}</h2>
+        <p class="form__subtitle">Welkom</p>
+
+        <form>
+
+            {{#if isType title}}
+            <div class="form__block">
+                <label>
+                    E-mailadres
+                    <input type="email" name="email" required>
+                </label>
+            </div>
+
+            <div class="form__block">
+                <label>
+                    Wachtwoord
+                    <input type="password" name="password" required>
+                </label>
+            </div>
+
+            {{else}}
+
+            <div class="form__block">
+                <label>
+                    E-mailadres
+                    <input type="email" name="email" required>
+                </label>
+            </div>
+
+            <div class="form__block">
+                <label>
+                    Wachtwoord
+                    <input type="password" name="password" required>
+                </label>
+            </div>
+            <div class="form__block">
+                <label>
+                    Functieomschrijving
+                    <input type="text" name="role" required>
+                </label>
+            </div>
+
+            {{/if}}
+
+            <button class="button">{{title}}</button>
+
+        </form>
+
+        <div class="form__buttons">
+            {{#if isType title}}
+                <a class="form__link" href="/register">Registreer een account</a>
+            {{else}}
+                <a class="form__link" href="/login">Inloggen met bestaand account</a>
+            {{/if}}
+        </div>
+
+    </div>
+
+</template>
