@@ -1,8 +1,7 @@
 import './map.html';
-
+import '../chart/chart.js';
 
 Template.map.onRendered(function() {
-
     var map = L.map('map', {
         center: [52.376956, 4.902756],
         maxZoom: 20,
