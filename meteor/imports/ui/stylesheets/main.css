@@ -16,15 +16,9 @@ body {
 
 .background{
   padding: 2em;
-  color: #fff;
   height: calc(100vh - 50px);
-  background: #1E283D;
-  background: url(/img/background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-.none{
-  display: none;
 }

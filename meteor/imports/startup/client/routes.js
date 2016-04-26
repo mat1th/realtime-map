@@ -1,6 +1,7 @@
 'use strict';
 
 // Import components
+import '/imports/ui/components/form/form.js';
 
 //Import base
 import '/imports/ui/layouts/index.js';
@@ -11,11 +12,8 @@ import '../../ui/pages/api/api.js';
 
 // Define home router
 Router.route('/', function() {
-    // use the template named ApplicationLayout for our layout
-    this.layout('applicationLayout');
 
-    // render the Post template into the "main" region
-    // {{> yield}}
+    this.layout('applicationLayout');
     this.render('home');
 
 });

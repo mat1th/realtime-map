@@ -1,0 +1,64 @@
+<template name="form">
+
+    <div class="form">
+
+        <h2 class="form__title">{{title}}</h2>
+        <p class="form__subtitle">Welkom</p>
+
+        <form>
+
+            {{#if isType title}}
+            <div class="form__block">
+                <label>
+                    E-mailadres
+                    <input type="email" name="email" required>
+                </label>
+            </div>
+
+            <div class="form__block">
+                <label>
+                    Password
+                    <input type="password" name="password" required>
+                </label>
+            </div>
+
+            {{else}}
+
+            <div class="form__block">
+                <label>
+                    E-mailadres
+                    <input type="email" name="email" required>
+                </label>
+            </div>
+
+            <div class="form__block">
+                <label>
+                    Wachtwoord
+                    <input type="password" name="password" required>
+                </label>
+            </div>
+
+            <div class="form__block">
+                <label>
+                    Username <span>(Insert your League of Legends summonername)</span>
+                    <input type="text" name="summonername" required>
+                </label>
+            </div>
+
+            {{/if}}
+
+            <button class="button">{{title}}</button>
+
+        </form>
+
+        <div class="form__buttons">
+            {{#if isType title}}
+                <a class="form__link" href="{{pathFor route='register'}}">Create an account</a>
+            {{else}}
+                <a class="form__link" href="{{pathFor route='login'}}">Login with existing account</a>
+            {{/if}}
+        </div>
+
+    </div>
+
+</template>
