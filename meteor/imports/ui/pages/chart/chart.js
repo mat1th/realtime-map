@@ -4,8 +4,8 @@ import './chart.css';
 Template.chart.rendered = function() {
 
     var margin = { top: 20, right: 60, bottom: 30, left: 20 },
-        width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        width = 1024 - margin.left - margin.right,
+        height = 600 - margin.top - margin.bottom;
 
     var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S").parse,
         formatDate = d3.time.format("%Y");
@@ -49,23 +49,40 @@ Template.chart.rendered = function() {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    // var zoom = d3.behavior.zoom()
+    //     .on("zoom", draw);
+
     var zoom = d3.behavior.zoom()
-        .on("zoom", draw);
+        .scaleExtent([1, 1])
+        .on('zoom', draw);
 
-    // var gradient = svg.append("defs").append("linearGradient")
-    //     .attr("id", "gradient")
-    //     .attr("x2", "0%")
-    //     .attr("y2", "100%");
+    // zoom.on('zoom', function() {
+    //   var t = zoom.translate(),
+    //       tx = t[0],
+    //       ty = t[1];
 
-    // gradient.append("stop")
-    //     .attr("offset", "0%")
-    //     .attr("stop-color", "#fff")
-    //     .attr("stop-opacity", .5);
+    //   tx = Math.min(tx, 0);
+    //   tx = Math.max(tx, width - max);
+    //   zoom.translate([tx, ty]);
 
-    // gradient.append("stop")
-    //     .attr("offset", "100%")
-    //     .attr("stop-color", "#999")
-    //     .attr("stop-opacity", 1);
+    //   svg.select('.data').attr('d', line);
+
+    // });
+
+    var gradient = svg.append("defs").append("linearGradient")
+        .attr("id", "gradient")
+        .attr("x2", "0%")
+        .attr("y2", "100%");
+
+    gradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "blue")
+        .attr("stop-opacity", .5);
+
+    gradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "lightblue")
+        .attr("stop-opacity", 1);
 
     svg.append("clipPath")
         .attr("id", "clip")
@@ -102,13 +119,24 @@ Template.chart.rendered = function() {
         if (error) throw error;
 
         data.forEach(function(d) {
-          console.log(d);
             d.date = parseDate(d.date);
             d.db = +d.db;
         });
 
-        // Needs to be edited
+        // Get date of today
+        var newDate = new Date();
+        var dd = newDate.getDate();
+        var mm = newDate.getMonth();
+        var yyyy = newDate.getFullYear();
+        var today = new Date(yyyy, mm, dd);
+
+        // Add date
         x.domain([new Date(2016, 3, 18), new Date(2016, 3, 26)]);
+        
+        // Get data of today
+        //x.domain([today, today]);
+
+        //x.domain([new Date(2016, 0, 0), new Date(2016, 0, 0)]);
         y.domain([0, d3.max(data, function(d) {
             return d.db; })]);
         zoom.x(x);
@@ -133,5 +161,13 @@ Template.chart.helpers({
 
 // Events
 Template.chart.events({
-
+    'click #tab-day': function(){
+        console.log("Day");
+    },
+    'click #tab-month': function(){
+        console.log("Month");
+    },
+    'click #tab-year': function(){
+        console.log("Year");
+    }
 });

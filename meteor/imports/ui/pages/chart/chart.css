@@ -1,7 +1,13 @@
 /* CHART CSS */
 
 svg {
-  font: 10px sans-serif;
+  font: 1em sans-serif;
+  background: #38387D;
+  color: white;
+}
+
+text {
+  fill: #fff;
 }
 
 .axis {
@@ -14,7 +20,7 @@ svg {
 }
 
 .x.axis path {
-  stroke: #000;
+  stroke: #fff;
 }
 
 .x.axis line {
@@ -28,12 +34,49 @@ svg {
 
 path.line {
   fill: none;
-  stroke: lightgreen;
-  stroke-width: 5px;
+  stroke: #8C8CB3;
+  stroke-width: 2px;
 }
 
 rect.pane {
   cursor: move;
   fill: none;
   pointer-events: all;
+}
+
+/* TABS */
+
+.tabs {
+  margin: 1em;
+}
+
+.tabs__list {
+  display: flex;
+  list-style: none;
+}
+
+.tabs__list li {
+    margin-right: .5em;
+}
+
+.tabs__list li a {
+  display: block;
+  text-decoration: none;
+  padding: .5em;
+  background: #eee;
+  border-radius: 10px;
+  width: 3em;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+}
+
+.tab__list li a:hover {
+  background: darkgrey;
+  color: white;
+}
+
+.tabs__list li.active a {
+  background: darkgrey;
+  color: white;
 }
