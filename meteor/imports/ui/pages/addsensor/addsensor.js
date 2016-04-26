@@ -20,10 +20,12 @@ Template.addsensor.events({
         event.preventDefault();
         var name = event.target.name.value;
         var location = event.target.location.value;
-        if (name && location) {
-            Meteor.call("newSensor", name, location, gps);
-        }else{
-          console.log('error');
+        var sensorId = event.target.sensorid.value;
+        console.log(sensorId);
+        if (name && location && sensorid) {
+            Meteor.call("newSensor", name, location, gps, sensorId);
+        } else {
+            console.log('error');
         }
     }
 });
