@@ -1,12 +1,12 @@
 #map {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - var(--menuHeight));
     min-width: 100%;
 }
 .sensor-icon {
-    background: #bb2e31;
+    background: var(--redCollor);
     border-radius: 50% 50%;
 }
 .cycle-icon {
-    background: #64929d;
+    background: var(--bleuCollor);
     border-radius: 50% 50%;
 }
