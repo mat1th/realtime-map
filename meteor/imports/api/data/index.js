@@ -33,13 +33,11 @@ export const database = (function() {
             limit: 1
         }).fetch({});
 
-        console.log(data);
-
         var status = {
             date: data[0].date,
             sensorStatus: {
                 date: data[0].date,
-                sensorId: data[0].sensorvalue,
+                sensorId: data[0].sensorId,
                 sensorvalue: data[0].sensorvalue,
             }
         }
