@@ -86,7 +86,18 @@ Router.route('/apitest', function() {
     this.render('api');
 });
 
-Router.route('/chart', function() {
-    //this.layout('applicationLayout');
-    this.render('chart');
+Router.route('/chart', {
+    waitOn: function() {
+        return Meteor.subscribe('sensors');
+        return Meteor.subscribe('sensorData');
+    },
+    action: function() {
+
+        var _this = this;
+
+        userLoggedIn(function(){
+            _this.render('chart');
+        });
+
+    }
 });

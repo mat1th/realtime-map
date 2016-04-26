@@ -34,14 +34,14 @@ Template.chart.rendered = function() {
             return x(d.date); })
         .y0(y(0))
         .y1(function(d) {
-            return y(d.db); });
+            return y(d.sensorvalue); });
 
     var line = d3.svg.line()
         .interpolate("monotone")
         .x(function(d) {
             return x(d.date); })
         .y(function(d) {
-            return y(d.db); });
+            return y(d.sensorvalue); });
 
     var svg = d3.select(".chart-wrapper").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -115,44 +115,53 @@ Template.chart.rendered = function() {
         .attr("height", height)
         .call(zoom);
 
-    d3.csv("csv/sound.csv", function(error, data) {
-        if (error) throw error;
 
-        data.forEach(function(d) {
-            d.date = parseDate(d.date);
-            d.db = +d.db;
-        });
+var data = SensorData.find({}).fetch({});
+var newData = [];
+data.forEach( function (element){
+console.log(element)
+})
 
-        // Get date of today
-        var newDate = new Date();
-        var dd = newDate.getDate();
-        var mm = newDate.getMonth();
-        var yyyy = newDate.getFullYear();
-        var today = new Date(yyyy, mm, dd);
+//     newData.forEach(function() {
 
-        // Add date
-        x.domain([new Date(2016, 3, 18), new Date(2016, 3, 26)]);
+//         var data = JSON.parse(results.content); 
+
+//         data.forEach(function(d) {
+//             console.log(d);
+//             d.date = parseDate(d.date);
+//             d.sensorvalue = +d.sensorvalue;
+//         });
+
+//         // Get date of today
+//         var newDate = new Date();
+//         var dd = newDate.getDate();
+//         var mm = newDate.getMonth();
+//         var yyyy = newDate.getFullYear();
+//         var today = new Date(yyyy, mm, dd);
+
+//         // Add date
+//         x.domain([new Date(2016, 3, 18), new Date(2016, 3, 26)]);
         
-        // Get data of today
-        //x.domain([today, today]);
+//         // Get data of today
+//         //x.domain([today, today]);
 
-        //x.domain([new Date(2016, 0, 0), new Date(2016, 0, 0)]);
-        y.domain([0, d3.max(data, function(d) {
-            return d.db; })]);
-        zoom.x(x);
+//         //x.domain([new Date(2016, 0, 0), new Date(2016, 0, 0)]);
+//         y.domain([0, d3.max(data, function(d) {
+//             return d.sensorvalue; })]);
+//         zoom.x(x);
 
-        svg.select("path.area").data([data]);
-        svg.select("path.line").data([data]);
-        draw();
-    });
+//         svg.select("path.area").data([data]);
+//         svg.select("path.line").data([data]);
+//         draw();
+//     });
 
-    function draw() {
-        svg.select("g.x.axis").call(xAxis);
-        svg.select("g.y.axis").call(yAxis);
-        svg.select("path.area").attr("d", area);
-        svg.select("path.line").attr("d", line);
-    }
-};
+//     function draw() {
+//         svg.select("g.x.axis").call(xAxis);
+//         svg.select("g.y.axis").call(yAxis);
+//         svg.select("path.area").attr("d", area);
+//         svg.select("path.line").attr("d", line);
+//     }
+// };
 
 // Helpers
 Template.chart.helpers({
@@ -160,14 +169,14 @@ Template.chart.helpers({
 });
 
 // Events
-Template.chart.events({
-    'click #tab-day': function(){
-        console.log("Day");
-    },
-    'click #tab-month': function(){
-        console.log("Month");
-    },
-    'click #tab-year': function(){
-        console.log("Year");
-    }
-});
+// Template.chart.events({
+//     'click #tab-day': function(){
+//         console.log("Day");
+//     },
+//     'click #tab-month': function(){
+//         console.log("Month");
+//     },
+//     'click #tab-year': function(){
+//         console.log("Year");
+//     }
+// });
