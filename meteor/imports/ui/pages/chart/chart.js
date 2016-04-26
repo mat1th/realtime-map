@@ -98,7 +98,7 @@ Template.chart.rendered = function() {
         .attr("height", height)
         .call(zoom);
 
-    d3.csv("sound.csv", function(error, data) {
+    d3.csv("csv/sound.csv", function(error, data) {
         if (error) throw error;
 
         data.forEach(function(d) {
