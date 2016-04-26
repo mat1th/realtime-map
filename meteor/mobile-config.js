@@ -15,3 +15,8 @@ Plugin.registerCompiler({
 
 // CORS for Meteor app
 App.accessRule('meteor.local/*');
+// allow tiles
+App.accessRule('*.openstreetmap.org/*');
+App.accessRule('*.openstreetmap.de/*');
+App.accessRule('*.tile.thunderforest.com/*');
+App.accessRule('*.basemaps.cartocdn.com/*');

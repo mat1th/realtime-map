@@ -4,3 +4,7 @@
 Meteor.publish("sensorData", function publishFunction() {
     return SensorData.find({});
 });
+
+Meteor.publish("sensors", function publishFunction() {
+    return Sensors.find({});
+});
