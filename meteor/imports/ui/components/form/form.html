@@ -17,7 +17,7 @@
 
             <div class="form__block">
                 <label>
-                    Password
+                    Wachtwoord
                     <input type="password" name="password" required>
                 </label>
             </div>
@@ -37,11 +37,10 @@
                     <input type="password" name="password" required>
                 </label>
             </div>
-
             <div class="form__block">
                 <label>
-                    Username <span>(Insert your League of Legends summonername)</span>
-                    <input type="text" name="summonername" required>
+                    Functieomschrijving
+                    <input type="text" name="role" required>
                 </label>
             </div>
 
@@ -53,9 +52,9 @@
 
         <div class="form__buttons">
             {{#if isType title}}
-                <a class="form__link" href="{{pathFor route='register'}}">Create an account</a>
+                <a class="form__link" href="/register">Registreer een account</a>
             {{else}}
-                <a class="form__link" href="{{pathFor route='login'}}">Login with existing account</a>
+                <a class="form__link" href="/login">Inloggen met bestaand account</a>
             {{/if}}
         </div>
 
