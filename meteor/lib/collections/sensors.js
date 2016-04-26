@@ -1,3 +1,4 @@
+
 Sensors = new Mongo.Collection('sensors');
 
 Sensors.schema = new SimpleSchema({
@@ -5,6 +6,9 @@ Sensors.schema = new SimpleSchema({
         type: String
     },
     name: {
+        type: String
+    },
+    sensorId: {
         type: String
     },
     location: {
