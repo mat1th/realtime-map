@@ -88,7 +88,6 @@ Router.route('/apitest', function() {
 
 Router.route('/chart', {
     waitOn: function() {
-        return Meteor.subscribe('sensors');
         return Meteor.subscribe('sensorData');
     },
     action: function() {
