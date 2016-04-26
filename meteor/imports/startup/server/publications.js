@@ -2,9 +2,17 @@
 
 // Publish the shared session information like the start time.
 Meteor.publish("sensorData", function publishFunction() {
-    return SensorData.find({});
+    if (this.userId) {
+        return SensorData.find({});
+    } else {
+        this.ready();
+    }
 });
 
 Meteor.publish("sensors", function publishFunction() {
-    return Sensors.find({});
+    if (this.userId) {
+        return Sensors.find({});
+    } else {
+        this.ready();
+    }
 });
