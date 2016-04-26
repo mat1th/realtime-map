@@ -41,7 +41,7 @@ body {
 }
 
 #header .logo {
-    flex: 0 1 10%;
+    flex: 0 1 8%;
     margin-right: 2em;
 }
 
@@ -57,9 +57,9 @@ body {
 }
 
 #main-nav {
-    flex: 0 1 10%;
+    flex: 0 1 8%;
     background: #BB2E31;
-    padding: .6em 1.2em;
+    padding: 1.2em 0;
     color: #fff;
     align-content: center;
     box-sizing: border-box;
@@ -72,8 +72,12 @@ body {
     list-style: none;
 }
 
+#main-nav ul li {
+    margin-bottom: 3em;
+}
+
 #main {
-    flex: 0 1 90%;
+    flex: 0 1 92%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: 'Open Sans', helvetica, arial, sans-serif;
