@@ -16,16 +16,13 @@ import '../../ui/pages/addsensor/addsensor.js';
 
 function userLoggedIn(callback) {
 
-    if(!Meteor.userId()) {
+    if (!Meteor.userId()) {
 
         Router.go('/login');
 
     } else {
-
         callback();
-
     }
-
 }
 
 // Define home router
@@ -33,7 +30,7 @@ Router.route('/', function() {
 
     var _this = this;
 
-    userLoggedIn(function(){
+    userLoggedIn(function() {
         _this.layout('applicationLayout');
         _this.render('home');
     });
@@ -57,7 +54,7 @@ Router.route('/sensor/add', function() {
 
     var _this = this;
 
-    userLoggedIn(function(){
+    userLoggedIn(function() {
         _this.layout('applicationLayout');
         _this.render('addsensor');
     });
@@ -69,10 +66,9 @@ Router.route('/map', {
         return Meteor.subscribe('sensors');
     },
     action: function() {
-
         var _this = this;
 
-        userLoggedIn(function(){
+        userLoggedIn(function() {
             _this.layout('applicationLayout');
             _this.render('map');
         });

@@ -1,8 +1,9 @@
 import './map.html';
 import '../chart/chart.js';
 
+Meteor.subscribe('cycles');
+
 Template.map.onRendered(function() {
-    console.log(zoomState);
     var sensorPoints = Sensors.find({}).fetch({});
     var map = L.map('map', {
         center: [52.376956, 4.902756],
@@ -25,8 +26,12 @@ Template.map.onRendered(function() {
         className: 'sensor-icon'
     });
     var cycleIcon = L.divIcon({
-        className: 'sensor-icon'
+        className: 'cycle-icon'
     });
+
+    var marker = L.marker([52.36632373281241, 4.912347793579102], {
+        icon: cycleIcon
+    }).addTo(map)
 
     sensorPoints.forEach(function(element, index) {
         L.marker([element.lat, element.lon], {
@@ -34,12 +39,23 @@ Template.map.onRendered(function() {
             data: element.sensorId
         }).addTo(map).on('click', onClick);
     });
-
-    function onClick(e) {
-      var id = e.target.options.data;
-        console.log(id);
-    }
+    checkCycle(marker);
 });
+
+
+function onClick(e) {
+    var id = e.target.options.data;
+    console.log(id);
+}
+
+function checkCycle(marker) {
+    Cycles.find().observe({
+        changed: function(newDocument, oldDocument) {
+            var newPositon = newDocument.data
+            marker.setLatLng(newPositon).update();
+        }
+    });
+}
 
 
 

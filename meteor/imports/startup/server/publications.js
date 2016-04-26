@@ -16,3 +16,10 @@ Meteor.publish("sensors", function publishFunction() {
         this.ready();
     }
 });
+Meteor.publish("cycles", function publishFunction() {
+    if (this.userId) {
+        return Cycles.find({});
+    } else {
+        this.ready();
+    }
+});
