@@ -35,11 +35,10 @@ export const database = (function() {
 
         var status = {
             date: data[0].date,
-            sensorStatus: {
-                date: data[0].date,
-                sensorId: data[0].sensorId,
-                sensorvalue: data[0].sensorvalue,
-            }
+            led: true,
+            sensorId: data[0].sensorId,
+            sensorvalue: data[0].sensorvalue,
+
         }
         return JSON.stringify(status);
     }
