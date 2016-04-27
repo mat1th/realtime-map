@@ -1,14 +1,50 @@
 <template name="home">
-  <section>
-    <h1>Welkom</h1>
-    <p>Visualisatie Amsterdam Oost</p>
-    <nav>
-        <ul>
-            <li><a href="/">Vis</a></li>
-            <li><a href="/map">map</a></li>
-        </ul>
-    </nav>
-    <button class="btn btn--logout">Logout</button>
-  </section>
+    <section id="home">
+        <header>
+            <nav class="filters">
+                <ul>
+                    <li><a href="#">Stadsdeel</a></li>
+                    <li><a href="#">Plein</a></li>
+                    <li><a href="#">Dag</a></li>
+                </ul>
+            </nav>
+            <div class="info">
 
+            </div>
+        </header>
+        <table>
+            <tr>
+                <th>Buurt</th>
+                <th>Plein</th>
+                <th>Meldingen</th>
+                <th>Aanwezige Staatcoaches</th>
+                <th>Actie</th>
+            </tr>
+            <tr>
+                <td>De pijp</td>
+                <td>Marie Heinekeplein</td>
+                <td class="middle color">4</td>
+                <td class="middle">2</td>
+                <td>
+                <a href="#" class="add"></a></td>
+            </tr>
+            <tr>
+                <td>Watergraafsmeer</td>
+                <td>Mariotteplein</td>
+                <td class="middle">0</td>
+                <td class="middle">4</td>
+                <td>
+                <a href="#" class="add cross"></a></td>
+            </tr>
+            <tr>
+                <td>Centrum</td>
+                <td>De dam</td>
+                <td class="middle">0</td>
+                <td class="middle">10</td>
+                <td>
+                <a href="#" class="add cross"></a></td>
+            </tr>
+        </table>
+        <button class="btn btn--logout">Logout</button>
+    </section>
 </template>

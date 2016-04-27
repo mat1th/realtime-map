@@ -50,13 +50,13 @@ Router.route('/register', function() {
 
 });
 
-Router.route('/sensor/add', function() {
+Router.route('/settings', function() {
 
     var _this = this;
 
     userLoggedIn(function() {
         _this.layout('applicationLayout');
-        _this.render('addsensor');
+        _this.render('settings');
     });
 
 });
