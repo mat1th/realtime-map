@@ -9,38 +9,29 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
-
 .form label {
     font-size: 0.8em;
     font-weight: bold;
     text-transform: uppercase;
 }
-
 .form span {
     font-size: 0.8em;
 }
-
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"] {
     color: #878789;
     font-weight: normal;
     padding: 1em;
     width: 100%;
 }
-
-    .form__block {
-        margin-bottom: 1em;
-    }
-
-    .form__subtitle {
-        margin-bottom: 1em;
-    }
-
-    .form__buttons {
-        text-align: center;
-    }
-
-    .form__link {
-        color: grey;
-    }
+.form__block {
+    margin-bottom: 1em;
+}
+.form__subtitle {
+    margin-bottom: 1em;
+}
+.form__buttons {
+    text-align: center;
+}
+.form__link {
+    color: grey;
+}

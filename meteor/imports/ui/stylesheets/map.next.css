@@ -8,14 +8,5 @@
 }
 .cycle-icon {
     background: var(--bleuCollor);
-    min-height: calc(100vh - 100px);
-    min-width: 100%;
-}
-.sensor-icon {
-    background: #bb2e31;
-    border-radius: 50% 50%;
-}
-.cicle-icon {
-    background: #64929d;
     border-radius: 50% 50%;
 }
