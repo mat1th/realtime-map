@@ -43,9 +43,11 @@ Template.map.onRendered(function() {
     checkCycle(marker);
 });
 
+
 function onClick(e) {
     var overlay = document.querySelector('.chart-wrapper');
     var id = e.target.options.data;
+    var width = window.innerWidth;
 
     //give id to chart function
     if (zoomState === false) {
@@ -53,7 +55,7 @@ function onClick(e) {
         TweenMax.fromTo(overlay, 2, {
             x: 0
         }, {
-            x: -700,
+            x: -width,
             ease: Power4.easeOut
         }, "start");
 
