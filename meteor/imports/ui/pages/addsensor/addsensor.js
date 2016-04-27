@@ -8,14 +8,14 @@ var gps = {
     lon: null
 }
 
-Template.addsensor.onRendered(function() {
+Template.settings.onRendered(function() {
     navigator.geolocation.getCurrentPosition(function(position) {
         gps.lat = position.coords.latitude;
         gps.lon = position.coords.longitude;
     });
 });
 
-Template.addsensor.events({
+Template.settings.events({
     'submit form': function(event) {
         event.preventDefault();
         var name = event.target.name.value;
