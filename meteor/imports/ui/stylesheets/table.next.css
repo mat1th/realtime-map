@@ -11,9 +11,8 @@ td {
 }
 
 .table {
-    /* Change this temp. solution */
     margin-top: 2em;
-    width: auto;
+    width: 100%;
 }
 
 tr {
