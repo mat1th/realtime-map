@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -59,13 +60,27 @@ body {
 }
 
 #main-nav ul li {
+    width: 100%;
+    text-align: center;
 }
 
 #main-nav ul li a {
-    padding: 2em 1em;
     display: block;
+    border-bottom: 1px solid #DC3C3F;
+    padding: 2em;
+    width: 100%;
 }
 
+#main-nav ul li a:hover,
+#main-nav ul li a.active {
+    background-color: #DC3C3F;
+}
+
+
+#main-nav ul li svg {
+    width: 1.875rem;
+    height: 1.875rem;
+}
 
 #main {
     flex: 0 1 92%;

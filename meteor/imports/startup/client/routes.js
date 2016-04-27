@@ -26,15 +26,19 @@ function userLoggedIn(callback) {
 }
 
 // Define home router
-Router.route('/', function() {
+Router.route('/', {
+    waitOn: function() {
+        return Meteor.subscribe('sensors');
+    },
+    action: function() {
+        var _this = this;
 
-    var _this = this;
+        userLoggedIn(function() {
+            _this.layout('applicationLayout');
+            _this.render('map');
+        });
 
-    userLoggedIn(function() {
-        _this.layout('applicationLayout');
-        _this.render('home');
-    });
-
+    }
 });
 
 // Define login router
@@ -59,21 +63,6 @@ Router.route('/settings', function() {
         _this.render('settings');
     });
 
-});
-
-Router.route('/map', {
-    waitOn: function() {
-        return Meteor.subscribe('sensors');
-    },
-    action: function() {
-        var _this = this;
-
-        userLoggedIn(function() {
-            _this.layout('applicationLayout');
-            _this.render('map');
-        });
-
-    }
 });
 
 Router.route('/apitest', function() {
