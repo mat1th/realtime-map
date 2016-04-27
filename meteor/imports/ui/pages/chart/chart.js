@@ -11,7 +11,6 @@ Template.chart.rendered = function() {
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
-
     var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S").parse,
         formatDate = d3.time.format("%Y");
 
@@ -67,15 +66,15 @@ Template.chart.rendered = function() {
         .attr("x2", "0%")
         .attr("y2", "100%");
 
-    gradient.append("stop")
-        .attr("offset", "0%")
-        .attr("stop-color", "#fff")
-        .attr("stop-opacity", .5);
-
-    gradient.append("stop")
-        .attr("offset", "100%")
-        .attr("stop-color", "#999")
-        .attr("stop-opacity", 1);
+    // gradient.append("stop")
+    //     .attr("offset", "0%")
+    //     .attr("stop-color", "#fff")
+    //     .attr("stop-opacity", .5);
+    //
+    // gradient.append("stop")
+    //     .attr("offset", "100%")
+    //     .attr("stop-color", "#999")
+    //     .attr("stop-opacity", 1);
 
     svg.append("clipPath")
         .attr("id", "clip")
@@ -101,7 +100,7 @@ Template.chart.rendered = function() {
     svg.append("path")
         .attr("class", "line")
         .attr("clip-path", "url(#clip)");
-    //
+
     // svg.append("rect")
     //     .attr("class", "pane")
     //     .attr("width", width)
@@ -134,18 +133,46 @@ Template.chart.rendered = function() {
         svg.select("path.area").attr("d", area);
         svg.select("path.line").attr("d", line);
     }
+
     var graph = svg.select(".graph");
     graph.on("mouseout", mouseover)
         .on("mousemove", mousemove)
         .on("mouseout", mouseout);
+
+    function mousemove() {
+        var div = d3.select(".tooltip");
+        var timeDiv = d3.select(".time");
+        var value = Math.round(y.invert(d3.mouse(this)[0]));
+        var timeValue = x.invert(d3.mouse(this)[0]);
+        console.log(timeValue);
+        // timeDiv.text(parseDate(timeValue));
+        div.select(".circle")
+            .text(value);
+        div.select(".groups")
+            .text("Groepen: 97%");
+        div.select(".sound")
+            .text("Geluidsoverlast: 97%");
+        div.select(".present")
+            .text("Aanwezig: 10%");
+        div.style("left", (d3.event.pageX + 0) + "px")
+            .style("top", (0) + "px");
+    }
 }
 
-function mousemove() {
-    var div = d3.select(".tooltip");
-    div.text("testje")
-        .style("left", (d3.event.pageX + 0) + "px")
-        .style("top", (d3.event.pageY - 12) + "px");
-}
+
+// var x0 = x.invert(d3.mouse(this)[0]),
+//     x0Format = formatDate(x0),
+//     i = bisectDate(data, x0, 1),
+//     d0 = data[i - 1],
+//     d1 = data[i],
+//     d = x0 - d0.date > d1.date - x0 ? d1 : d0,
+//     visits = d.tweakers.morning.visited + d.tweakers.midday.visited + d.tweakers.evening.visited,
+//     read = d.tweakers.morning.read + d.tweakers.midday.read + d.tweakers.evening.read;
+//
+// div.text("Datum: " + x0Format + " " + "aantal bezoeken:" + " " + visits + " " + "aantal gelezen:" + " " + read)
+//     .style("left", (d3.event.pageX + 0) + "px")
+//     .style("top", (d3.event.pageY - 12) + "px");
+
 
 function mouseover() {
     console.log('in');
