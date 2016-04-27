@@ -8,7 +8,10 @@ import './index.html'
 Template.body.events({
     'click .btn--logout': function(e) {
         e.preventDefault();
-        Meteor.logout();
-        Router.go('login');
+        var answer = confirm('Weet je zeker dat je wilt uitloggen?');
+        if (answer) {
+            Meteor.logout();
+            Router.go('login');
+        }
     }
 });
