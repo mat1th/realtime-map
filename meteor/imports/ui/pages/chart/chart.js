@@ -1,5 +1,7 @@
 import './chart.html';
-import { closeOverlay } from  '../../actions/overlay.js';
+import {
+    closeOverlay
+} from '../../actions/overlay.js';
 
 Template.chart.rendered = function() {
     var margin = {
@@ -14,6 +16,7 @@ Template.chart.rendered = function() {
 
     var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S").parse,
         formatDate = d3.time.format("%Y"),
+        formatToTime = d3.time.format("%H:%M"),
         bisectDate = d3.bisector(function(d) {
             return d.date;
         }).left;
@@ -146,28 +149,22 @@ Template.chart.rendered = function() {
 
     // place the value at the intersection
     focus.append("text")
-        .attr("class", "y1")
-        .style("stroke", "white")
-        .style("stroke-width", "3.5px")
-        .style("opacity", 0.8)
+        .attr("class", "value")
         .attr("dx", 8)
         .attr("dy", "-.3em");
 
     focus.append("text")
-        .attr("class", "y2")
+        .attr("class", "groeps")
         .attr("dx", 8)
-        .attr("dy", "-.3em");
+        .attr("dy", "0em");
 
-    // place the date at the intersection
     focus.append("text")
-        .attr("class", "y3")
-        .style("stroke", "white")
-        .style("stroke-width", "3.5px")
-        .style("opacity", 0.8)
+        .attr("class", "sound")
         .attr("dx", 8)
-        .attr("dy", "1em");
+        .attr("dy", "0.3em");
+
     focus.append("text")
-        .attr("class", "y4")
+        .attr("class", "present")
         .attr("dx", 8)
         .attr("dy", "1em");
 
@@ -184,82 +181,48 @@ Template.chart.rendered = function() {
         })
         .on("mousemove", mousemove);
 
-
     function mousemove() {
-        var x0 = x.invert(d3.mouse(this)[0]),
+        var timeDiv = d3.select(".time"),
+            x0 = x.invert(d3.mouse(this)[0]),
             i = bisectDate(data, x0, 1),
             d0 = data[i - 1],
             d1 = data[i],
             d = x0 - d0.date > d1.date - x0 ? d1 : d0;
 
-        console.log(d);
-        focus.select("circle.y")
+        focus.select("text.value")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value) + ")");
-
-        focus.select("text.y1")
-            .attr("transform",
-                "translate(" + x(d.date) + "," +
-                y(d.value) + ")")
+                y(d.value + 5) + ")")
             .text(d.value);
 
-        focus.select("text.y2")
+        focus.select("text.groeps")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value) + ")")
-            .text(d.value);
+                y(d.value + 5) + ")")
+            .text("Groepen: 97%");
 
-        focus.select("text.y3")
+        focus.select("text.sound")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value) + ")")
-            .text(formatDate(d.date));
+                y(d.value + 5) + ")")
+            .text("Geluidsoverlast: 97%");
 
-        focus.select("text.y4")
+        focus.select("text.present")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value) + ")")
-            .text(formatDate(d.date));
+                y(d.value + 5) + ")")
+            .text("Aanwezig: 10%");
 
-        focus.select(".x")
-            .attr("transform",
+
+        timeDiv.attr("transform",
                 "translate(" + x(d.date) + "," +
                 y(d.value) + ")")
-            .attr("y2", height - y(d.value));
+            .text("Tijd: " + formatToTime(d.date));
 
-        focus.select(".y")
-            .attr("transform",
-                "translate(" + width * -1 + "," +
-                y(d.value) + ")")
-            .attr("x2", width + width);
+
+
+
     }
-
-
-
-    // var graph = svg.select(".graph");
-    // graph.on("mouseout", mouseover)
-    //     .on("mousemove", mousemove)
-    //     .on("mouseout", mouseout);
-    //
-    // function mousemove() {
-    //     var div = d3.select(".tooltip");
-    //     var timeDiv = d3.select(".time");
-    //     var value = Math.round(y.invert(d3.mouse(this)[1]));
-    //     var timeValue = x.invert(d3.mouse(this)[0]);
-    //     console.log(y.invert(d3.mouse(this)[0]));
-    //     timeDiv.text(timeValue);
-    //     div.select(".circle")
-    //         .text(value);
-    //     div.select(".groups")
-    //         .text("Groepen: 97%");
-    //     div.select(".sound")
-    //         .text("Geluidsoverlast: 97%");
-    //     div.select(".present")
-    //         .text("Aanwezig: 10%");
-    //     div.style("left", (d3.event.pageX + 0) + "px")
-    //         .style("top", (0) + "px");
-    // }
 }
 
 Template.chart.events({
@@ -268,6 +231,14 @@ Template.chart.events({
     }
 });
 
+
+
+window.onresize = function(event) {
+    if (zoomState) {
+        closeOverlay();
+    }
+
+};
 
 
 // function mouseover() {
