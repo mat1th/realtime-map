@@ -154,34 +154,42 @@ function drawChart(sensorId, startDate, endDate) {
     newFocus.append("circle")
         .attr("class", "holder")
         .attr("r", 20)
-        .attr("cx", 20)
-        .attr("cy", 20)
-        .attr("dx", "-2em");
+        .attr("cx", 0)
+        .attr("cy", -8)
+        .attr("dy", "-1.3em");
 
     newFocus.append("text")
         .attr("class", "value")
         .attr("text-anchor", "middle")
-        .attr("dx", "1.3em")
-        .attr("dy", "1.7em");
+        .attr("dy", "-.2em");
+
+    newFocus.append("line")
+        .attr("class", "x")
+        .style("stroke", "white")
+        .style("stroke-width", "2px")
+        .style("stroke-dasharray", "3,3")
+        .style("opacity", 0.8)
+        .attr("y1", 0)
+        .attr("y2", height);
 
     var g = d3.select("#newFocus");
     var currentx = d3.transform(g.attr("transform")).translate[0];
-    g.attr("transform", "translate(" + (currentx - 50) + ",0)");
+    g.attr("transform", "translate(" + (currentx - 30) + ",0)");
 
     focus.append("text")
         .attr("class", "groeps")
         .attr("dx", 8)
-        .attr("dy", "0em");
+        .attr("dy", "-1.5em");
 
     focus.append("text")
         .attr("class", "sound")
         .attr("dx", 8)
-        .attr("dy", "1.5em");
+        .attr("dy", "0em");
 
     focus.append("text")
         .attr("class", "present")
         .attr("dx", 8)
-        .attr("dy", "3em");
+        .attr("dy", "1.5em");
 
     svg.append("rect")
         .attr("width", width)
@@ -217,7 +225,13 @@ function drawChart(sensorId, startDate, endDate) {
             .attr("transform",
                 "translate(" + x(d.date) + "," +
                 y(d.value + 5) + ")")
-            .text(d.value);        
+            .text(d.value);
+
+        newFocus.select("line.x")
+            .attr("transform",
+                "translate(" + x(d.date) + "," +
+                y(d.value) + ")")
+            .attr("y2", height - y(d.value));
 
         focus.select("text.groeps")
             .attr("transform",
