@@ -11,6 +11,7 @@ import '../../ui/pages/home/home.js';
 import '../../ui/pages/login/login.js';
 import '../../ui/pages/register/register.js';
 import '../../ui/pages/api/api.js';
+import '../../ui/pages/chart/chart.js';
 import '../../ui/pages/map/map.js';
 import '../../ui/pages/addsensor/addsensor.js';
 
@@ -19,7 +20,6 @@ function userLoggedIn(callback) {
     if (!Meteor.userId()) {
 
         Router.go('/login');
-
     } else {
         callback();
     }
@@ -28,16 +28,14 @@ function userLoggedIn(callback) {
 // Define home router
 Router.route('/', {
     waitOn: function() {
-        return Meteor.subscribe('sensors');
+        return [Meteor.subscribe('sensorData'), Meteor.subscribe('sensors')];
     },
     action: function() {
         var _this = this;
-
         userLoggedIn(function() {
             _this.layout('applicationLayout');
             _this.render('map');
         });
-
     }
 });
 

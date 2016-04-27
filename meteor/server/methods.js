@@ -32,3 +32,4 @@ Meteor.methods({
         console.log(Sensors.find({}).fetch({}));
     }
 });
+
