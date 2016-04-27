@@ -1,8 +1,10 @@
 import './map.html';
 import '../chart/chart.js';
+import { closeOverlay } from  '../../actions/overlay.js';
+
+Meteor.subscribe('cycles');
 
 Template.map.onRendered(function() {
-    console.log(zoomState);
     var sensorPoints = Sensors.find({}).fetch({});
     var map = L.map('map', {
         center: [52.376956, 4.902756],
@@ -25,28 +27,51 @@ Template.map.onRendered(function() {
         className: 'sensor-icon'
     });
     var cycleIcon = L.divIcon({
-        className: 'sensor-icon'
+        className: 'cycle-icon'
     });
+
+    var marker = L.marker([52.36632373281241, 4.912347793579102], {
+        icon: cycleIcon
+    }).addTo(map)
 
     sensorPoints.forEach(function(element, index) {
         L.marker([element.lat, element.lon], {
             icon: sensorIcon,
-        }).addTo(map);
+            data: element.sensorId
+        }).addTo(map).on('click', onClick);
     });
-
-    map.on('click', function(e) {
-      console.log(e.target.classList);
-        // var popLocation= e.latlng;
-        // var popup = L.popup()
-        // .setLatLng(popLocation)
-        // .setContent('<p>Hello world!<br />This is a nice popup.</p>')
-        // .openOn(map);
-    });
+    checkCycle(marker);
 });
 
+function onClick(e) {
+    var overlay = document.querySelector('.overlay');
+    var id = e.target.options.data;
+    if (zoomState === false) {
+        console.log(overlay);
+        zoomState = true;
+        TweenMax.fromTo(overlay, 2, {
+            x: 0
+        }, {
+            x: -700,
+            ease: Power4.easeOut
+        }, "start");
 
-//
-//
+    } else {
+        closeOverlay();
+    }
+}
+
+function checkCycle(marker) {
+    Cycles.find().observe({
+        changed: function(newDocument, oldDocument) {
+            var newPositon = newDocument.data
+            marker.setLatLng(newPositon).update();
+        }
+    });
+}
+
+
+
 // //What happens when a layer is clicked
 //    function clickFeature(e) {
 //        //check if the map isn't in the zoom state, if it is in zoomstate, clickfeature doesn't work

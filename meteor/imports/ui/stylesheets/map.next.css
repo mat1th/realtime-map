@@ -1,0 +1,12 @@
+#map {
+    min-height: calc(100vh - var(--menuHeight));
+    min-width: 100%;
+}
+.sensor-icon {
+    background: var(--redCollor);
+    border-radius: 50% 50%;
+}
+.cycle-icon {
+    background: var(--bleuCollor);
+    border-radius: 50% 50%;
+}
