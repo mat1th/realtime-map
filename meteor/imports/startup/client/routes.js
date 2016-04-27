@@ -28,18 +28,6 @@ function userLoggedIn(callback) {
 
 }
 
-// Define home router
-Router.route('/', function() {
-
-    var _this = this;
-
-    userLoggedIn(function(){
-        _this.layout('applicationLayout');
-        _this.render('home');
-    });
-
-});
-
 // Define login router
 Router.route('/login', function() {
 
@@ -64,7 +52,7 @@ Router.route('/sensor/add', function() {
 
 });
 
-Router.route('/map', {
+Router.route('/', {
     waitOn: function() {
         return Meteor.subscribe('sensors');
     },

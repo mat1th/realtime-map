@@ -9,7 +9,6 @@ import './index.html'
 Template.body.events({
     'click .btn--logout': function(e){
 
-        console.log('hii');
         e.preventDefault();
 
         Meteor.logout();
