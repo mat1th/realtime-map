@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    height: var(--menuHeight);
+    /*height: var(--menuHeight);*/
     display: flex;
     align-items: center;
     justify-content: space-between;
