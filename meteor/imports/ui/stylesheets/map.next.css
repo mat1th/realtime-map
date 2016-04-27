@@ -1,6 +1,6 @@
 #map {
     min-height: calc(100vh - var(--menuHeight));
-    min-width: 100%;
+    width: 100%;
 }
 .sensor-icon {
     background: var(--redCollor);

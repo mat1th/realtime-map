@@ -3,8 +3,8 @@ section.chart-wrapper {
     display: block;
     position: absolute;
     top: var(--menuHeight);
-    right: -700px;
-    width: 700px;
+    right: calc(-100vw - var(--sideBarWidht));
+    width: calc(100vw - var(--sideBarWidht));
     height: calc(100vh - var(--menuHeight));
     overflow-y: scroll;
     z-index: 2;

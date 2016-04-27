@@ -1,32 +1,24 @@
 #main-nav {
-    flex: 0 1 8%;
-    background: #BB2E31;
+    flex: 0 1 var(--sideBarWidht);
+    background: var(--redCollor);
     color: #fff;
     align-content: center;
     box-sizing: border-box;
 }
-
 #main-nav ul {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     list-style: none;
 }
-
-#main-nav ul li {
-}
-
 #main-nav ul li a {
     padding: 2em 1em;
     display: block;
 }
-
-#main nav ul {
+main nav ul {
     list-style: none;
 }
-
-
-@media (max-width: 970px ) {
+@media (max-width: 970px) {
     #main-nav {
         flex: 0 1 100%;
     }
@@ -34,5 +26,4 @@
         flex-flow: row wrap;
         justify-content: space-around;
     }
-
 }

@@ -4,11 +4,8 @@
     padding: 0;
 }
 body {
-    font-family: helvetica, Slack-Lato, arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: 'Open Sans', sans-serif;
@@ -75,20 +72,17 @@ body {
     width: 1.875rem;
     height: 1.875rem;
 }
-#main {
-    flex: 0 1 92%;
+main {
+    flex: 0 1 calc(100vw - var(--sideBarWidht));
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: 'Open Sans', helvetica, arial, sans-serif;
     font-size: 1rem;
     line-height: 1.59rem;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    min-height: 100vh;
     overflow: hidden;
 }
-#main .content {
+main .content {
     padding: 0 2em;
 }
 @media (max-width: 970px) {
