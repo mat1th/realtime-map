@@ -44,13 +44,11 @@ Template.map.onRendered(function() {
 });
 
 function onClick(e) {
-    var overlay = document.querySelector('.overlay');
+    var overlay = document.querySelector('.chart-wrapper');
     var id = e.target.options.data;
 
     //give id to chart function
-
     if (zoomState === false) {
-        console.log(overlay);
         zoomState = true;
         TweenMax.fromTo(overlay, 2, {
             x: 0
