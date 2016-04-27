@@ -1,25 +1,14 @@
-#header {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    padding: .6em 0;
-    background: #fff;
-    flex: 0 1 100%;
-    height: var(--menuHeight);
+.header {
+    width: 100%;
+    height: 7.5rem;
 }
 
-#header .logo {
-    flex: 0 1 8%;
-    margin-right: 2em;
-}
+    .header__logo {
+        display: inline-block;
+        margin-top: 0.625rem;
+        margin-left: 2.8125rem;
+    }
 
-#header .logo img{
-    width: 1.3em;
-    display: block;
-    margin: 0 auto;
-}
-
-#header h1 {
-    font-size: 1.3rem;
-    font-weight: normal;
-}
+    .header__logo img {
+        height: 6.25rem;
+    }

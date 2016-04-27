@@ -26,6 +26,7 @@ function userLoggedIn(callback) {
 // Define home router
 Router.route('/', {
     waitOn: function() {
+<<<<<<< HEAD
         return [Meteor.subscribe('sensorData'), Meteor.subscribe('sensors')];
     },
     action: function() {
@@ -33,6 +34,14 @@ Router.route('/', {
         var _this = this;
 
         userLoggedIn(function(){
+=======
+        return Meteor.subscribe('sensors');
+    },
+    action: function() {
+        var _this = this;
+
+        userLoggedIn(function() {
+>>>>>>> origin/master
             _this.layout('applicationLayout');
             _this.render('map');
         });
@@ -64,6 +73,7 @@ Router.route('/settings', function() {
 
 });
 
+<<<<<<< HEAD
 Router.route('/sensor/add', function() {
 
     var _this = this;
@@ -75,6 +85,8 @@ Router.route('/sensor/add', function() {
 
 });
 
+=======
+>>>>>>> origin/master
 Router.route('/apitest', function() {
     this.layout('applicationLayout');
     this.render('api');
