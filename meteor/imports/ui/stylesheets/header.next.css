@@ -3,10 +3,10 @@
     height: var(--menuHeight);
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
     .header__logo {
-        display: inline-block;
         margin-left: 2.8125rem;
     }
 
@@ -14,15 +14,23 @@
         height: 4rem;
     }
 
-    .header__options {
+    .header__options,
+    .header__stats {
         margin-left: 5rem;
         list-style: none;
+    }
+
+    .header__options li,
+    .header__stats li {
+        display: inline-block;
+        margin-right: 1em;
+        position: relative;
     }
 
     .header__options select {
         background: url('../../../img/arrow-down.svg') center right no-repeat;
         background-size: 1rem;
-        padding: 0.5em;
+        padding: 0.5em 1.2em 0.5em 0.5em;
         background-color: transparent;
         border: none;
         font-size: 1rem;
@@ -31,6 +39,19 @@
         appearance: none;
     }
 
-    .header__options li {
-        position: relative;
+    .header__stats {
+        margin-right: 2.8125rem;
+    }
+
+    .header__stats li {
+        text-align: center;
+    }
+
+    .header__stats li:first-child {
+        width: 7.5rem;
+    }
+
+    .header__stats li span {
+        display: block;
+        font-weight: bold;
     }
