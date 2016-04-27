@@ -1,13 +1,22 @@
 /* CHART CSS */
 
+/*
+Chart background: #cdd2d4
+Waves: #64929d
+Wave-stroke: white;
+Hover bottom border: #dc3c3f
+*/
+
+/* CHART */
+
 svg {
-  font: 1em sans-serif;
-  background: #38387D;
+  font: 10px sans-serif;
+  background: #cdd2d4;
   color: white;
 }
 
 text {
-  fill: #fff;
+  fill: #000;
 }
 
 .axis {
@@ -24,18 +33,18 @@ text {
 }
 
 .x.axis line {
-  stroke: #fff;
-  stroke-opacity: .5;
+  /*stroke: red;
+  stroke-opacity: .5;*/
 }
 
 .y.axis line {
-  stroke: #ddd;
+  /*stroke: red;*/
 }
 
 path.line {
   fill: none;
-  stroke: #8C8CB3;
-  stroke-width: 2px;
+  stroke: white;
+  stroke-width: 1px;
 }
 
 rect.pane {
@@ -81,6 +90,8 @@ rect.pane {
   color: white;
 }
 
+/* Tooltip */
+
 div.tooltip {
     position: absolute;
     color: #1F1F1F;
@@ -88,7 +99,7 @@ div.tooltip {
     width: 150px;
     height: 50px;
     padding: 5px 16px;
-    font: 12px sans-serif;
+    font: 1em sans-serif;
     background: #fff;
     pointer-events: none;
 }

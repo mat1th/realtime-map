@@ -11,6 +11,7 @@ Template.chart.rendered = function() {
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
+
     var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S").parse,
         formatDate = d3.time.format("%Y");
 
@@ -33,7 +34,7 @@ Template.chart.rendered = function() {
         .tickPadding(6);
 
     var area = d3.svg.area()
-        .interpolate("monotone")
+        .interpolate("basis")
         .x(function(d) {
             return x(d.date);
         })
@@ -43,7 +44,7 @@ Template.chart.rendered = function() {
         });
 
     var line = d3.svg.line()
-        .interpolate("step-after")
+        .interpolate("basis")
         .x(function(d) {
             return x(d.date);
         })
@@ -66,15 +67,15 @@ Template.chart.rendered = function() {
         .attr("x2", "0%")
         .attr("y2", "100%");
 
-    // gradient.append("stop")
-    //     .attr("offset", "0%")
-    //     .attr("stop-color", "#fff")
-    //     .attr("stop-opacity", .5);
-    //
-    // gradient.append("stop")
-    //     .attr("offset", "100%")
-    //     .attr("stop-color", "#999")
-    //     .attr("stop-opacity", 1);
+    gradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#64929d");
+        // .attr("stop-opacity", .5);
+
+    gradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#64929d");
+        // .attr("stop-opacity", 1);
 
     svg.append("clipPath")
         .attr("id", "clip")
@@ -100,7 +101,7 @@ Template.chart.rendered = function() {
     svg.append("path")
         .attr("class", "line")
         .attr("clip-path", "url(#clip)");
-
+    //
     // svg.append("rect")
     //     .attr("class", "pane")
     //     .attr("width", width)
@@ -111,12 +112,14 @@ Template.chart.rendered = function() {
         sensorId: "53180077-cfc9-49b7-b807-ec01cd02b4d4"
     }).fetch({})
 
+    console.log(SensorData.find({}).fetch({}));
+
     data.forEach(function(d) {
         d.date = parseDate(d.date);
         d.value = +d.sensorvalue;
     });
 
-    x.domain([new Date(2016, 0, 1), new Date(2020, 0, 0)]);
+    x.domain([new Date(2016, 3, 8), new Date(2016, 3, 23)]);
     y.domain([0, d3.max(data, function(d) {
         return d.sensorvalue;
     })]);
@@ -138,41 +141,14 @@ Template.chart.rendered = function() {
     graph.on("mouseout", mouseover)
         .on("mousemove", mousemove)
         .on("mouseout", mouseout);
-
-    function mousemove() {
-        var div = d3.select(".tooltip");
-        var timeDiv = d3.select(".time");
-        var value = Math.round(y.invert(d3.mouse(this)[0]));
-        var timeValue = x.invert(d3.mouse(this)[0]);
-        console.log(timeValue);
-        // timeDiv.text(parseDate(timeValue));
-        div.select(".circle")
-            .text(value);
-        div.select(".groups")
-            .text("Groepen: 97%");
-        div.select(".sound")
-            .text("Geluidsoverlast: 97%");
-        div.select(".present")
-            .text("Aanwezig: 10%");
-        div.style("left", (d3.event.pageX + 0) + "px")
-            .style("top", (0) + "px");
-    }
 }
 
-
-// var x0 = x.invert(d3.mouse(this)[0]),
-//     x0Format = formatDate(x0),
-//     i = bisectDate(data, x0, 1),
-//     d0 = data[i - 1],
-//     d1 = data[i],
-//     d = x0 - d0.date > d1.date - x0 ? d1 : d0,
-//     visits = d.tweakers.morning.visited + d.tweakers.midday.visited + d.tweakers.evening.visited,
-//     read = d.tweakers.morning.read + d.tweakers.midday.read + d.tweakers.evening.read;
-//
-// div.text("Datum: " + x0Format + " " + "aantal bezoeken:" + " " + visits + " " + "aantal gelezen:" + " " + read)
-//     .style("left", (d3.event.pageX + 0) + "px")
-//     .style("top", (d3.event.pageY - 12) + "px");
-
+function mousemove() {
+    var div = d3.select(".tooltip");
+    div.text("testje")
+        .style("left", (d3.event.pageX + 0) + "px")
+        .style("top", (d3.event.pageY - 12) + "px");
+}
 
 function mouseover() {
     console.log('in');
