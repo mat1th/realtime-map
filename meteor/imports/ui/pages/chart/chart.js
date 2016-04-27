@@ -149,12 +149,22 @@ Template.chart.rendered = function() {
 
     // place the value at the intersection
     focus.append("text")
-        .attr("class", "y2")
+        .attr("class", "value")
         .attr("dx", 8)
         .attr("dy", "-.3em");
 
     focus.append("text")
         .attr("class", "groeps")
+        .attr("dx", 8)
+        .attr("dy", "0em");
+
+    focus.append("text")
+        .attr("class", "sound")
+        .attr("dx", 8)
+        .attr("dy", "0.3em");
+
+    focus.append("text")
+        .attr("class", "present")
         .attr("dx", 8)
         .attr("dy", "1em");
 
@@ -179,30 +189,29 @@ Template.chart.rendered = function() {
             d1 = data[i],
             d = x0 - d0.date > d1.date - x0 ? d1 : d0;
 
-        // focus.select("text.y1")
-        //     .attr("transform",
-        //         "translate(" + x(d.date) + "," +
-        //         y(d.value) + ")")
-        //     .text(d.value);
-
-        focus.select("text.y2")
+        focus.select("text.value")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
                 y(d.value + 5) + ")")
             .text(d.value);
 
-        focus.select(".groups")
+        focus.select("text.groeps")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
                 y(d.value + 5) + ")")
             .text("Groepen: 97%");
 
-        // div.select(".sound")
-        //     .text("Geluidsoverlast: 97%");
-        // div.select(".present")
-        //     .text("Aanwezig: 10%");
-        // div.style("left", (d3.event.pageX -200) + "px")
-        //     .style("top", (30) + "px");
+        focus.select("text.sound")
+            .attr("transform",
+                "translate(" + x(d.date) + "," +
+                y(d.value + 5) + ")")
+            .text("Geluidsoverlast: 97%");
+
+        focus.select("text.present")
+            .attr("transform",
+                "translate(" + x(d.date) + "," +
+                y(d.value + 5) + ")")
+            .text("Aanwezig: 10%");
 
 
         timeDiv.attr("transform",
