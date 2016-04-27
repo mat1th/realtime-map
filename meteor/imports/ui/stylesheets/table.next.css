@@ -1,0 +1,58 @@
+table,
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td {
+    padding:0.5em;
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+}
+
+table {
+  width:100%;
+}
+
+tr {
+ margin-bottom:1em !important;
+}
+
+th {
+  display: table-cell;
+  text-align: left;
+  vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background: #E7E7E7;
+    border: none !important;
+}
+
+.color {
+  background-color:#DC3C3F;
+}
+
+.middle {
+  text-align:center;
+}
+
+.add {
+  position: absolute;
+  margin-top:-0.5em;
+}
+
+.add:hover {
+  opacity: 1;
+}
+.add:before, .add:after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  height: 20px;
+  width: 2px;
+  background-color: #333;
+}
+.add:before {
+  transform: rotate(90deg);
+}

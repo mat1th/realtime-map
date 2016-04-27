@@ -1,7 +1,10 @@
 @import '../imports/ui/stylesheets/reset.css';
+@import '../imports/ui/stylesheets/main.css';
+@import '../imports/ui/stylesheets/header.next.css';
+@import '../imports/ui/stylesheets/nav.next.css';
+@import '../imports/ui/stylesheets/table.next.css';
 @import '../imports/ui/stylesheets/variables.next.css';
 @import '../imports/ui/stylesheets/header.next.css';
 @import '../imports/ui/stylesheets/form.next.css';
-@import '../imports/ui/stylesheets/main.css';
 @import '../imports/ui/stylesheets/map.next.css';
 @import '../imports/ui/stylesheets/overlay.next.css';
