@@ -11,30 +11,33 @@ import '../../ui/pages/home/home.js';
 import '../../ui/pages/login/login.js';
 import '../../ui/pages/register/register.js';
 import '../../ui/pages/api/api.js';
+import '../../ui/pages/chart/chart.js';
 import '../../ui/pages/map/map.js';
 import '../../ui/pages/addsensor/addsensor.js';
 
 function userLoggedIn(callback) {
-
-    if (!Meteor.userId()) {
-
+    if(!Meteor.userId()) {
         Router.go('/login');
-
     } else {
         callback();
     }
 }
 
 // Define home router
-Router.route('/', function() {
+Router.route('/', {
+    waitOn: function() {
+        return [Meteor.subscribe('sensorData'), Meteor.subscribe('sensors')];
+    },
+    action: function() {
 
-    var _this = this;
+        var _this = this;
 
-    userLoggedIn(function() {
-        _this.layout('applicationLayout');
-        _this.render('home');
-    });
+        userLoggedIn(function(){
+            _this.layout('applicationLayout');
+            _this.render('map');
+        });
 
+    }
 });
 
 // Define login router
@@ -61,19 +64,15 @@ Router.route('/settings', function() {
 
 });
 
-Router.route('/map', {
-    waitOn: function() {
-        return Meteor.subscribe('sensors');
-    },
-    action: function() {
-        var _this = this;
+Router.route('/sensor/add', function() {
 
-        userLoggedIn(function() {
-            _this.layout('applicationLayout');
-            _this.render('map');
-        });
+    var _this = this;
 
-    }
+    userLoggedIn(function(){
+        _this.layout('applicationLayout');
+        _this.render('addsensor');
+    });
+
 });
 
 Router.route('/apitest', function() {

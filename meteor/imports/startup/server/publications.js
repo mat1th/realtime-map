@@ -23,3 +23,7 @@ Meteor.publish("cycles", function publishFunction() {
         this.ready();
     }
 });
+
+Meteor.publish("sensors", function publishFunction() {
+    return Sensors.find({});
+});

@@ -1,6 +1,11 @@
-* {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
 body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -40,4 +45,12 @@ body {
     #main {
         flex: 0 1 100%;
     }
+
+.background{
+  padding: 2em;
+  height: calc(100vh - 50px);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

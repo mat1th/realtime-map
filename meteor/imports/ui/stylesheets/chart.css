@@ -1,0 +1,105 @@
+/* CHART CSS */
+
+/*
+Chart background: #cdd2d4
+Waves: #64929d
+Wave-stroke: white;
+Hover bottom border: #dc3c3f
+*/
+
+/* CHART */
+
+svg {
+  font: 10px sans-serif;
+  background: #cdd2d4;
+  color: white;
+}
+
+text {
+  fill: #000;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke-width: .5px;
+}
+
+.x.axis path {
+  stroke: #fff;
+}
+
+.x.axis line {
+  /*stroke: red;
+  stroke-opacity: .5;*/
+}
+
+.y.axis line {
+  /*stroke: red;*/
+}
+
+path.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 1px;
+}
+
+rect.pane {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
+
+/* TABS */
+
+.tabs {
+  margin: 1em;
+}
+
+.tabs__list {
+  display: flex;
+  list-style: none;
+}
+
+.tabs__list li {
+    margin-right: .5em;
+}
+
+.tabs__list li a {
+  display: block;
+  text-decoration: none;
+  padding: .5em;
+  background: #eee;
+  border-radius: 10px;
+  width: 4em;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+}
+
+.tab__list li a:hover {
+  background: darkgrey;
+  color: white;
+}
+
+.tabs__list li.active a {
+  background: darkgrey;
+  color: white;
+}
+
+/* Tooltip */
+
+div.tooltip {
+    position: absolute;
+    color: #1F1F1F;
+    text-align: left;
+    width: 150px;
+    height: 50px;
+    padding: 5px 16px;
+    font: 1em sans-serif;
+    background: #fff;
+    pointer-events: none;
+}
