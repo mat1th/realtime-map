@@ -1,7 +1,7 @@
 import './chart.html';
+import { closeOverlay } from  '../../actions/overlay.js';
 
 Template.chart.rendered = function() {
-
     var margin = {
             top: 20,
             right: 60,
@@ -17,8 +17,6 @@ Template.chart.rendered = function() {
         bisectDate = d3.bisector(function(d) {
             return d.date;
         }).left;
-
-
 
     var x = d3.time.scale()
         .range([0, width]);
@@ -264,13 +262,17 @@ Template.chart.rendered = function() {
     // }
 }
 
+Template.chart.events({
+    'click .overlay-close': function(event) {
+        closeOverlay();
+    }
+})
 
-
-function mouseover() {
-    console.log('in');
-
-}
-
-function mouseout() {
-    console.log('out');
-}
+// function mouseover() {
+//     console.log('in');
+//
+// }
+//
+// function mouseout() {
+//     console.log('out');
+// }
