@@ -70,12 +70,12 @@ Template.chart.rendered = function() {
     gradient.append("stop")
         .attr("offset", "0%")
         .attr("stop-color", "#64929d");
-        // .attr("stop-opacity", .5);
+    // .attr("stop-opacity", .5);
 
     gradient.append("stop")
         .attr("offset", "100%")
         .attr("stop-color", "#64929d");
-        // .attr("stop-opacity", 1);
+    // .attr("stop-opacity", 1);
 
     svg.append("clipPath")
         .attr("id", "clip")
@@ -141,14 +141,28 @@ Template.chart.rendered = function() {
     graph.on("mouseout", mouseover)
         .on("mousemove", mousemove)
         .on("mouseout", mouseout);
+
+    function mousemove() {
+        var div = d3.select(".tooltip");
+        var timeDiv = d3.select(".time");
+        var value = Math.round(y.invert(d3.mouse(this)[0]));
+        var timeValue = x.invert(d3.mouse(this)[0]);
+        console.log(timeValue);
+        // timeDiv.text(parseDate(timeValue));
+        div.select(".circle")
+            .text(value);
+        div.select(".groups")
+            .text("Groepen: 97%");
+        div.select(".sound")
+            .text("Geluidsoverlast: 97%");
+        div.select(".present")
+            .text("Aanwezig: 10%");
+        div.style("left", (d3.event.pageX + 0) + "px")
+            .style("top", (0) + "px");
+    }
 }
 
-function mousemove() {
-    var div = d3.select(".tooltip");
-    div.text("testje")
-        .style("left", (d3.event.pageX + 0) + "px")
-        .style("top", (d3.event.pageY - 12) + "px");
-}
+
 
 function mouseover() {
     console.log('in');
