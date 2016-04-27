@@ -1,14 +1,36 @@
 .header {
     width: 100%;
-    height: 7.5rem;
+    height: var(--menuHeight);
+    display: flex;
+    align-items: center;
 }
 
     .header__logo {
         display: inline-block;
-        margin-top: 0.625rem;
         margin-left: 2.8125rem;
     }
 
     .header__logo img {
-        height: 6.25rem;
+        height: 4rem;
+    }
+
+    .header__options {
+        margin-left: 5rem;
+        list-style: none;
+    }
+
+    .header__options select {
+        background: url('../../../img/arrow-down.svg') center right no-repeat;
+        background-size: 1rem;
+        padding: 0.5em;
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .header__options li {
+        position: relative;
     }
