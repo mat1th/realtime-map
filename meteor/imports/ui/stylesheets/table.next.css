@@ -10,8 +10,10 @@ td {
     -webkit-border-vertical-spacing: 0;
 }
 
-table {
-  width:100%;
+.table {
+    /* Change this temp. solution */
+    margin-top: 2em;
+    width: auto;
 }
 
 tr {
@@ -38,21 +40,9 @@ tr:nth-child(even) {
 }
 
 .add {
-  position: absolute;
-  margin-top:-0.5em;
+    display: block;
 }
 
 .add:hover {
   opacity: 1;
-}
-.add:before, .add:after {
-  content: '';
-  position: absolute;
-  left: 15px;
-  height: 20px;
-  width: 2px;
-  background-color: #333;
-}
-.add:before {
-  transform: rotate(90deg);
 }

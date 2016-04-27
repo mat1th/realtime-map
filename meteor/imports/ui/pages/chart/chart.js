@@ -266,7 +266,9 @@ Template.chart.events({
     'click .overlay-close': function(event) {
         closeOverlay();
     }
-})
+});
+
+
 
 // function mouseover() {
 //     console.log('in');

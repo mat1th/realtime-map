@@ -9,7 +9,7 @@ Template.map.onRendered(function() {
     var map = L.map('map', {
         center: [52.376956, 4.902756],
         maxZoom: 20,
-        minZoom: 14,
+        //minZoom: 14,
         zoom: 14,
         zoomControl: false,
         attributionControl: false,
