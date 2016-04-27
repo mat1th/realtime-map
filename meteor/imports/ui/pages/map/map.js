@@ -43,7 +43,6 @@ Template.map.onRendered(function() {
     checkCycle(marker);
 });
 
-
 function onClick(e) {
     var overlay = document.querySelector('.chart-wrapper');
     var id = e.target.options.data;
