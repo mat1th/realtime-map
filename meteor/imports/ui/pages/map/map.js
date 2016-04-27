@@ -1,6 +1,8 @@
 import './map.html';
 import '../chart/chart.js';
-import { closeOverlay } from  '../../actions/overlay.js';
+import {
+    closeOverlay
+} from '../../actions/overlay.js';
 
 Meteor.subscribe('cycles');
 
@@ -9,7 +11,7 @@ Template.map.onRendered(function() {
     var map = L.map('map', {
         center: [52.376956, 4.902756],
         maxZoom: 20,
-        minZoom: 14,
+        //minZoom: 14,
         zoom: 14,
         zoomControl: false,
         attributionControl: false,
@@ -52,9 +54,13 @@ function onClick(e) {
     if (zoomState === false) {
         zoomState = true;
         TweenMax.fromTo(overlay, 2, {
-            x: 0
+            css: {
+                left: width + "px"
+            }
         }, {
-            x: -width,
+            css: {
+                left: 88 + "px"
+            },
             ease: Power4.easeOut
         }, "start");
 

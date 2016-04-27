@@ -252,7 +252,9 @@ Template.chart.events({
     'click .overlay-close': function(event) {
         closeOverlay();
     }
-})
+});
+
+
 
 window.onresize = function(event) {
     if (zoomState) {

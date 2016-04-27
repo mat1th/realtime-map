@@ -3,9 +3,13 @@ export const closeOverlay = function(overlay) {
     var width = window.innerWidth
     zoomState = false
     TweenMax.fromTo(overlay, 2, {
-        x: -width
+        css: {
+            left: 88 + "px"
+        }
     }, {
-        x: 0,
+        css: {
+            left: width + "px"
+        },
         ease: Power4.easeOut
     }, "start");
 }
