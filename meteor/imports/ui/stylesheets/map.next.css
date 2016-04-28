@@ -3,7 +3,7 @@
     width: 100%;
 }
 .sensor-icon {
-    background: var(--redCollor);
+    background: var(--greenCollor);
     border-radius: 50% 50%;
 }
 .cycle-icon {

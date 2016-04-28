@@ -45,7 +45,10 @@ export const database = (function() {
 
     function get(limit) {
         return JSON.stringify(SensorData.find({}, {
-            limit: limit
+            limit: limit,
+            sort: {
+                date: -1
+            }
         }).fetch({}));
     }
 
