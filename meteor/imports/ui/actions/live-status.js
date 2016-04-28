@@ -12,18 +12,14 @@ export const liveStatus = function(id) {
 
     sensors.forEach(function(sensor) {
 
-        if (sensor.sensorvalue.value1 > 500 && sensor.sensorvalue.value2) {
-            console.log(sensor.sensorvalue.value1);
-            console.log('hoi');
+        if (sensor.sensorvalue.value1 > 460 &&  sensor.sensorvalue.value2) {
             count++;
-
         }
-
     });
 
     return {
         count: count,
-        incidences: (count >= 4) ? true : false
+        incidences: (count >= 5) ? true : false
     }
 
 }

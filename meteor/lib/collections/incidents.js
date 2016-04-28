@@ -1,7 +1,6 @@
+Incidents = new Mongo.Collection('incidents');
 
-Sensors = new Mongo.Collection('sensors');
-
-Sensors.schema = new SimpleSchema({
+Incidents.schema = new SimpleSchema({
     date: {
         type: String
     },
@@ -14,10 +13,7 @@ Sensors.schema = new SimpleSchema({
     plein: {
         type: String
     },
-    lon: {
-        type: String
-    },
-    lat: {
+    probleem: {
         type: String
     },
     user: {
@@ -25,4 +21,4 @@ Sensors.schema = new SimpleSchema({
     }
 });
 
-Sensors.attachSchema(Sensors.schema);
+Incidents.attachSchema(Incidents.schema);

@@ -22,12 +22,12 @@ Template.settings.onRendered(function() {
 Template.settings.events({
     'submit form': function(event) {
         event.preventDefault();
-        var name = event.target.name.value;
-        var location = event.target.location.value;
+        var buurt = event.target.buurt.value;
+        var plein = event.target.plein.value;
         var sensorId = event.target.sensorid.value;
-        console.log(sensorId);
-        if (name && location && sensorid) {
-            Meteor.call("newSensor", name, location, gps, sensorId);
+        var user = Meteor.userId();
+        if (buurt && plein && sensorid) {
+            Meteor.call("newSensor", buurt, plein, gps, sensorId, user);
             Router.go('/');
         } else {
             console.log('error');
