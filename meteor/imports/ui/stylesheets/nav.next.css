@@ -18,12 +18,19 @@
 main nav ul {
     list-style: none;
 }
-@media (max-width: 970px) {
+@media (max-width: 30em) {
     #main-nav {
         flex: 0 1 100%;
     }
     #main-nav ul {
-        flex-flow: row wrap;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-around;
+        align-content: flex-start;
+        align-items: flex-start;
+    }
+    #main-nav ul li {
+      width: 5em;
+
     }
 }
