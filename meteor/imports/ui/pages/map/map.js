@@ -8,6 +8,15 @@ import {
 Meteor.subscribe('cycles');
 
 Template.map.onRendered(function() {
+    var sensorIcon = L.divIcon({
+        className: 'sensor-icon'
+    });
+    var cycleIcon = L.icon({
+        iconUrl: '/img/cycle.svg',
+        iconSize: [38, 95]
+    });
+
+
     var sensorPoints = Sensors.find({}).fetch({});
     var map = L.map('map', {
         center: [52.376956, 4.902756],
@@ -22,13 +31,7 @@ Template.map.onRendered(function() {
         ]
     });
 
-    var sensorIcon = L.divIcon({
-        className: 'sensor-icon'
-    });
-    var cycleIcon = L.icon({
-        iconUrl: '/img/cycle.svg',
-        iconSize: [38, 95]
-    });
+
 
     var cycleMarker = L.marker([52.36632373281241, 4.912347793579102], {
         icon: cycleIcon

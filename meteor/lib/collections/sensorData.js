@@ -4,7 +4,10 @@ SensorData.schema = new SimpleSchema({
     date: {
         type: String
     },
-    sensorvalue: {
+    "sensorvalue.value1": {
+        type: String
+    },
+    "sensorvalue.value2": {
         type: String
     },
     sensorId: {

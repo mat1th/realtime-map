@@ -1,7 +1,8 @@
 'use strict';
 
 var sensorsValue = {
-    sensor: undefined,
+    value1: undefined,
+    value2: undefined,
     sensorId: undefined
 }
 
@@ -9,17 +10,22 @@ export const database = (function() {
     function set(postData) {
         var now = moment().format('YYYY-MM-DD HH:mm:ss');
 
-        sensorsValue.sensor = sensorsValue.sensor || postData.sensor;
+        sensorsValue.value1 = sensorsValue.sensor || postData.value1;
+        sensorsValue.value2 = sensorsValue.sensor || postData.value2;
         sensorsValue.sensorId = sensorsValue.sensorId || postData.sensorId;
 
-        if (sensorsValue.sensor && sensorsValue.sensorId) {
+        if (sensorsValue.value1 && sensorsValue.sensorId) {
             SensorData.insert({
                 date: now,
                 sensorId: sensorsValue.sensorId,
-                sensorvalue: sensorsValue.sensor
+                sensorvalue: {
+                    value1: sensorsValue.value1,
+                    value2: sensorsValue.value2
+                }
             });
             sensorsValue = {
-                sensor: undefined,
+                value1: undefined,
+                value2: undefined,
                 sensorId: undefined
             }
         }
@@ -37,8 +43,8 @@ export const database = (function() {
             date: data[0].date,
             led: true,
             sensorId: data[0].sensorId,
-            sensorvalue: data[0].sensorvalue,
-
+            value1: data[0].sensorvalue.value1,
+            value2: data[0].sensorvalue.valeu2,
         }
         return JSON.stringify(status);
     }

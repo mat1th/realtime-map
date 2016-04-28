@@ -5,7 +5,7 @@ export const liveStatus = function(id) {
 
     sensors.forEach(function(sensor) {
 
-        if(sensor.sensorvalue > 500) {
+        if(sensor.sensorvalue.value1 > 500) {
 
             count++;
 
