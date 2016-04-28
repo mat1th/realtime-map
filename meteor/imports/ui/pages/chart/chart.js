@@ -2,6 +2,7 @@ import './chart.html';
 import {
     closeOverlay
 } from '../../actions/overlay.js';
+var amout = new ReactiveVar(0);
 
 function drawChart(sensorId, startDate, endDate) {
     var margin = {
@@ -319,7 +320,6 @@ Template.chart.events({
         toggleMessage('close');
     }
 });
-
 Template.chart.helpers({
     status: function() {
         return statusObj.get();
@@ -327,17 +327,28 @@ Template.chart.helpers({
     sensor: function() {
         var neighbourhood = statusObj.get();
         if (neighbourhood != 0) {
-          var sensor = Sensors.find({
-              sensorId: neighbourhood.id
-          }).fetch()[0];
-          // console.log( neighbourhood.id);
-          var sensorName = sensor.buurt;
-          var sensorNeighbour = sensor.plein;
+            var sensor = Sensors.find({
+                sensorId: neighbourhood.id
+            }).fetch()[0];
+            // console.log( neighbourhood.id);
+            var sensorName = sensor.buurt;
+            var sensorNeighbour = sensor.plein;
 
-          return {
-              plein: sensorNeighbour,
-              neighbourhood: sensorName
-          }
+            return {
+                plein: sensorNeighbour,
+                neighbourhood: sensorName
+            }
+        }
+    },
+    insidents: function() {
+        var neighbourhood = statusObj.get();
+
+        if (neighbourhood != 0) {
+            var incidents = Meteor.call('insidents', neighbourhood.id, function(error, result) {
+                amout.set(result);
+            });
+            console.log(amout.get());
+            return amout.get();
         }
     }
 });

@@ -1,7 +1,7 @@
 'use strict';
 import {
     check
-} from 'meteor/check'
+} from 'meteor/check';
 
 Meteor.methods({
     newSensor: function(buurt, plein, gps, sensorId, user) {
@@ -51,5 +51,8 @@ Meteor.methods({
             user: 'user'
         });
         console.log(Incidents.find({}).fetch({}));
+    },
+    insidents: function(id) {
+        return Incidents.find({sensorId: id}).count();
     }
 });

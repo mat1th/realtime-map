@@ -11,6 +11,7 @@
                 <th>Buurt</th>
                 <th>Plein</th>
                 <th>Meldingen</th>
+                <th>Berichten</th>
                 <th>Aanwezige Straatcoaches</th>
                 <th>Actie</th>
             </tr>
@@ -18,13 +19,15 @@
                 <td>{{sensor.neighbourhood}}</td>
                 <td>{{sensor.plein}}</td>
                 {{#if status.incidences}}
-                    <td class="center is-active">{{status.count}}</td>
+                <td class="center is-active">{{status.count}}</td>
                 {{else}}
-                    <td class="center">{{status.count}}</td>
+                <td class="center">{{status.count}}</td>
                 {{/if}}
+                <td class="center">{{insidents}}</td>
                 <td class="center">2</td>
                 <td>
-                <a href="#" class="add"></a></td>
+                    <a href="#" class="add"></a>
+                </td>
             </tr>
         </table>
 
