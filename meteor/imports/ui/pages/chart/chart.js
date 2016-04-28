@@ -5,6 +5,7 @@ import {
 var amout = new ReactiveVar(0);
 
 function drawChart(sensorId, startDate, endDate) {
+    document.querySelector(".chart").innerHTML = "";
     var margin = {
             top: 20,
             right: 60,
@@ -48,7 +49,7 @@ function drawChart(sensorId, startDate, endDate) {
         .orient("bottom")
         .tickSize(-height, 0)
         .tickPadding(6)
-        .tickFormat(NL.timeFormat("%A"));
+        .tickFormat(NL.timeFormat("%X"));
 
     var yAxis = d3.svg.axis()
         .scale(y)
@@ -63,7 +64,7 @@ function drawChart(sensorId, startDate, endDate) {
         })
         .y0(y(0))
         .y1(function(d) {
-            return y(d.value);
+            return y(d.sensorvalue.value1);
         });
 
     var line = d3.svg.line()
@@ -72,7 +73,7 @@ function drawChart(sensorId, startDate, endDate) {
             return x(d.date);
         })
         .y(function(d) {
-            return y(d.value);
+            return y(d.sensorvalue.value1);
         });
 
     var svg = d3.select(".chart").append("svg")
@@ -134,11 +135,13 @@ function drawChart(sensorId, startDate, endDate) {
 
     var data = SensorData.find({
         sensorId: sensorId
-    }).fetch({})
+    }, {  short: {
+        date: 1
+    }}).fetch({})
 
     data.forEach(function(d) {
         d.date = parseDate(d.date);
-        d.value = +d.sensorvalue.value1;
+        d.sensorvalue.value1 = +d.sensorvalue.value1;
     });
 
     x.domain([startDate, endDate]);
@@ -236,41 +239,41 @@ function drawChart(sensorId, startDate, endDate) {
         newFocus.select("circle.holder")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value + 5) + ")");
+                y(d.sensorvalue.value1 + 5) + ")");
 
         newFocus.select("text.value")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value + 5) + ")")
-            .text(d.value);
+                y(d.sensorvalue.value1 + 5) + ")")
+            .text(d.sensorvalue.value1);
 
         newFocus.select("line.x")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value) + ")")
-            .attr("y2", height - y(d.value));
+                y(d.sensorvalue.value1) + ")")
+            .attr("y2", height - y(d.sensorvalue.value1));
 
         focus.select("text.groeps")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value + 5) + ")")
+                y(d.sensorvalue.value1 + 5) + ")")
             .text("Groepen: 97%");
 
         focus.select("text.sound")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value + 5) + ")")
+                y(d.sensorvalue.value1 + 5) + ")")
             .text("Geluidsoverlast: 97%");
 
         focus.select("text.present")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value + 5) + ")")
+                y(d.sensorvalue.value1 + 5) + ")")
             .text("Aanwezig: 10%");
 
         timeDiv.attr("transform",
                 "translate(" + x(d.date) + "," +
-                y(d.value) + ")")
+                y(d.sensorvalue.value1) + ")")
             .text("Tijd: " + formatToTime(d.date));
     }
 }
@@ -279,11 +282,16 @@ function subDate(o, days) {
     return new Date(o.getFullYear(), o.getMonth(), o.getDate() - days);;
 }
 
+function addDate(o, days) {
+    return new Date(o.getFullYear(), o.getMonth(), o.getDate() + days);;
+}
+
 Template.chart.rendered = function() {
     var today = new Date();
+    var todayPlusTwo = addDate(today, 2);
     var todayMinusWeek = subDate(today, 7);
 
-    drawChart("53180077-cfc9-49b7-b807-ec01cd02b4d4", todayMinusWeek, today);
+    drawChart("a43153cf-93f3-4c82-947d-b9d993edab36", new Date("2016-04-28 12:20:00"), new Date("2016-04-28 18:30:00"));
 }
 
 function toggleMessage(opt_in) {
