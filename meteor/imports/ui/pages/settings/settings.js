@@ -1,4 +1,4 @@
-import './addsensor.html';
+import './settings.html';
 import {
     Template
 } from 'meteor/templating';

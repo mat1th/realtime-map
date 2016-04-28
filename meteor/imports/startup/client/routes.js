@@ -13,7 +13,7 @@ import '../../ui/pages/register/register.js';
 import '../../ui/pages/api/api.js';
 import '../../ui/pages/chart/chart.js';
 import '../../ui/pages/map/map.js';
-import '../../ui/pages/addsensor/addsensor.js';
+import '../../ui/pages/settings/settings.js';
 
 function userLoggedIn(callback) {
 
