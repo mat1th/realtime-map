@@ -21,11 +21,6 @@ body {
     flex-flow: row wrap;
 }
 
-.dashboard svg {
-    transform: rotate(90deg);
-    transform-origin: center;
-}
-
 main {
     flex: 0 1 calc(100vw - var(--sideBarWidht));
     -moz-osx-font-smoothing: grayscale;
