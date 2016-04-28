@@ -40,13 +40,13 @@ Template.settings.events({
         document.querySelector('#volumeValue').value = volumeValue+' db';
 
         if (volumeValue <= 70) {
-            volumeSelector.style = "background-color: #2ecc71"
+            volumeSelector.style = "background-color: #35AD4B"
         }
         if (volumeValue > 70) {
-            volumeSelector.style = "background-color: #f1c40f"
+            volumeSelector.style = "background-color: #FDFADD"
         }
         if (volumeValue > 100) {
-            volumeSelector.style = "background-color: #c0392b"
+            volumeSelector.style = "background-color: #bb2e31"
         }
     },
     'input #distance': function(event) {
@@ -57,13 +57,13 @@ Template.settings.events({
         distanceValueSelector.value = distanceValue+' cm';
 
         if (distanceValue <= 1500) {
-            distanceSelector.style = "background-color: #2ecc71"
+            distanceSelector.style = "background-color: #35AD4B"
         }
         if (distanceValue > 1500) {
-            distanceSelector.style = "background-color: #f1c40f"
+            distanceSelector.style = "background-color: #FDFADD"
         }
         if (distanceValue > 2500) {
-            distanceSelector.style = "background-color: #c0392b"
+            distanceSelector.style = "background-color: #bb2e31"
         }
     }
 });

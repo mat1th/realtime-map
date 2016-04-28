@@ -15,10 +15,10 @@ Template.map.onRendered(function() {
         zoom: 14,
         zoomControl: false,
         attributionControl: false,
-        maxBounds: [
-            [52.345197800248926, 4.82025146484375],
-            [52.424825961602764, 4.967708587646484]
-        ]
+        // maxBounds: [
+        //     [52.345197800248926, 4.82025146484375],
+        //     [52.424825961602764, 4.967708587646484]
+        // ]
     });
 
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
