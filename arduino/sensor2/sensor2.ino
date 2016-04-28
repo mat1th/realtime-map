@@ -152,8 +152,10 @@ void sendNetworkData() {
 
   //post to the server if
   if (client.connect(host, httpPort)) {
-    String postStr = "sensor=";
+    String postStr = "value1=";
     postStr += String(sensorValue);
+    postStr += "&value2=";
+     postStr += "true";
     postStr += "&sensorId=";
     postStr += "53180077-cfc9-49b7-b807-ec01cd02b4d4";
 
