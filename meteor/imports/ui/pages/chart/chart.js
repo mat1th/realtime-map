@@ -325,18 +325,19 @@ Template.chart.helpers({
         return statusObj.get();
     },
     sensor: function() {
-
         var neighbourhood = statusObj.get();
-        var sensor = Sensors.find({
-            sensorId: neighbourhood.id
-        }).fetch()[0];
-        var sensorName = sensor.buurt;
-        var sensorNeighbour = sensor.plein;
+        if (neighbourhood != 0) {
+          var sensor = Sensors.find({
+              sensorId: neighbourhood.id
+          }).fetch()[0];
+          // console.log( neighbourhood.id);
+          var sensorName = sensor.buurt;
+          var sensorNeighbour = sensor.plein;
 
-        return {
-            plein: sensorNeighbour,
-            neighbourhood: sensorName
+          return {
+              plein: sensorNeighbour,
+              neighbourhood: sensorName
+          }
         }
-
     }
 });

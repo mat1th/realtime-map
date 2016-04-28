@@ -82,14 +82,13 @@ function onClick(e) {
 }
 
 function createTable(id) {
-
     statusObj.set(liveStatus(id));
 
     SensorData.find().observe({
-       changed: function() {
-           statusObj.set(liveStatus(id));
-       }
-   });
+        changed: function() {
+            statusObj.set(liveStatus(id));
+        }
+    });
 }
 
 function checkCycle(marker) {
@@ -117,8 +116,6 @@ function checksensorPoints(marker) {
 function changecollor(markers, id, status) {
     markers.forEach(function(marker, index) {
         if (marker.options.data === id) {
-          console.log(status);
-          console.log(id);
             if (!status.incidences) {
                 markers[index].valueOf()._icon.style.backgroundColor = '#3BAC50';
             } else {
