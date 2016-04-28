@@ -262,9 +262,39 @@ Template.chart.rendered = function() {
     drawChart("53180077-cfc9-49b7-b807-ec01cd02b4d4", new Date(2016,3,10), new Date(2016,3,22));
 }
 
+function toggleMessage(opt_in) {
+
+    if(opt_in === 'open') {
+
+        $('.message').addClass('is-active');
+
+    } else {
+
+        $('.message').removeClass('is-active');
+
+    }
+
+}
+
 Template.chart.events({
     'click .overlay-close': function(event) {
         closeOverlay();
+    },
+    'click .add': function(e) {
+        toggleMessage('open');
+    },
+    'click .message__btn': function(e) {
+        $('.message__container').addClass('is-active');
+
+        setTimeout(function(){
+
+            toggleMessage('close');
+            $('.message__container').removeClass('is-active');
+
+        }, 600);
+    },
+    'click .message__close-btn': function(e) {
+        toggleMessage('close');
     }
 });
 
