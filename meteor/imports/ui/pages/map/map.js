@@ -1,11 +1,15 @@
 import './map.html';
 import '../chart/chart.js';
-import { liveStatus } from '../../actions/live-status.js';
+import {
+    liveStatus
+} from '../../actions/live-status.js';
 import {
     closeOverlay
 } from '../../actions/overlay.js';
 
 Meteor.subscribe('cycles');
+
+var markers = new Array();
 
 Template.map.onRendered(function() {
     var sensorIcon = L.divIcon({
@@ -15,7 +19,6 @@ Template.map.onRendered(function() {
         iconUrl: '/img/cycle.svg',
         iconSize: [38, 95]
     });
-
 
     var sensorPoints = Sensors.find({}).fetch({});
     var map = L.map('map', {
@@ -31,13 +34,9 @@ Template.map.onRendered(function() {
         ]
     });
 
-
-
     var cycleMarker = L.marker([52.36632373281241, 4.912347793579102], {
         icon: cycleIcon
     }).addTo(map);
-
-    var markers = new Array();
 
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
         attribution: 'Project 3',
@@ -53,8 +52,7 @@ Template.map.onRendered(function() {
     });
 
     checkCycle(cycleMarker);
-
-    changecollor(markers, "3e7a9a1b-b0fb-4539-9fa4-a60c23b694a6");
+    checksensorPoints();
 });
 
 function onClick(e) {
@@ -93,10 +91,30 @@ function checkCycle(marker) {
     });
 }
 
-function changecollor(markers, id) {
+function checksensorPoints(marker) {
+    SensorData.find().observe({
+        changed: function() {
+            var ids = Sensors.find({}).fetch({});
+
+            ids.forEach(function(sensor, index) {
+                var status = liveStatus(sensor.sensorId);
+                changecollor(markers, sensor.sensorId, status);
+            })
+        }
+    });
+}
+
+function changecollor(markers, id, status) {
     markers.forEach(function(marker, index) {
         if (marker.options.data === id) {
-            markers[index].valueOf()._icon.style.backgroundColor = '#bb2e31';
+          console.log(status);
+          console.log(id);
+            if (!status.incidences) {
+                markers[index].valueOf()._icon.style.backgroundColor = '#3BAC50';
+            } else {
+                markers[index].valueOf()._icon.style.backgroundColor = '#bb2e31';
+            }
+
         }
     });
 }
