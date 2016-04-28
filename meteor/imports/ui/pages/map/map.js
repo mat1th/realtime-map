@@ -32,17 +32,43 @@ Template.map.onRendered(function() {
         className: 'cycle-icon'
     });
 
-    var marker = L.marker([52.36632373281241, 4.912347793579102], {
+    var cycleMarker = L.marker([52.36632373281241, 4.912347793579102], {
         icon: cycleIcon
     }).addTo(map);
 
-    sensorPoints.forEach(function(element, index) {
-        L.marker([element.lat, element.lon], {
+    // var markers = new Array();
+    // sensorPoints.forEach(function(element, index) {
+    //     var maker = L.marker([element.lat, element.lon], {
+    //         icon: sensorIcon,
+    //         data: element.sensorId
+    //     }).addTo(map).on('click', onClick);
+    // });
+
+    var marker = new Array();
+    var items = [{
+        "lat": 52.36632373281241,
+        "lon": 4.912347793579102
+    }, {
+        "lat": 52.365956867310075,
+        "lon": 4.9140214920043945
+    }, {
+        "lat": 52.36472522512735,
+        "lon": 4.915437698364258
+    }];
+
+    sensorPoints.forEach(function(item, i) {
+        var LamMarker = new L.marker([item.lat, item.lon], {
             icon: sensorIcon,
-            data: element.sensorId
-        }).addTo(map).on('click', onClick);
+            data: item.sensorId
+        }).on('click', onClick);
+        marker.push(LamMarker);
+        map.addLayer(marker[i]);
     });
-    checkCycle(marker);
+
+    console.log(marker[0].options.data);
+    checkCycle(cycleMarker);
+    // checkMarkers();
+    // console.log(makesr);
 });
 
 function onClick(e) {
