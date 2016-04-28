@@ -16,6 +16,7 @@ import '../../ui/pages/chart/chart.js';
 import '../../ui/pages/map/map.js';
 import '../../ui/pages/settings/settings.js';
 import '../../ui/pages/addincident/add-incident.js';
+import '../../ui/pages/bedankt/bedankt.js';
 
 function userLoggedIn(callback) {
 
@@ -79,8 +80,9 @@ Router.route('/incident', {
     }
 });
 Router.route('/bedankt', function() {
-    var _this = this;
-    this.response.end('Bedankt voor uw incident\n');
+
+    this.layout('alternative');
+    this.render('bedankt');
 });
 
 Router.route('/apitest', function() {
