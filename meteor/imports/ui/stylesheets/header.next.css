@@ -55,3 +55,9 @@
         display: block;
         font-weight: bold;
     }
+
+    @media (max-width: 72em) {
+        .header__stats {
+            display: none;
+        }
+    }
