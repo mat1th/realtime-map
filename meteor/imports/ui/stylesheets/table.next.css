@@ -15,6 +15,10 @@ td {
     width: 100%;
 }
 
+.table__title {
+    
+}
+
 tr {
  margin-bottom:1em !important;
 }

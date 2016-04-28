@@ -231,8 +231,6 @@ Template.chart.events({
     }
 });
 
-
-
 window.onresize = function(event) {
     if (zoomState) {
         closeOverlay();
