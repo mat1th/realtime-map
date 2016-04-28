@@ -31,7 +31,8 @@ Hover bottom border: #dc3c3f
 
 .overlay-close {
     display: block;
-    padding: .5em 1em;
+    position: absolute;
+    padding: .7em 1em;
     font-size: 1em;
     background: #64929D;
     border: none;
@@ -64,8 +65,8 @@ Hover bottom border: #dc3c3f
 
 .time {
     position: absolute;
-    left: 30px;
-    top: 40px;
+    left: 2em;
+    top: 3em;
 }
 
 .axis {
