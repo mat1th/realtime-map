@@ -32,8 +32,12 @@ Meteor.methods({
         }
     },
     newIncident: function(buurt, plein, probleem) {
-        var now = moment().format('YYYY-MM-DD HH:mm:ss');
-        
+        var now = moment().format('YYYY-MM-DD HH:mm:ss'),
+            sensorId = Sensors.find({
+                buurt: buurt,
+                plein: plein
+            }).fetch({})[0].sensorId;
+
         check(buurt, String);
         check(plein, String);
         check(probleem, String);
@@ -44,7 +48,8 @@ Meteor.methods({
             sensorId: sensorId,
             plein: plein,
             probleem: probleem,
-            user: null
+            user: 'user'
         });
+        console.log(Incidents.find({}).fetch({}));
     }
 });

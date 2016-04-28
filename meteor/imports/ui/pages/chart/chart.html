@@ -16,7 +16,7 @@
             </tr>
             <tr>
                 <td>{{sensor.neighbourhood}}</td>
-                <td>{{sensor.location}}</td>
+                <td>{{sensor.plein}}</td>
                 {{#if status.incidences}}
                     <td class="center is-active">{{status.count}}</td>
                 {{else}}
@@ -36,7 +36,7 @@
 
                 <div class="message__content" contentEditable="true">
                     <p>Beste Matthias,</p>
-                    <p>Er is een voorval aan het Marie Heinekeplein in Amsterdam.</p>
+                    <p>Er is een voorval aan {{sensor.plein}} in Amsterdam.</p>
                     <p>Wij verzoeken u erheen te gaan.</p>
                 </div>
 

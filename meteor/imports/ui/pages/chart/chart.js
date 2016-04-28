@@ -287,7 +287,7 @@ Template.chart.rendered = function() {
 
 function toggleMessage(opt_in) {
 
-    if(opt_in === 'open') {
+    if (opt_in === 'open') {
 
         $('.message').addClass('is-active');
 
@@ -296,7 +296,6 @@ function toggleMessage(opt_in) {
         $('.message').removeClass('is-active');
 
     }
-
 }
 
 Template.chart.events({
@@ -309,7 +308,7 @@ Template.chart.events({
     'click .message__btn': function(e) {
         $('.message__container').addClass('is-active');
 
-        setTimeout(function(){
+        setTimeout(function() {
 
             toggleMessage('close');
             $('.message__container').removeClass('is-active');
@@ -328,21 +327,16 @@ Template.chart.helpers({
     sensor: function() {
 
         var neighbourhood = statusObj.get();
-        var sensor = Sensors.find({sensorId: neighbourhood.id}).fetch()[0];
-        var sensorName = sensor.name;
-        var sensorNeighbour = sensor.location;
+        var sensor = Sensors.find({
+            sensorId: neighbourhood.id
+        }).fetch()[0];
+        var sensorName = sensor.buurt;
+        var sensorNeighbour = sensor.plein;
 
         return {
-            location: sensorNeighbour,
+            plein: sensorNeighbour,
             neighbourhood: sensorName
         }
 
     }
 });
-
-window.onresize = function(event) {
-    if (zoomState) {
-        closeOverlay();
-    }
-
-};
