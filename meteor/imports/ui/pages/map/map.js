@@ -16,7 +16,6 @@ Template.map.onRendered(function() {
         iconSize: [38, 95]
     });
 
-
     var sensorPoints = Sensors.find({}).fetch({});
     var map = L.map('map', {
         center: [52.376956, 4.902756],
@@ -30,8 +29,6 @@ Template.map.onRendered(function() {
             [52.424825961602764, 4.967708587646484]
         ]
     });
-
-
 
     var cycleMarker = L.marker([52.36632373281241, 4.912347793579102], {
         icon: cycleIcon
@@ -62,8 +59,7 @@ function onClick(e) {
     var id = e.target.options.data;
     var width = window.innerWidth;
 
-    // Render status
-    console.log(liveStatus(id));
+    createTable(id);
 
     //give id to chart function
     if (zoomState === false) {
@@ -82,6 +78,17 @@ function onClick(e) {
     } else {
         closeOverlay();
     }
+}
+
+function createTable(id) {
+
+    statusObj.set(liveStatus(id));
+
+    SensorData.find().observe({
+       changed: function() {
+           statusObj.set(liveStatus(id));
+       }
+   });
 }
 
 function checkCycle(marker) {

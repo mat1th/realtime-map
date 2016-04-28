@@ -14,9 +14,13 @@
                 <th>Actie</th>
             </tr>
             <tr>
-                <td>De pijp</td>
-                <td>Marie Heinekeplein</td>
-                <td class="center is-active">4</td>
+                <td>{{sensor.neighbourhood}}</td>
+                <td>{{sensor.location}}</td>
+                {{#if status.incidences}}
+                    <td class="center is-active">{{status.count}}</td>
+                {{else}}
+                    <td class="center">{{status.count}}</td>
+                {{/if}}
                 <td class="center">2</td>
                 <td>
                 <a href="#" class="add"></a></td>

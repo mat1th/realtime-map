@@ -38,9 +38,19 @@ tr:nth-child(even) {
     border: none !important;
 }
 
-.is-active {
+td.is-active {
     color: white;
     background-color:#DC3C3F;
+    animation: colorChange .2s infinite;
+}
+
+@keyframes colorchange {
+    0% {
+        background-color: #DC3C3F;
+    }
+    100% {
+        background-color: transparent;
+    }
 }
 
 .center {

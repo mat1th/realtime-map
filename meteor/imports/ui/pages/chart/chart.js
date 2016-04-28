@@ -314,6 +314,24 @@ Template.chart.events({
     }
 });
 
+Template.chart.helpers({
+    status: function() {
+        return statusObj.get();
+    },
+    sensor: function() {
+
+        var neighbourhood = statusObj.get();
+        var sensor = Sensors.find({sensorId: neighbourhood.id}).fetch()[0];
+        var sensorName = sensor.name;
+        var sensorNeighbour = sensor.location;
+
+        return {
+            location: sensorNeighbour,
+            neighbourhood: sensorName
+        }
+
+    }
+});
 
 window.onresize = function(event) {
     if (zoomState) {
