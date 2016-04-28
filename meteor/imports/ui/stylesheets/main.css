@@ -21,11 +21,6 @@ body {
     flex-flow: row wrap;
 }
 
-.dashboard svg {
-    transform: rotate(90deg);
-    transform-origin: center;
-}
-
 main {
     flex: 0 1 calc(100vw - var(--sideBarWidht));
     -moz-osx-font-smoothing: grayscale;
@@ -40,7 +35,8 @@ main {
 main .content {
     padding: 0 2em;
 }
-@media (max-width: 30em) {
+
+@media (max-width: 45em) {
     #main {
         flex: 0 1 100%;
     }

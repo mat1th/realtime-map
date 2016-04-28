@@ -1,0 +1,2 @@
+// alternative
+import './alternative.html'

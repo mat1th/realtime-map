@@ -5,6 +5,7 @@ import '/imports/ui/components/form/form.js';
 
 //Import base
 import '/imports/ui/layouts/index.js';
+import '/imports/ui/layouts/alternative.js';
 
 //Import pages
 import '../../ui/pages/home/home.js';
@@ -13,7 +14,9 @@ import '../../ui/pages/register/register.js';
 import '../../ui/pages/api/api.js';
 import '../../ui/pages/chart/chart.js';
 import '../../ui/pages/map/map.js';
-import '../../ui/pages/addsensor/addsensor.js';
+import '../../ui/pages/settings/settings.js';
+import '../../ui/pages/addincident/add-incident.js';
+import '../../ui/pages/bedankt/bedankt.js';
 
 function userLoggedIn(callback) {
 
@@ -52,6 +55,7 @@ Router.route('/register', function() {
 
 });
 
+// Define settings router
 Router.route('/settings', function() {
 
     var _this = this;
@@ -60,7 +64,25 @@ Router.route('/settings', function() {
         _this.layout('applicationLayout');
         _this.render('settings');
     });
+});
 
+Router.route('/incident', {
+    waitOn: function() {
+        return Meteor.subscribe('sensors');
+    },
+    action: function() {
+        var _this = this;
+        //
+        // userLoggedIn(function() {
+        _this.layout('alternative');
+        _this.render('addincident');
+        // });
+    }
+});
+Router.route('/bedankt', function() {
+
+    this.layout('alternative');
+    this.render('bedankt');
 });
 
 Router.route('/apitest', function() {

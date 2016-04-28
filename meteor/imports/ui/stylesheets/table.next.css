@@ -12,10 +12,11 @@ td {
 
 .table {
     width: 100%;
+    padding: 1em;
 }
 
 .table__title {
-    margin: 1em 0;
+    margin: 1.5em 1em 0;
     color: #216474;
 }
 
@@ -24,7 +25,7 @@ td {
 }
 
 tr {
- margin-bottom:1em !important;
+ margin-bottom: 1em !important;
 }
 
 th {
@@ -41,18 +42,7 @@ tr:nth-child(even) {
 td.is-active {
     color: white;
     background-color:#DC3C3F;
-    animation: colorChange .2s infinite;
 }
-
-@keyframes colorchange {
-    0% {
-        background-color: #DC3C3F;
-    }
-    100% {
-        background-color: transparent;
-    }
-}
-
 .center {
   text-align:center;
 }

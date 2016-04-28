@@ -4,32 +4,47 @@ import {
 } from 'meteor/check'
 
 Meteor.methods({
-    newSensor: function(name, location, gps, sensorId) {
+    newSensor: function(buurt, plein, gps, sensorId, user) {
         var now = moment().format('YYYY-MM-DD HH:mm:ss'),
             sensorsLon = Sensors.find({
-                location: location
+                plein: plein
             }).count({});
 
-        check(name, String);
+        check(buurt, String);
+        check(plein, String);
         check(sensorId, String);
-        check(location, String);
+        check(user, user);
         check(gps.lon, Number);
         check(gps.lat, Number);
+
         if (sensorsLon === 0) {
             Sensors.insert({
                 date: now,
-                name: name,
+                buurt: buurt,
                 sensorId: sensorId,
-                location: location,
+                plein: plein,
                 lon: gps.lon,
                 lat: gps.lat,
-                user: 'hu'
+                user: user
             });
         } else {
             console.log('error');
         }
+    },
+    newIncident: function(buurt, plein, probleem) {
+        var now = moment().format('YYYY-MM-DD HH:mm:ss');
+        
+        check(buurt, String);
+        check(plein, String);
+        check(probleem, String);
 
-        console.log(Sensors.find({}).fetch({}));
+        Incidents.insert({
+            date: now,
+            buurt: buurt,
+            sensorId: sensorId,
+            plein: plein,
+            probleem: probleem,
+            user: null
+        });
     }
 });
-

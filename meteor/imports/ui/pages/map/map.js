@@ -1,11 +1,15 @@
 import './map.html';
 import '../chart/chart.js';
-import { liveStatus } from '../../actions/live-status.js';
+import {
+    liveStatus
+} from '../../actions/live-status.js';
 import {
     closeOverlay
 } from '../../actions/overlay.js';
 
 Meteor.subscribe('cycles');
+
+var markers = new Array();
 
 Template.map.onRendered(function() {
     var sensorIcon = L.divIcon({
@@ -34,8 +38,6 @@ Template.map.onRendered(function() {
         icon: cycleIcon
     }).addTo(map);
 
-    var markers = new Array();
-
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
         attribution: 'Project 3',
     }).addTo(map);
@@ -50,8 +52,7 @@ Template.map.onRendered(function() {
     });
 
     checkCycle(cycleMarker);
-
-    changecollor(markers, "3e7a9a1b-b0fb-4539-9fa4-a60c23b694a6");
+    checksensorPoints();
 });
 
 function onClick(e) {
@@ -100,10 +101,30 @@ function checkCycle(marker) {
     });
 }
 
-function changecollor(markers, id) {
+function checksensorPoints(marker) {
+    SensorData.find().observe({
+        changed: function() {
+            var ids = Sensors.find({}).fetch({});
+
+            ids.forEach(function(sensor, index) {
+                var status = liveStatus(sensor.sensorId);
+                changecollor(markers, sensor.sensorId, status);
+            })
+        }
+    });
+}
+
+function changecollor(markers, id, status) {
     markers.forEach(function(marker, index) {
         if (marker.options.data === id) {
-            markers[index].valueOf()._icon.style.backgroundColor = '#bb2e31';
+          console.log(status);
+          console.log(id);
+            if (!status.incidences) {
+                markers[index].valueOf()._icon.style.backgroundColor = '#3BAC50';
+            } else {
+                markers[index].valueOf()._icon.style.backgroundColor = '#bb2e31';
+            }
+
         }
     });
 }

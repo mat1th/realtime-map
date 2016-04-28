@@ -1,0 +1,24 @@
+<template name="addincident">
+    <section id="settings" class="content">
+        <section>
+            <h1>Incident aangeven</h1>
+            <p>Hier kan u een incident aangeven. Wees alstublieft zo precies mogenlijk. Dan kunnen wij er het meest mee.</p>
+        </section>
+        <form action="post">
+          <select id="buurt" name="buurt">
+              {{#each data.buurten}}
+              <option value="{{buurt}}" selected>{{buurt}}</option>
+              {{/each}}
+          </select>
+          <select id="plein" name="plein">
+              {{#each data.pleinen}}
+              <option value="{{plein}}" selected>{{plein}}</option>
+              {{/each}}
+          </select>
+            <div>
+                <textarea name="probleem" rows="8" cols="40" placeholder="Probleem"></textarea>
+            </div>
+            <input type="submit" value="Verzenden">
+        </form>
+    </section>
+</template>
