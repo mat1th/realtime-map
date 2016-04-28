@@ -58,13 +58,13 @@ void loop ()
   //Calculate the distance (in cm) based on the speed of sound.
   distance = duration/58.2;
 
-//  Serial.print(distance);
+  Serial.print(distance);
  
   delay (100);
 
   //post to the server if
   if (client.connect(host, httpPort)) {
-    String postStr = "sensor3=";
+    String postStr = "sensor=";
 
     if (distance < maximumRange){
       postStr += "true";
@@ -73,7 +73,7 @@ void loop ()
         postStr += "false";
         }
 
-    postStr += "&sensor3id=";
+    postStr += "&sensorId=";
     postStr += "3e7a9a1b-b0fb-4539-9fa4-a60c23b694a6";
       
     
@@ -90,8 +90,9 @@ void loop ()
     client.println();
     Serial.println("Data send");
   }
+
+    if (!client.connect(host, httpPort)) {
+    Serial.println("connection failed!!");
+    return;
+  }
  }
-  
-  
-
-

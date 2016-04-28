@@ -259,7 +259,7 @@ function drawChart(sensorId, startDate, endDate) {
 }
 
 Template.chart.rendered = function() {
-    drawChart("53180077-cfc9-49b7-b807-ec01cd02b4d4", new Date(2016,3,10), new Date(2016,3,22));
+    drawChart("53180077-cfc9-49b7-b807-ec01cd02b4d4", new Date(2016, 3, 10), new Date(2016, 3, 22));
 }
 
 function toggleMessage(opt_in) {
@@ -298,19 +298,10 @@ Template.chart.events({
     }
 });
 
+
 window.onresize = function(event) {
     if (zoomState) {
         closeOverlay();
     }
 
 };
-
-
-// function mouseover() {
-//     console.log('in');
-//
-// }
-//
-// function mouseout() {
-//     console.log('out');
-// }

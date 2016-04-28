@@ -27,6 +27,7 @@ Router.route('/api/status', {
     .get(function() {
         this.response.statusCode = 200;
         this.response.setHeader("Content-Type", "text/html; charset=utf-8");
+        this.response.setHeader("Content-Length", database.getStatus().length);
         this.response.setHeader("Access-Control-Allow-Origin", "*");
         this.response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         this.response.end(database.getStatus());
