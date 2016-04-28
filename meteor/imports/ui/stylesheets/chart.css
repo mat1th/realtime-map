@@ -84,7 +84,8 @@ Hover bottom border: #dc3c3f
 
 .x.axis line {
     stroke: #ebeded;
-    stroke-opacity: .5;
+    stroke-opacity: 1;
+    stroke-width: 1px;
 }
 
 .y.axis line {
