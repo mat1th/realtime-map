@@ -1,4 +1,7 @@
 'use strict';
+import {
+    liveStatus
+} from '../../ui/actions/live-status.js';
 
 var sensorsValue = {
     value1: undefined,
@@ -41,7 +44,7 @@ export const database = (function() {
 
         var status = {
             date: data[0].date,
-            led: true,
+            led: liveStatus(data[0].sensorId).incidences,
             sensorId: data[0].sensorId,
             value1: data[0].sensorvalue.value1,
             value2: data[0].sensorvalue.valeu2,
