@@ -1,5 +1,6 @@
 import './map.html';
 import '../chart/chart.js';
+import { liveStatus } from '../../actions/live-status.js';
 import {
     closeOverlay
 } from '../../actions/overlay.js';
@@ -65,7 +66,6 @@ Template.map.onRendered(function() {
         map.addLayer(marker[i]);
     });
 
-    console.log(marker[0].options.data);
     checkCycle(cycleMarker);
     // checkMarkers();
     // console.log(makesr);
@@ -75,6 +75,9 @@ function onClick(e) {
     var overlay = document.querySelector('.chart-wrapper');
     var id = e.target.options.data;
     var width = window.innerWidth;
+
+    // Render status
+    console.log(liveStatus(id));
 
     //give id to chart function
     if (zoomState === false) {
