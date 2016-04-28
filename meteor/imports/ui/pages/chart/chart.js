@@ -13,6 +13,21 @@ function drawChart(sensorId, startDate, endDate) {
         width = window.innerWidth - 88 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
+    var nl_NL = {
+        "dateTime": "%A, %e %B %Y г. %X",
+        "date": "%d.%m.%Y",
+        "time": "%H:%M:%S",
+        "periods": ["AM", "PM"],       
+        "dateTime": "%A, %e %B %Y г. %X",
+        "date": "%d.%m.%Y",
+        "time": "%H:%M:%S",
+        "days": ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"],
+        "shortDays": ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"],
+        "months": ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
+        "shortMonths": ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"]
+    };
+    
+    var NL = d3.locale(nl_NL);
 
     var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S").parse,
         formatDate = d3.time.format("%Y"),
@@ -31,7 +46,8 @@ function drawChart(sensorId, startDate, endDate) {
         .scale(x)
         .orient("bottom")
         .tickSize(-height, 0)
-        .tickPadding(6);
+        .tickPadding(6)
+        .tickFormat(NL.timeFormat("%A"));
 
     var yAxis = d3.svg.axis()
         .scale(y)

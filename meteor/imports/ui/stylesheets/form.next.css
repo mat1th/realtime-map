@@ -17,7 +17,7 @@
 .form span {
     font-size: 0.8em;
 }
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"], select[name="role"] {
     color: #878789;
     font-weight: normal;
     padding: 1em;
@@ -27,8 +27,13 @@ input[type="text"], input[type="password"], input[type="email"] {
     border-radius: .3em;
     border: solid 1px #ececec;
 }
+
+.form__title{
+    margin-bottom:1em;
+    margin-top:1em;
+}
 .form__block {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 .form__subtitle {
     margin-bottom: 1em;
@@ -91,7 +96,7 @@ input[type=range]::-ms-thumb {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
-form div {
+#settings form div {
     position: relative;
     margin: 2em 0em 2.6em;
 }
@@ -99,9 +104,10 @@ form div {
 
 #settings {
     margin-top: -1.6em;
-    background: #CDD2D4;
+    background: #ebeded;
     padding-top: 1.6em;
     padding-bottom: 2em;
+    overflow-y: scroll;
 }
 
 #settings form label {

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="29px" height="99px" viewBox="0 0 29 99" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="28px" height="91px" viewBox="0 0 28 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
     <title>Group</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop-HD" transform="translate(-40.000000, -13.000000)" fill="#BB2E31">
-            <g id="Group" transform="translate(40.000000, 13.000000)">
-                <rect id="Rectangle-11" transform="translate(15.000000, 14.000000) rotate(-41.000000) translate(-15.000000, -14.000000) " x="11" y="-1" width="8" height="30"></rect>
-                <rect id="Rectangle-11" transform="translate(15.000000, 14.000000) rotate(47.000000) translate(-15.000000, -14.000000) " x="11" y="-1" width="8" height="30"></rect>
-                <rect id="Rectangle-11" transform="translate(14.000000, 50.000000) rotate(-41.000000) translate(-14.000000, -50.000000) " x="10" y="35" width="8" height="30"></rect>
-                <rect id="Rectangle-11" transform="translate(14.000000, 50.000000) rotate(47.000000) translate(-14.000000, -50.000000) " x="10" y="35" width="8" height="30"></rect>
-                <rect id="Rectangle-11" transform="translate(14.000000, 85.000000) rotate(-41.000000) translate(-14.000000, -85.000000) " x="10" y="70" width="8" height="30"></rect>
-                <rect id="Rectangle-11" transform="translate(14.000000, 85.000000) rotate(47.000000) translate(-14.000000, -85.000000) " x="10" y="70" width="8" height="30"></rect>
-            </g>
+        <g id="Group" fill="#BB2E31">
+            <rect id="Rectangle-11" transform="translate(13.698299, 13.155390) rotate(-47.000000) translate(-13.698299, -13.155390) " x="9.69829896" y="-1.84460979" width="8" height="30"></rect>
+            <rect id="Rectangle-11" transform="translate(13.698299, 13.155390) rotate(47.000000) translate(-13.698299, -13.155390) " x="9.69829896" y="-1.84460979" width="8" height="30"></rect>
+            <rect id="Rectangle-11" transform="translate(13.698299, 45.155390) rotate(-47.000000) translate(-13.698299, -45.155390) " x="9.69829896" y="30.1553902" width="8" height="30"></rect>
+            <rect id="Rectangle-11" transform="translate(13.698299, 45.155390) rotate(47.000000) translate(-13.698299, -45.155390) " x="9.69829896" y="30.1553902" width="8" height="30"></rect>
+            <rect id="Rectangle-11" transform="translate(13.698299, 77.155390) rotate(-47.000000) translate(-13.698299, -77.155390) " x="9.69829896" y="62.1553902" width="8" height="30"></rect>
+            <rect id="Rectangle-11" transform="translate(13.698299, 77.155390) rotate(47.000000) translate(-13.698299, -77.155390) " x="9.69829896" y="62.1553902" width="8" height="30"></rect>
         </g>
     </g>
 </svg>
