@@ -17,7 +17,7 @@
 .form span {
     font-size: 0.8em;
 }
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"], select[name="role"] {
     color: #878789;
     font-weight: normal;
     padding: 1em;
