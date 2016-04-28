@@ -8,6 +8,10 @@ var gps = {
     lon: null
 }
 
+function outputUpdate(vol) {
+	document.querySelector('#distanceValue').value = vol;
+}
+
 Template.settings.onRendered(function() {
     navigator.geolocation.getCurrentPosition(function(position) {
         gps.lat = position.coords.latitude;
@@ -26,6 +30,40 @@ Template.settings.events({
             Meteor.call("newSensor", name, location, gps, sensorId);
         } else {
             console.log('error');
+        }
+    },
+    'input #volume': function(event) {
+        var volumeSelector = document.querySelector('#volume');
+        var volumeValueSelector = document.querySelector('#volumeValue');
+        var volumeValue = event.target.value;
+
+        document.querySelector('#volumeValue').value = volumeValue+' db';
+
+        if (volumeValue <= 70) {
+            volumeSelector.style = "background-color: #2ecc71"
+        }
+        if (volumeValue > 70) {
+            volumeSelector.style = "background-color: #f1c40f"
+        }
+        if (volumeValue > 100) {
+            volumeSelector.style = "background-color: #c0392b"
+        }
+    },
+    'input #distance': function(event) {
+        var distanceSelector = document.querySelector('#distance');
+        var distanceValueSelector = document.querySelector('#distanceValue');
+        var distanceValue = event.target.value;
+
+        distanceValueSelector.value = distanceValue+' cm';
+
+        if (distanceValue <= 1500) {
+            distanceSelector.style = "background-color: #2ecc71"
+        }
+        if (distanceValue > 1500) {
+            distanceSelector.style = "background-color: #f1c40f"
+        }
+        if (distanceValue > 2500) {
+            distanceSelector.style = "background-color: #c0392b"
         }
     }
 });

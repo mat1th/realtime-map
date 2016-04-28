@@ -11,80 +11,103 @@ Hover bottom border: #dc3c3f
 
 /* CHART */
 
-svg {
-    font: 10px sans-serif;
-    /*background: #cdd2d4;*/
-    color: white;
+.chart {
+    background: #cdd2d4;
+    font-size: 12px;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
 }
-#chart svg {
+
+.chart svg {
+    display: block;
+    margin: 0 auto;
     background: #cdd2d4;
 }
-text {
+
+.chart text {
     fill: #000;
+    z-index: 9999;
 }
+
+.overlay-close {
+    display: block;
+    padding: .5em 1em;
+    font-size: 1em;
+    background: #64929D;
+    border: none;
+    outline: 0;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.overlay-close:hover {
+    background: #DC3C3F;
+}
+
+.value {
+    font-size: 1.2em;
+    fill: white !important;
+}
+
+.holder {
+    fill: #64929d;
+    stroke: white;
+    stroke-width: 2px;
+}
+
+.groeps,
+.sound,
+.present {
+    font-size: 1.2em;
+}
+
+.time {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+}
+
 .axis {
     shape-rendering: crispEdges;
 }
-.axis path, .axis line {
+
+.axis path,
+.axis line {
     fill: none;
     stroke-width: .5px;
 }
+
 .x.axis path {
     stroke: #fff;
 }
+
 .x.axis line {
-    /*stroke: red;
-  stroke-opacity: .5;*/
+    stroke: #cdd2d4;
+    stroke-opacity: .5;
 }
+
 .y.axis line {
     /*stroke: red;*/
 }
+
 path.line {
     fill: none;
     stroke: white;
     stroke-width: 1px;
 }
+
 rect.pane {
     cursor: move;
     fill: none;
     pointer-events: all;
 }
 
-/* TABS */
-
-.tabs {
-    margin: 1em;
-}
-.tabs__list {
-    display: flex;
-    list-style: none;
-}
-.tabs__list li {
-    margin-right: .5em;
-}
-.tabs__list li a {
-    display: block;
-    text-decoration: none;
-    padding: .5em;
-    background: #eee;
-    border-radius: 10px;
-    width: 4em;
-    text-align: center;
-    cursor: pointer;
-    color: black;
-}
-.tab__list li a:hover {
-    background: darkgrey;
-    color: white;
-}
-.tabs__list li.active a {
-    background: darkgrey;
-    color: white;
-}
 
 /* Tooltip */
 
-div.tooltip {
+
+/*div.tooltip {
     position: absolute;
     color: #1F1F1F;
     text-align: left;
@@ -94,4 +117,4 @@ div.tooltip {
     font: 1em sans-serif;
     background: #fff;
     pointer-events: none;
-}
+}*/
