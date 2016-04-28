@@ -58,7 +58,7 @@ void loop ()
   //Calculate the distance (in cm) based on the speed of sound.
   distance = duration/58.2;
 
-//  Serial.print(distance);
+  Serial.print(distance);
  
   delay (100);
 
@@ -89,5 +89,10 @@ void loop ()
     client.print(postStr);
     client.println();
     Serial.println("Data send");
+  }
+
+    if (!client.connect(host, httpPort)) {
+    Serial.println("connection failed!!");
+    return;
   }
  }
