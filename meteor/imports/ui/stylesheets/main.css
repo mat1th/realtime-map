@@ -40,7 +40,8 @@ main {
 main .content {
     padding: 0 2em;
 }
-@media (max-width: 30em) {
+
+@media (max-width: 45em) {
     #main {
         flex: 0 1 100%;
     }

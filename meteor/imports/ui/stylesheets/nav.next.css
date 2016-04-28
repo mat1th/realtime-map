@@ -28,7 +28,8 @@
     width: 1.875rem;
     height: 1.875rem;
 }
-@media (max-width: 30em) {
+
+@media (max-width: 45em) {
     #main-nav {
         flex: 0 1 100%;
     }
