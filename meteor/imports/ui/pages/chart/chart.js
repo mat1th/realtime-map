@@ -10,7 +10,7 @@ function drawChart(sensorId, startDate, endDate) {
             bottom: 30,
             left: 20
         },
-        width = 960 - margin.left - margin.right,
+        width = window.innerWidth - 88 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
 
