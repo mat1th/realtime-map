@@ -2,17 +2,27 @@
     <section id="settings" class="content">
         <form action="post">
             <div>
-                <label for="name">Naam</label>
+                <!-- <label for="name">Naam</label> -->
                 <input type="text" name="name" id="name" placeholder="Naam">
             </div>
 
             <div>
-                <label for="location">Locatie</label>
+                <!-- <label for="location">Locatie</label> -->
                 <input type="text" name="location" id="location" placeholder="Locatie">
             </div>
             <div>
-                <label for="sensorid">Sensor ID</label>
+                <!-- <label for="sensorid">Sensor ID</label> -->
                 <input type="text" name="sensorid" id="sensorid" placeholder="Sensor ID">
+            </div>
+            <div class="rangeslider">
+                <label for="volume">Overlast</label>
+                <input type="range" name="volume" id="volume" min="50" value="10" max="130" step="1">
+                <output for="fader" id="volumeValue">0db</output>
+            </div>
+            <div class="rangeslider">
+                <label for="distance">Afstand</label>
+                <input type="range" name="distance" id="distance" min="0" value="50" max="5000" step="1">
+                <output for="fader" id="distanceValue">0cm</output>
             </div>
             <input type="submit" value="Toevoegen">
         </form>

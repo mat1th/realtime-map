@@ -10,7 +10,7 @@ function drawChart(sensorId, startDate, endDate) {
             bottom: 30,
             left: 20
         },
-        width = window.innerWidth - 80 - margin.left - margin.right,
+        width = window.innerWidth - 88 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
     var nl_NL = {
@@ -275,15 +275,44 @@ function drawChart(sensorId, startDate, endDate) {
 }
 
 Template.chart.rendered = function() {
-    drawChart("53180077-cfc9-49b7-b807-ec01cd02b4d4", new Date(2016,3,10), new Date(2016,3,22));
+    drawChart("53180077-cfc9-49b7-b807-ec01cd02b4d4", new Date(2016, 3, 10), new Date(2016, 3, 22));
+}
+
+function toggleMessage(opt_in) {
+
+    if(opt_in === 'open') {
+
+        $('.message').addClass('is-active');
+
+    } else {
+
+        $('.message').removeClass('is-active');
+
+    }
+
 }
 
 Template.chart.events({
     'click .overlay-close': function(event) {
         closeOverlay();
+    },
+    'click .add': function(e) {
+        toggleMessage('open');
+    },
+    'click .message__btn': function(e) {
+        $('.message__container').addClass('is-active');
+
+        setTimeout(function(){
+
+            toggleMessage('close');
+            $('.message__container').removeClass('is-active');
+
+        }, 600);
+    },
+    'click .message__close-btn': function(e) {
+        toggleMessage('close');
     }
 });
-
 
 
 window.onresize = function(event) {
@@ -292,13 +321,3 @@ window.onresize = function(event) {
     }
 
 };
-
-
-// function mouseover() {
-//     console.log('in');
-//
-// }
-//
-// function mouseout() {
-//     console.log('out');
-// }

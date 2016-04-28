@@ -3,8 +3,6 @@
     <div class="form">
 
         <h2 class="form__title">{{title}}</h2>
-        <p class="form__subtitle">Welkom</p>
-
         <form>
 
             {{#if isType title}}
@@ -40,7 +38,10 @@
             <div class="form__block">
                 <label>
                     Functieomschrijving
-                    <input type="text" name="role" required>
+                    <select name="role" required>
+                        <option value="ambtenaar">Ambtenaar</option>
+                        <option value="monteur">Monteur</option>
+                    </select>
                 </label>
             </div>
 
@@ -52,10 +53,8 @@
 
         <div class="form__buttons">
             {{#if isType title}}
-                <a class="form__link" href="/register">Registreer een account</a>
-            {{else}}
-                <a class="form__link" href="/login">Inloggen met bestaand account</a>
-            {{/if}}
+            <a class="form__link" href="/register">Registreer een account</a> {{else}}
+            <a class="form__link" href="/login">Inloggen met bestaand account</a> {{/if}}
         </div>
 
     </div>

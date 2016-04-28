@@ -17,14 +17,23 @@
 .form span {
     font-size: 0.8em;
 }
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"], select[name="role"] {
     color: #878789;
     font-weight: normal;
     padding: 1em;
     width: 100%;
+    font-size: 1rem;
+    margin-bottom: .5em;
+    border-radius: .3em;
+    border: solid 1px #ececec;
+}
+
+.form__title{
+    margin-bottom:1em;
+    margin-top:1em;
 }
 .form__block {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 .form__subtitle {
     margin-bottom: 1em;
@@ -34,4 +43,127 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 .form__link {
     color: grey;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 85%;
+    height: 1.5em;
+    background-color: #35AD4B;
+    outline: 0;
+    border-radius: 2em;
+}
+
+input[type="range"]::-moz-range-track {
+    -webkit-appearance: none;
+    width: 85%;
+    height: 3em;
+    background-color: #2ecc71;
+    outline: 0;
+    border-radius: .3em;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background-color: #fff;
+	width: 3em;
+	height: 3em;
+	border-radius: 10em;
+	cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+	background-color: #fff;
+	border: 1px solid #bdc3c7;
+	width: 5em;
+	height: 5em;
+	border-radius: 10em;
+	cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+
+input[type=range]::-ms-thumb {
+	-webkit-appearance: none;
+	background-color: #fff;
+	border: 1px solid #bdc3c7;
+	width: 5em;
+	height: 5em;
+	border-radius: 10em;
+	cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+#settings form div {
+    position: relative;
+    margin: 2em 0em 2.6em;
+}
+
+
+#settings {
+    margin-top: -1.6em;
+    background: #ebeded;
+    padding-top: 1.6em;
+    padding-bottom: 2em;
+}
+
+#settings form label {
+    display: block;
+}
+
+#settings output {
+    height: 32px;
+    width: 10%;
+    right: 0;
+    top: 2.1em;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    background: #DC3C3F;
+    color: #fff;
+    line-height: 2em;
+    border-radius: .2em;
+}
+
+#settings output:after {
+    position: absolute;
+    top: 8px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid rgba(0, 0, 0, 0);
+    border-right: 10px solid #DC3C3F;
+    border-bottom: 8px solid rgba(0, 0, 0, 0);
+    content: '';
+}
+
+#settings .rangeslider label {
+    margin: 0 0 1em 1em;
+    letter-spacing: 0.5px;
+    color: #666;
+
+}
+
+#settings input[type="submit"] {
+    display: block;
+    width: 13em;
+    margin: 0 auto;
+    border-radius: 6px;
+    font-size: 1.1em;
+    text-align: center;
+    color: white;
+    padding: 10px 50px;
+    text-decoration: none;
+    margin-bottom: 2em;
+    background-color: transparent;
+    border: 0;
+    background-color:#BB2E31;
+    cursor: pointer;
+}
+
+
+#settings input[type="submit"]:hover {
+    background-color: #DC3C3F;
 }

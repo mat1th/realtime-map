@@ -52,9 +52,9 @@ void loop ()
 
   //post to the server if
   if (client.connect(host, httpPort)) {
-    String postStr = "sensor1=";
+    String postStr = "sensor=";
     postStr += String(sensorValue);
-    postStr += "&sensor1id=";
+    postStr += "&sensorId=";
     postStr += "a43153cf-93f3-4c82-947d-b9d993edab36";
 
     
@@ -71,7 +71,3 @@ void loop ()
     Serial.println("Data send");
   }
  }
-  
-  
-
-

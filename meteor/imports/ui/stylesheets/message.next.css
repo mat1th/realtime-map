@@ -1,0 +1,75 @@
+.message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: opacity .2s ease-in;
+    visibility: hidden;
+    opacity: 0;
+}
+
+    .message.is-active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .message__container {
+        overflow: hidden;
+        border-radius: 4px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 20em;
+        color: #4A4A4A;
+        background-color: white;
+        transition: transform .2s ease-out;
+        transform-origin: 50% 50%;
+    }
+
+    .message__container.is-active {
+        transform: translate(-50%, -300%);
+    }
+
+    .message .message__close-btn {
+        position: absolute;
+        right: 0;
+    }
+
+    .message__close-btn {
+        display: block;
+        padding: .5em 1em;
+        font-size: 1em;
+        background: #64929D;
+        border: none;
+        outline: 0;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .message__content {
+        padding: 2em;
+    }
+
+    .message__btn {
+        color: white;
+        background-color: #DC3C3F;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        padding: 1em;
+        font-size: 1em;
+        border: none;
+    }
+
+    .message__btn:hover {
+        background-color: #BB2E31;
+    }
+
+    .message__content p {
+        padding: 0.5em;
+    }

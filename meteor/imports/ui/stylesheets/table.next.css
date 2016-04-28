@@ -11,8 +11,16 @@ td {
 }
 
 .table {
-    margin-top: 2em;
     width: 100%;
+}
+
+.table__title {
+    margin: 1em 0;
+    color: #216474;
+}
+
+.table tr {
+    color: #216474;
 }
 
 tr {
@@ -30,16 +38,24 @@ tr:nth-child(even) {
     border: none !important;
 }
 
-.color {
-  background-color:#DC3C3F;
+.is-active {
+    color: white;
+    background-color:#DC3C3F;
 }
 
-.middle {
+.center {
   text-align:center;
 }
 
 .add {
     display: block;
+    background: url("../../../img/cross.svg") no-repeat center center;
+    background-size: 45%;
+    background-color: #D8D8D8;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    border: 1px solid #979797;
 }
 
 .add:hover {

@@ -12,7 +12,7 @@ Hover bottom border: #dc3c3f
 /* CHART */
 
 .chart {
-    background: #cdd2d4;
+    background: #ebeded;
     font-size: 12px;
     width: 100%;
     font-family: 'Open Sans', sans-serif;
@@ -21,7 +21,7 @@ Hover bottom border: #dc3c3f
 .chart svg {
     display: block;
     margin: 0 auto;
-    background: #cdd2d4;
+    background: #ebeded;
 }
 
 .chart text {
@@ -83,7 +83,7 @@ Hover bottom border: #dc3c3f
 }
 
 .x.axis line {
-    stroke: #cdd2d4;
+    stroke: #ebeded;
     stroke-opacity: .5;
 }
 
