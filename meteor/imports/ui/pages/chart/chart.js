@@ -3,7 +3,7 @@ import {
     closeOverlay
 } from '../../actions/overlay.js';
 
-Template.chart.rendered = function() {
+function drawChart(sensorId, startDate, endDate) {
     var margin = {
             top: 20,
             right: 60,
@@ -73,10 +73,6 @@ Template.chart.rendered = function() {
         .attr("x2", "0%")
         .attr("y2", "100%");
 
-    var focus = svg.append("g")
-        .attr("id", "focus")
-        .style("display", "none");
-
     gradient.append("stop")
         .attr("offset", "0%")
         .attr("stop-color", "#64929d");
@@ -120,7 +116,7 @@ Template.chart.rendered = function() {
     //     .call(zoom);
 
     var data = SensorData.find({
-        sensorId: "53180077-cfc9-49b7-b807-ec01cd02b4d4"
+        sensorId: sensorId
     }).fetch({})
 
     data.forEach(function(d) {
@@ -128,7 +124,7 @@ Template.chart.rendered = function() {
         d.value = +d.sensorvalue;
     });
 
-    x.domain([new Date(2016, 3, 8), new Date(2016, 3, 23)]);
+    x.domain([startDate, endDate]);
     y.domain([0, d3.max(data, function(d) {
         return d.sensorvalue;
     })]);
@@ -146,27 +142,54 @@ Template.chart.rendered = function() {
         svg.select("path.line").attr("d", line);
     }
 
+    var focus = svg.append("g")
+        .attr("id", "focus")
+        .style("display", "none");
 
     // place the value at the intersection
-    focus.append("text")
+    var newFocus = svg.append("g")
+        .attr("id", "newFocus")
+        .style("display", "none");
+
+    newFocus.append("circle")
+        .attr("class", "holder")
+        .attr("r", 20)
+        .attr("cx", 0)
+        .attr("cy", -8)
+        .attr("dy", "-1.3em");
+
+    newFocus.append("text")
         .attr("class", "value")
-        .attr("dx", 8)
-        .attr("dy", "-.3em");
+        .attr("text-anchor", "middle")
+        .attr("dy", "-.2em");
+
+    newFocus.append("line")
+        .attr("class", "x")
+        .style("stroke", "white")
+        .style("stroke-width", "2px")
+        .style("stroke-dasharray", "3,3")
+        .style("opacity", 0.8)
+        .attr("y1", 0)
+        .attr("y2", height);
+
+    var g = d3.select("#newFocus");
+    var currentx = d3.transform(g.attr("transform")).translate[0];
+    g.attr("transform", "translate(" + (currentx - 30) + ",0)");
 
     focus.append("text")
         .attr("class", "groeps")
         .attr("dx", 8)
-        .attr("dy", "0em");
+        .attr("dy", "-1.5em");
 
     focus.append("text")
         .attr("class", "sound")
         .attr("dx", 8)
-        .attr("dy", "0.3em");
+        .attr("dy", "0em");
 
     focus.append("text")
         .attr("class", "present")
         .attr("dx", 8)
-        .attr("dy", "1em");
+        .attr("dy", "1.5em");
 
     svg.append("rect")
         .attr("width", width)
@@ -175,9 +198,13 @@ Template.chart.rendered = function() {
         .style("pointer-events", "all")
         .on("mouseover", function() {
             focus.style("display", null);
+            newFocus.style("display", null);
+            d3.select(".time").style("display", null);
         })
         .on("mouseout", function() {
             focus.style("display", "none");
+            newFocus.style("display", "none");
+            d3.select(".time").style("display", "none");
         })
         .on("mousemove", mousemove);
 
@@ -189,11 +216,22 @@ Template.chart.rendered = function() {
             d1 = data[i],
             d = x0 - d0.date > d1.date - x0 ? d1 : d0;
 
-        focus.select("text.value")
+        newFocus.select("circle.holder")
+            .attr("transform",
+                "translate(" + x(d.date) + "," +
+                y(d.value + 5) + ")");
+
+        newFocus.select("text.value")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
                 y(d.value + 5) + ")")
             .text(d.value);
+
+        newFocus.select("line.x")
+            .attr("transform",
+                "translate(" + x(d.date) + "," +
+                y(d.value) + ")")
+            .attr("y2", height - y(d.value));
 
         focus.select("text.groeps")
             .attr("transform",
@@ -213,16 +251,15 @@ Template.chart.rendered = function() {
                 y(d.value + 5) + ")")
             .text("Aanwezig: 10%");
 
-
         timeDiv.attr("transform",
                 "translate(" + x(d.date) + "," +
                 y(d.value) + ")")
             .text("Tijd: " + formatToTime(d.date));
-
-
-
-
     }
+}
+
+Template.chart.rendered = function() {
+    drawChart("53180077-cfc9-49b7-b807-ec01cd02b4d4", new Date(2016,3,10), new Date(2016,3,22));
 }
 
 Template.chart.events({

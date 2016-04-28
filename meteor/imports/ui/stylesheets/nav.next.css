@@ -3,7 +3,6 @@
     background: var(--redCollor);
     color: #fff;
     align-content: center;
-    box-sizing: border-box;
 }
 #main-nav ul {
     display: flex;
@@ -11,12 +10,23 @@
     align-items: center;
     list-style: none;
 }
-#main-nav ul li a {
-    padding: 2em 1em;
-    display: block;
+#main-nav ul li {
+    width: 100%;
+    text-align: center;
 }
-main nav ul {
-    list-style: none;
+#main-nav ul li a {
+    padding: 2em 0;
+    display: block;
+    border-bottom: 1px solid #DC3C3F;
+    width: 100%;
+}
+
+#main-nav ul li a:hover, #main-nav ul li a.active {
+    background-color: #DC3C3F;
+}
+#main-nav ul li svg {
+    width: 1.875rem;
+    height: 1.875rem;
 }
 @media (max-width: 30em) {
     #main-nav {
@@ -32,5 +42,11 @@ main nav ul {
     #main-nav ul li {
       width: 5em;
 
+    }
+    #main-nav ul li{
+        width: auto;
+    }
+    #main-nav ul li a {
+        border-bottom: 0;
     }
 }
