@@ -8,7 +8,7 @@ var sensorsValue = {
     value2: undefined,
     sensorId: undefined
 }
-
+var testAmout = 0;
 export const database = (function() {
     function set(postData) {
         var now = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -41,10 +41,17 @@ export const database = (function() {
             },
             limit: 1
         }).fetch({});
+        if (testAmout > 3) {
+            testAmout = 0;
+            ledStatus = undefined;
+        } else {
+            testAmout++;
+        }
+        console.log(ledStatus);
 
         var status = {
             date: data[0].date,
-            led: liveStatus(data[0].sensorId).incidences,
+            led: ledStatus || liveStatus(data[0].sensorId).incidences,
             sensorId: data[0].sensorId,
             value1: data[0].sensorvalue.value1,
             value2: data[0].sensorvalue.valeu2,

@@ -50,9 +50,13 @@ Meteor.methods({
             probleem: probleem,
             user: 'user'
         });
-        console.log(Incidents.find({}).fetch({}));
     },
     insidents: function(id) {
-        return Incidents.find({sensorId: id}).count();
+        return Incidents.find({
+            sensorId: id
+        }).count();
+    },
+    test: function(led) {
+        ledStatus = led;
     }
 });
