@@ -101,16 +101,20 @@ function checkCycle(marker) {
 }
 
 function checksensorPoints(marker) {
+    findmarkers(marker)
     SensorData.find().observe({
         changed: function() {
-            var ids = Sensors.find({}).fetch({});
-
-            ids.forEach(function(sensor, index) {
-                var status = liveStatus(sensor.sensorId);
-                changecollor(markers, sensor.sensorId, status);
-            })
+            findmarkers(marker)
         }
     });
+}
+
+function findmarkers(marker) {
+    var ids = Sensors.find({}).fetch({});
+    ids.forEach(function(sensor, index) {
+        var status = liveStatus(sensor.sensorId);
+        changecollor(markers, sensor.sensorId, status);
+    })
 }
 
 function changecollor(markers, id, status) {
