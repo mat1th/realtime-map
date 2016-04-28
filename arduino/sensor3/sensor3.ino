@@ -64,7 +64,7 @@ void loop ()
 
   //post to the server if
   if (client.connect(host, httpPort)) {
-    String postStr = "sensor3=";
+    String postStr = "sensor=";
 
     if (distance < maximumRange){
       postStr += "true";
@@ -73,7 +73,7 @@ void loop ()
         postStr += "false";
         }
 
-    postStr += "&sensor3id=";
+    postStr += "&sensorId=";
     postStr += "3e7a9a1b-b0fb-4539-9fa4-a60c23b694a6";
       
     
@@ -91,7 +91,3 @@ void loop ()
     Serial.println("Data send");
   }
  }
-  
-  
-
-
