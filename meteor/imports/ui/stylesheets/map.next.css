@@ -7,6 +7,9 @@
     border-radius: 50% 50%;
 }
 .cycle-icon {
-    background: var(--bleuCollor);
+    /*background: var(--bleuCollor);*/
+
+    width: 10px;
+    height: 10px;
     border-radius: 50% 50%;
 }
