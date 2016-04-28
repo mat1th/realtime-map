@@ -106,8 +106,9 @@ input[type=range]::-ms-thumb {
     margin-top: -1.6em;
     background: #ebeded;
     padding-top: 1.6em;
-    padding-bottom: 2em;
+    padding-bottom: 5em;
     overflow-y: scroll;
+    height: 100vh;
 }
 
 #settings form label {

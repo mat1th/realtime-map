@@ -17,7 +17,7 @@ function drawChart(sensorId, startDate, endDate) {
         "dateTime": "%A, %e %B %Y г. %X",
         "date": "%d.%m.%Y",
         "time": "%H:%M:%S",
-        "periods": ["AM", "PM"],       
+        "periods": ["AM", "PM"],
         "dateTime": "%A, %e %B %Y г. %X",
         "date": "%d.%m.%Y",
         "time": "%H:%M:%S",
@@ -26,7 +26,7 @@ function drawChart(sensorId, startDate, endDate) {
         "months": ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
         "shortMonths": ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"]
     };
-    
+
     var NL = d3.locale(nl_NL);
 
     var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S").parse,
@@ -137,12 +137,12 @@ function drawChart(sensorId, startDate, endDate) {
 
     data.forEach(function(d) {
         d.date = parseDate(d.date);
-        d.value = +d.sensorvalue;
+        d.value = +d.sensorvalue.value1;
     });
 
     x.domain([startDate, endDate]);
     y.domain([0, d3.max(data, function(d) {
-        return d.sensorvalue;
+        return d.sensorvalue.value1;
     })]);
     zoom.x(x);
 
