@@ -28,6 +28,7 @@ Template.settings.events({
         console.log(sensorId);
         if (name && location && sensorid) {
             Meteor.call("newSensor", name, location, gps, sensorId);
+            Router.go('/');
         } else {
             console.log('error');
         }
