@@ -23,3 +23,10 @@ Meteor.publish("cycles", function publishFunction() {
         this.ready();
     }
 });
+Meteor.publish("incidents", function publishFunction() {
+    if (this.userId) {
+        return Incidents.find({});
+    } else {
+        this.ready();
+    }
+});

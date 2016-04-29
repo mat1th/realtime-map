@@ -15,6 +15,7 @@ import '../../ui/pages/api/api.js';
 import '../../ui/pages/chart/chart.js';
 import '../../ui/pages/map/map.js';
 import '../../ui/pages/settings/settings.js';
+import '../../ui/pages/incidents/incidents.js';
 import '../../ui/pages/addincident/add-incident.js';
 import '../../ui/pages/bedankt/bedankt.js';
 import '../../ui/pages/test/test.js';
@@ -67,7 +68,7 @@ Router.route('/settings', function() {
     });
 });
 
-Router.route('/incident', {
+Router.route('/reportincident', {
     waitOn: function() {
         return Meteor.subscribe('sensors');
     },
@@ -77,6 +78,19 @@ Router.route('/incident', {
         // userLoggedIn(function() {
         _this.layout('alternative');
         _this.render('addincident');
+        // });
+    }
+});
+Router.route('/incidents', {
+    waitOn: function() {
+        return Meteor.subscribe('incidents');
+    },
+    action: function() {
+        var _this = this;
+        //
+        // userLoggedIn(function() {
+        _this.layout('applicationLayout');
+        _this.render('incidents');
         // });
     }
 });

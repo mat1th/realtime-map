@@ -1,0 +1,12 @@
+<template name="incidents">
+    <h1>Incidents</h1>
+    <section>
+        {{#each data}}
+        <section>
+            <h2>{{plein}}</h2>
+            <small>{{buurt}}</small>
+          <p>{{probleem}}</p>
+        </section>
+        {{/each}}
+    </section>
+</template>
