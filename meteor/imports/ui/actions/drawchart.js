@@ -249,23 +249,17 @@ export var drawChart = function(sensorId, startDate, endDate) {
                 y(d.sensorvalue.value1) + ")")
             .attr("y2", height - y(d.sensorvalue.value1));
 
-        focus.select("text.groeps")
-            .attr("transform",
-                "translate(" + x(d.date) + "," +
-                y(d.sensorvalue.value1 + 5) + ")")
-            .text("Groepen: 97%");
-
         focus.select("text.sound")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
                 y(d.sensorvalue.value1 + 5) + ")")
-            .text("Geluidsoverlast: 97%");
+            .text("Geluidsoverlast: 30%");
 
         focus.select("text.present")
             .attr("transform",
                 "translate(" + x(d.date) + "," +
                 y(d.sensorvalue.value1 + 5) + ")")
-            .text("Aanwezig: 10%");
+            .text("Aanwezig: ja");
 
         timeDiv.attr("transform",
                 "translate(" + x(d.date) + "," +

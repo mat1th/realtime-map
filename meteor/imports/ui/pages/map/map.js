@@ -59,7 +59,7 @@ Template.map.onRendered(function() {
 
     var cycleMarker = L.marker([52.36632373281241, 4.912347793579102], {
         icon: cycleIcon
-    }).bindPopup('Wijk Coatch Matthias. <br><br><button class="send-msg">Stuur bericht </button>').addTo(map);
+    }).bindPopup('Wijkcoach Matthias. <br><br><button class="send-msg">Stuur bericht </button>').addTo(map);
 
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
         attribution: 'Project 3',
@@ -85,11 +85,11 @@ function onClick(e) {
 
     createTable(id);
 
-    drawChart(id, new Date("2016-04-29 14:00:56"), new Date());
+    drawChart(id, new Date("2016-04-29 14:50:56"), new Date());
 
     SensorData.find({}).observe({
         changed: function() {
-            drawChart(id, new Date("2016-04-29 14:00:56"), new Date());
+            drawChart(id, new Date("2016-04-29 14:50:56"), new Date());
         }
     });
 

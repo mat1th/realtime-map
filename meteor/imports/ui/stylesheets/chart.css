@@ -22,6 +22,7 @@ Hover bottom border: #dc3c3f
     background: #ebeded;
     display: block;
     margin: 0 auto;
+    padding-top: 2em;
 }
 
 .chart text {
