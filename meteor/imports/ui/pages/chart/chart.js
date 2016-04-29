@@ -431,7 +431,6 @@ Template.chart.helpers({
             var incidents = Meteor.call('insidents', neighbourhood.id, function(error, result) {
                 amout.set(result);
             });
-            console.log(amout.get());
             return amout.get();
         }
     }

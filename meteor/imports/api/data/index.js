@@ -1,11 +1,14 @@
 'use strict';
+import {
+    liveStatus
+} from '../../ui/actions/live-status.js';
 
 var sensorsValue = {
     value1: undefined,
     value2: undefined,
     sensorId: undefined
 }
-
+var testAmout = 0;
 export const database = (function() {
     function set(postData) {
         var now = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -38,10 +41,17 @@ export const database = (function() {
             },
             limit: 1
         }).fetch({});
+        if (testAmout > 3) {
+            testAmout = 0;
+            ledStatus = undefined;
+        } else {
+            testAmout++;
+        }
+        console.log(ledStatus);
 
         var status = {
             date: data[0].date,
-            led: true,
+            led: ledStatus || liveStatus(data[0].sensorId).incidences,
             sensorId: data[0].sensorId,
             value1: data[0].sensorvalue.value1,
             value2: data[0].sensorvalue.valeu2,
@@ -49,13 +59,25 @@ export const database = (function() {
         return JSON.stringify(status);
     }
 
-    function get(limit) {
+    function get(limit, id) {
+      if (!id) {
         return JSON.stringify(SensorData.find({}, {
             limit: limit,
             sort: {
                 date: -1
             }
         }).fetch({}));
+      }else {
+        return JSON.stringify(SensorData.find({
+          sensorId: id
+        }, {
+            limit: limit,
+            sort: {
+                date: -1
+            }
+        }).fetch({}));
+      }
+
     }
 
     return {

@@ -17,6 +17,7 @@ import '../../ui/pages/map/map.js';
 import '../../ui/pages/settings/settings.js';
 import '../../ui/pages/addincident/add-incident.js';
 import '../../ui/pages/bedankt/bedankt.js';
+import '../../ui/pages/test/test.js';
 
 function userLoggedIn(callback) {
 
@@ -76,6 +77,16 @@ Router.route('/incident', {
         // userLoggedIn(function() {
         _this.layout('alternative');
         _this.render('addincident');
+        // });
+    }
+});
+Router.route('/test', {
+    action: function() {
+        var _this = this;
+        //
+        // userLoggedIn(function() {
+        _this.layout('applicationLayout');
+        _this.render('test');
         // });
     }
 });

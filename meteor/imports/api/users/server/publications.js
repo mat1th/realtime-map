@@ -5,7 +5,7 @@ Meteor.publish('getUsers', function() {
 });
 
 Meteor.users.allow({
-  update (userId, user) {
-    return true;
-  }
+    update(userId, user) {
+        return true;
+    }
 });

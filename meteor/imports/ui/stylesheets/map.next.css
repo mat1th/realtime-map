@@ -13,3 +13,23 @@
     height: 10px;
     border-radius: 50% 50%;
 }
+
+#map button{
+  display: block;
+  width: 13em;
+  margin: 0 auto;
+  border-radius: 6px;
+  font-size: 1.1em;
+  text-align: center;
+  color: white;
+  padding: 10px 10px;
+  text-decoration: none;
+  margin-bottom: 0.5em;
+  border: 0;
+  background-color:#BB2E31;
+  cursor: pointer;
+}
+
+#map button:hover{
+    background-color: #DC3C3F;
+}

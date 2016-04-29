@@ -36,7 +36,7 @@ Template.map.onRendered(function() {
 
     var cycleMarker = L.marker([52.36632373281241, 4.912347793579102], {
         icon: cycleIcon
-    }).addTo(map);
+    }).bindPopup('Wijk Coatch Matthias. <br><br><button>Stuur bericht </button>').addTo(map);
 
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
         attribution: 'Project 3',
@@ -101,16 +101,20 @@ function checkCycle(marker) {
 }
 
 function checksensorPoints(marker) {
+    findmarkers(marker)
     SensorData.find().observe({
         changed: function() {
-            var ids = Sensors.find({}).fetch({});
-
-            ids.forEach(function(sensor, index) {
-                var status = liveStatus(sensor.sensorId);
-                changecollor(markers, sensor.sensorId, status);
-            })
+            findmarkers(marker)
         }
     });
+}
+
+function findmarkers(marker) {
+    var ids = Sensors.find({}).fetch({});
+    ids.forEach(function(sensor, index) {
+        var status = liveStatus(sensor.sensorId);
+        changecollor(markers, sensor.sensorId, status);
+    })
 }
 
 function changecollor(markers, id, status) {

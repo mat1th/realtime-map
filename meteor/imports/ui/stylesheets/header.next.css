@@ -6,8 +6,16 @@
     justify-content: space-between;
 }
 
+.header.alt {
+    justify-content: flex-start;
+}
+
+    .header__title{
+        text-align: center;
+    }
+
     .header__logo {
-        margin-left: 2.3125rem;
+        margin: 0 2.3125rem;
     }
 
     .header__logo img {
