@@ -7,6 +7,10 @@ import {
     closeOverlay
 } from '../../actions/overlay.js';
 
+import {
+    drawChart
+} from '../../actions/drawchart.js';
+
 Meteor.subscribe('cycles');
 
 var markers = new Array();
@@ -61,6 +65,14 @@ function onClick(e) {
     var width = window.innerWidth;
 
     createTable(id);
+
+    drawChart(id, new Date("2016-04-29 14:00:56"), new Date());
+
+    SensorData.find({}).observe({
+        changed: function() {
+            drawChart(id, new Date("2016-04-29 14:00:56"), new Date());
+        }
+    });
 
     //give id to chart function
     if (zoomState === false) {
