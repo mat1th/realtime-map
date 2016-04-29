@@ -19,6 +19,7 @@ import '../../ui/pages/incidents/incidents.js';
 import '../../ui/pages/addincident/add-incident.js';
 import '../../ui/pages/bedankt/bedankt.js';
 import '../../ui/pages/test/test.js';
+import '../../ui/components/loading.html';
 
 function userLoggedIn(callback) {
 
@@ -41,6 +42,7 @@ Router.route('/register', function() {
 
 // Define home router
 Router.route('/', {
+    loadingTemplate: 'loading',
     waitOn: function() {
         return [Meteor.subscribe('sensorData'), Meteor.subscribe('sensors')];
     },

@@ -13,15 +13,15 @@ Hover bottom border: #dc3c3f
 
 .chart {
     background: #ebeded;
+    font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     width: 100%;
-    font-family: 'Open Sans', sans-serif;
 }
 
 .chart svg {
+    background: #ebeded;
     display: block;
     margin: 0 auto;
-    background: #ebeded;
 }
 
 .chart text {
@@ -30,16 +30,16 @@ Hover bottom border: #dc3c3f
 }
 
 .overlay-close {
-    display: block;
-    position: absolute;
-    padding: .7em 1em;
-    font-size: 1em;
     background: #64929D;
     border: none;
-    outline: 0;
     color: white;
-    text-align: center;
     cursor: pointer;
+    display: block;
+    font-size: 1em;
+    outline: 0;
+    padding: .7em 1em;
+    position: absolute;
+    text-align: center;
 }
 
 .overlay-close:hover {
@@ -47,8 +47,8 @@ Hover bottom border: #dc3c3f
 }
 
 .value {
-    font-size: 1.2em;
     fill: white !important;
+    font-size: 1.2em;
 }
 
 .holder {
@@ -64,8 +64,8 @@ Hover bottom border: #dc3c3f
 }
 
 .time {
-    position: absolute;
     left: 2em;
+    position: absolute;
     top: 3em;
 }
 
@@ -90,7 +90,6 @@ Hover bottom border: #dc3c3f
 }
 
 .y.axis line {
-    /*stroke: red;*/
 }
 
 path.line {

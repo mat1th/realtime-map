@@ -15,6 +15,25 @@ Meteor.subscribe('cycles');
 
 var markers = new Array();
 
+function toggleMessage(opt_in) {
+
+    if (opt_in === 'open') {
+
+        $('.message').addClass('is-active');
+
+    } else {
+
+        $('.message').removeClass('is-active');
+
+    }
+}
+
+Template.map.events({
+    'click .send-msg': function(e) {
+        toggleMessage('open');
+    }
+});
+
 Template.map.onRendered(function() {
     var sensorIcon = L.divIcon({
         className: 'sensor-icon'
@@ -40,7 +59,7 @@ Template.map.onRendered(function() {
 
     var cycleMarker = L.marker([52.36632373281241, 4.912347793579102], {
         icon: cycleIcon
-    }).bindPopup('Wijk Coatch Matthias. <br><br><button>Stuur bericht </button>').addTo(map);
+    }).bindPopup('Wijk Coatch Matthias. <br><br><button class="send-msg">Stuur bericht </button>').addTo(map);
 
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
         attribution: 'Project 3',

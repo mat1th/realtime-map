@@ -5,19 +5,19 @@ tfoot,
 tr,
 th,
 td {
-    padding:0.5em;
     -webkit-border-horizontal-spacing: 0;
     -webkit-border-vertical-spacing: 0;
+    padding:0.5em;
 }
 
 .table {
-    width: 100%;
     padding: 1em;
+    width: 100%;
 }
 
 .table__title {
-    margin: 1.5em 1em 0;
     color: #216474;
+    margin: 1.5em 1em 0;
 }
 
 .table tr {
@@ -40,22 +40,22 @@ tr:nth-child(even) {
 }
 
 td.is-active {
-    color: white;
     background-color:#DC3C3F;
+    color: white;
 }
 .center {
   text-align:center;
 }
 
 .add {
-    display: block;
     background: url("../../../img/cross.svg") no-repeat center center;
-    background-size: 45%;
     background-color: #D8D8D8;
-    width: 2.5em;
-    height: 2.5em;
-    border-radius: 50%;
+    background-size: 45%;
     border: 1px solid #979797;
+    border-radius: 50%;
+    display: block;
+    height: 2.5em;
+    width: 2.5em;
 }
 
 .add:hover {

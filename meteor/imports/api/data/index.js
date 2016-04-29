@@ -35,48 +35,53 @@ export const database = (function() {
     }
 
     function getStatus() {
+        var leds;
         var data = SensorData.find({}, {
             sort: {
                 date: -1
             },
             limit: 1
-        }).fetch({});
-        if (testAmout > 3) {
+        }).fetch({})[0];
+        if (testAmout > 5) {
             testAmout = 0;
             ledStatus = undefined;
         } else {
             testAmout++;
         }
-        console.log(ledStatus);
+        if (ledStatus != undefined) {
+            var leds = ledStatus;
+        } else {
+            var leds = liveStatus(data.sensorId).incidences;
+        }
 
         var status = {
-            date: data[0].date,
-            led: ledStatus || liveStatus(data[0].sensorId).incidences,
-            sensorId: data[0].sensorId,
-            value1: data[0].sensorvalue.value1,
-            value2: data[0].sensorvalue.valeu2,
+            date: data.date,
+            led: leds,
+            sensorId: data.sensorId,
+            value1: data.sensorvalue.value1,
+            value2: data.sensorvalue.valeu2,
         }
         return JSON.stringify(status);
     }
 
     function get(limit, id) {
-      if (!id) {
-        return JSON.stringify(SensorData.find({}, {
-            limit: limit,
-            sort: {
-                date: -1
-            }
-        }).fetch({}));
-      }else {
-        return JSON.stringify(SensorData.find({
-          sensorId: id
-        }, {
-            limit: limit,
-            sort: {
-                date: -1
-            }
-        }).fetch({}));
-      }
+        if (!id) {
+            return JSON.stringify(SensorData.find({}, {
+                limit: limit,
+                sort: {
+                    date: -1
+                }
+            }).fetch({}));
+        } else {
+            return JSON.stringify(SensorData.find({
+                sensorId: id
+            }, {
+                limit: limit,
+                sort: {
+                    date: -1
+                }
+            }).fetch({}));
+        }
 
     }
 

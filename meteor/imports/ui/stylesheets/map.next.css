@@ -7,27 +7,26 @@
     border-radius: 50% 50%;
 }
 .cycle-icon {
-    /*background: var(--bleuCollor);*/
+    border-radius: 50% 50%;
+    height: 10px;
 
     width: 10px;
-    height: 10px;
-    border-radius: 50% 50%;
 }
 
 #map button{
-  display: block;
-  width: 13em;
-  margin: 0 auto;
-  border-radius: 6px;
-  font-size: 1.1em;
-  text-align: center;
-  color: white;
-  padding: 10px 10px;
-  text-decoration: none;
-  margin-bottom: 0.5em;
-  border: 0;
   background-color:#BB2E31;
+  border: 0;
+  border-radius: 6px;
+  color: white;
   cursor: pointer;
+  display: block;
+  font-size: 1.1em;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  width: 13em;
 }
 
 #map button:hover{
