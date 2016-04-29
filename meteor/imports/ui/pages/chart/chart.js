@@ -75,7 +75,6 @@ Template.chart.helpers({
     },
     insidents: function() {
         var neighbourhood = statusObj.get();
-
         if (neighbourhood != 0) {
             var incidents = Meteor.call('insidents', neighbourhood.id, function(error, result) {
                 amout.set(result);

@@ -44,7 +44,7 @@ Router.route('/register', function() {
 Router.route('/', {
     loadingTemplate: 'loading',
     waitOn: function() {
-        return [Meteor.subscribe('sensorData'), Meteor.subscribe('sensors')];
+        return [Meteor.subscribe('sensorData'), Meteor.subscribe('sensors'), Meteor.subscribe('incidents')];
     },
     action: function() {
         var _this = this;
