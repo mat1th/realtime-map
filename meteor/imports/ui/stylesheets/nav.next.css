@@ -1,23 +1,23 @@
 #main-nav {
-    flex: 0 1 var(--sideBarWidht);
+    align-content: center;
     background: var(--redCollor);
     color: #fff;
-    align-content: center;
+    flex: 0 1 var(--sideBarWidht);
 }
 #main-nav ul {
+    align-items: center;
     display: flex;
     flex-flow: column wrap;
-    align-items: center;
     list-style: none;
 }
 #main-nav ul li {
-    width: 100%;
     text-align: center;
+    width: 100%;
 }
 #main-nav ul li a {
-    padding: 2em 0;
-    display: block;
     border-bottom: 1px solid #DC3C3F;
+    display: block;
+    padding: 2em 0;
     width: 100%;
 }
 
@@ -25,8 +25,8 @@
     background-color: #DC3C3F;
 }
 #main-nav ul li svg {
-    width: 1.875rem;
     height: 1.875rem;
+    width: 1.875rem;
 }
 
 @media (max-width: 45em) {
@@ -34,11 +34,11 @@
         flex: 0 1 100%;
     }
     #main-nav ul {
+        align-content: flex-start;
+        align-items: flex-start;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
-        align-content: flex-start;
-        align-items: flex-start;
     }
     #main-nav ul li {
       width: 5em;

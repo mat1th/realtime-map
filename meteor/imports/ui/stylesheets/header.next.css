@@ -1,9 +1,9 @@
 .header {
-    width: 100%;
-    height: var(--menuHeight);
-    display: flex;
     align-items: center;
+    display: flex;
+    height: var(--menuHeight);
     justify-content: space-between;
+    width: 100%;
 }
 
 .header.alt {
@@ -19,9 +19,9 @@
     }
 
     .header__logo img {
+        display: block;
         height: 4rem;
         margin: 0 auto;
-        display: block;
     }
 
     .header__options,

@@ -1,144 +1,144 @@
 #cssload-pgloading {}
 
-#cssload-pgloading:after {
-		content: "";
+#cssload-pgloading:after { bottom: 0;
+		content: ""; left: 0;
+		position: absolute; right: 0;
+		top: 0;
 		z-index: -1;
-		position: absolute;
-		top: 0; right: 0; bottom: 0; left: 0;
 }
-#cssload-pgloading .cssload-loadingwrap {position:absolute;top:45%;bottom:45%;left:25%;right:25%;}
+#cssload-pgloading .cssload-loadingwrap {bottom:45%;left:25%;position:absolute;right:25%;top:45%;}
 #cssload-pgloading .cssload-bokeh {
-		font-size: 97px;
-		width: 1em;
-		height: 1em;
-		position: relative;
-		margin: 0 auto;
-		list-style: none;
-		padding:0;
-		border-radius: 50%;
-		-o-border-radius: 50%;
-		-ms-border-radius: 50%;
-		-webkit-border-radius: 50%;
 		-moz-border-radius: 50%;
+		-ms-border-radius: 50%;
+		-o-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		border-radius: 50%;
+		font-size: 97px;
+		height: 1em;
+		list-style: none;
+		margin: 0 auto;
+		padding:0;
+		position: relative;
+		width: 1em;
 }
 
 #cssload-pgloading .cssload-bokeh li {
+		-moz-border-radius: 50%;
+		-ms-border-radius: 50%;
+		-o-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		border-radius: 50%;
+		height: .2em;
 		position: absolute;
 		width: .2em;
-		height: .2em;
-		border-radius: 50%;
-		-o-border-radius: 50%;
-		-ms-border-radius: 50%;
-		-webkit-border-radius: 50%;
-		-moz-border-radius: 50%;
 }
 
 #cssload-pgloading .cssload-bokeh li:nth-child(1) {
-		left: 50%;
-		top: 0;
-		margin: 0 0 0 -.1em;
-		background: rgb(220,60,63);
-		transform-origin: 50% 250%;
-		-o-transform-origin: 50% 250%;
-		-ms-transform-origin: 50% 250%;
-		-webkit-transform-origin: 50% 250%;
+		-moz-animation:
+				cssload-rota 1.0165s linear infinite,
+				cssload-opa 3.3035s ease-in-out infinite alternate;
 		-moz-transform-origin: 50% 250%;
-		animation: 
+		-ms-animation:
 				cssload-rota 1.0165s linear infinite,
 				cssload-opa 3.3035s ease-in-out infinite alternate;
-		-o-animation: 
+		-ms-transform-origin: 50% 250%;
+		-o-animation:
 				cssload-rota 1.0165s linear infinite,
 				cssload-opa 3.3035s ease-in-out infinite alternate;
-		-ms-animation: 
+		-o-transform-origin: 50% 250%;
+		-webkit-animation:
 				cssload-rota 1.0165s linear infinite,
 				cssload-opa 3.3035s ease-in-out infinite alternate;
-		-webkit-animation: 
+		-webkit-transform-origin: 50% 250%;
+		animation:
 				cssload-rota 1.0165s linear infinite,
 				cssload-opa 3.3035s ease-in-out infinite alternate;
-		-moz-animation: 
-				cssload-rota 1.0165s linear infinite,
-				cssload-opa 3.3035s ease-in-out infinite alternate;
+		background: rgb(220,60,63);
+		left: 50%;
+		margin: 0 0 0 -.1em;
+		top: 0;
+		transform-origin: 50% 250%;
 }
 
 #cssload-pgloading .cssload-bokeh li:nth-child(2) {
-		top: 50%; 
-		right: 0;
-		margin: -.1em 0 0 0;
-		background: rgb(220,60,63);
-		transform-origin: -150% 50%;
-		-o-transform-origin: -150% 50%;
-		-ms-transform-origin: -150% 50%;
-		-webkit-transform-origin: -150% 50%;
+		-moz-animation:
+				cssload-rota 1.673s linear infinite,
+				cssload-opa 3.8645s ease-in-out infinite alternate;
 		-moz-transform-origin: -150% 50%;
-		animation: 
+		-ms-animation:
 				cssload-rota 1.673s linear infinite,
 				cssload-opa 3.8645s ease-in-out infinite alternate;
-		-o-animation: 
+		-ms-transform-origin: -150% 50%;
+		-o-animation:
 				cssload-rota 1.673s linear infinite,
 				cssload-opa 3.8645s ease-in-out infinite alternate;
-		-ms-animation: 
+		-o-transform-origin: -150% 50%;
+		-webkit-animation:
 				cssload-rota 1.673s linear infinite,
 				cssload-opa 3.8645s ease-in-out infinite alternate;
-		-webkit-animation: 
+		-webkit-transform-origin: -150% 50%;
+		animation:
 				cssload-rota 1.673s linear infinite,
 				cssload-opa 3.8645s ease-in-out infinite alternate;
-		-moz-animation: 
-				cssload-rota 1.673s linear infinite,
-				cssload-opa 3.8645s ease-in-out infinite alternate;
+		background: rgb(220,60,63);
+		margin: -.1em 0 0 0;
+		right: 0;
+		top: 50%;
+		transform-origin: -150% 50%;
 }
 
 #cssload-pgloading .cssload-bokeh li:nth-child(3) {
-		left: 50%; 
-		bottom: 0;
-		margin: 0 0 0 -.1em;
-		background: rgb(220,60,63);
-		transform-origin: 50% -150%;
-		-o-transform-origin: 50% -150%;
-		-ms-transform-origin: 50% -150%;
-		-webkit-transform-origin: 50% -150%;
+		-moz-animation:
+				cssload-rota 1.3025s linear infinite,
+				cssload-opa 4.606s ease-in-out infinite alternate;
 		-moz-transform-origin: 50% -150%;
-		animation: 
+		-ms-animation:
 				cssload-rota 1.3025s linear infinite,
 				cssload-opa 4.606s ease-in-out infinite alternate;
-		-o-animation: 
+		-ms-transform-origin: 50% -150%;
+		-o-animation:
 				cssload-rota 1.3025s linear infinite,
 				cssload-opa 4.606s ease-in-out infinite alternate;
-		-ms-animation: 
+		-o-transform-origin: 50% -150%;
+		-webkit-animation:
 				cssload-rota 1.3025s linear infinite,
 				cssload-opa 4.606s ease-in-out infinite alternate;
-		-webkit-animation: 
+		-webkit-transform-origin: 50% -150%;
+		animation:
 				cssload-rota 1.3025s linear infinite,
 				cssload-opa 4.606s ease-in-out infinite alternate;
-		-moz-animation: 
-				cssload-rota 1.3025s linear infinite,
-				cssload-opa 4.606s ease-in-out infinite alternate;
+		background: rgb(220,60,63);
+		bottom: 0;
+		left: 50%;
+		margin: 0 0 0 -.1em;
+		transform-origin: 50% -150%;
 }
 
 #cssload-pgloading .cssload-bokeh li:nth-child(4) {
-		top: 50%; 
+		-moz-animation:
+				cssload-rota 1.546s linear infinite,
+				cssload-opa 4.7225s ease-in-out infinite alternate;
+		-moz-transform-origin: 250% 50%;
+		-ms-animation:
+				cssload-rota 1.546s linear infinite,
+				cssload-opa 4.7225s ease-in-out infinite alternate;
+		-ms-transform-origin: 250% 50%;
+		-o-animation:
+				cssload-rota 1.546s linear infinite,
+				cssload-opa 4.7225s ease-in-out infinite alternate;
+		-o-transform-origin: 250% 50%;
+		-webkit-animation:
+				cssload-rota 1.546s linear infinite,
+				cssload-opa 4.7225s ease-in-out infinite alternate;
+		-webkit-transform-origin: 250% 50%;
+		animation:
+				cssload-rota 1.546s linear infinite,
+				cssload-opa 4.7225s ease-in-out infinite alternate;
+		background: rgb(220,60,63);
 		left: 0;
 		margin: -.1em 0 0 0;
-		background: rgb(220,60,63);
+		top: 50%;
 		transform-origin: 250% 50%;
-		-o-transform-origin: 250% 50%;
-		-ms-transform-origin: 250% 50%;
-		-webkit-transform-origin: 250% 50%;
-		-moz-transform-origin: 250% 50%;
-		animation: 
-				cssload-rota 1.546s linear infinite,
-				cssload-opa 4.7225s ease-in-out infinite alternate;
-		-o-animation: 
-				cssload-rota 1.546s linear infinite,
-				cssload-opa 4.7225s ease-in-out infinite alternate;
-		-ms-animation: 
-				cssload-rota 1.546s linear infinite,
-				cssload-opa 4.7225s ease-in-out infinite alternate;
-		-webkit-animation: 
-				cssload-rota 1.546s linear infinite,
-				cssload-opa 4.7225s ease-in-out infinite alternate;
-		-moz-animation: 
-				cssload-rota 1.546s linear infinite,
-				cssload-opa 4.7225s ease-in-out infinite alternate;
 }
 
 

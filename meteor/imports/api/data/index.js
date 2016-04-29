@@ -41,28 +41,25 @@ export const database = (function() {
                 date: -1
             },
             limit: 1
-        }).fetch({});
+        }).fetch({})[0];
         if (testAmout > 5) {
             testAmout = 0;
             ledStatus = undefined;
         } else {
             testAmout++;
         }
-
         if (ledStatus != undefined) {
-            console.log('definded');
             var leds = ledStatus;
         } else {
-            console.log('hoi');
-            var leds = liveStatus(data[0].sensorId).incidences;
+            var leds = liveStatus(data.sensorId).incidences;
         }
 
         var status = {
-            date: data[0].date,
+            date: data.date,
             led: leds,
-            sensorId: data[0].sensorId,
-            value1: data[0].sensorvalue.value1,
-            value2: data[0].sensorvalue.valeu2,
+            sensorId: data.sensorId,
+            value1: data.sensorvalue.value1,
+            value2: data.sensorvalue.valeu2,
         }
         return JSON.stringify(status);
     }

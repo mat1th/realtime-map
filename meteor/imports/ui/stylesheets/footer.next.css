@@ -1,5 +1,5 @@
 .footer {
-    flex: 0 1 100%;
     border-top: solid 1px #000;
+    flex: 0 1 100%;
     padding: .5em 1.7em;
 }

@@ -1,33 +1,33 @@
 .message {
+    background-color: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    opacity: 0;
     position: fixed;
     top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
     transition: opacity .2s ease-in;
     visibility: hidden;
-    opacity: 0;
+    width: 100%;
 }
 
     .message.is-active {
-        visibility: visible;
         opacity: 1;
+        visibility: visible;
     }
 
     .message__container {
-        overflow: hidden;
+        background-color: white;
         border-radius: 4px;
-        position: absolute;
+        color: #4A4A4A;
         left: 50%;
+        overflow: hidden;
+        position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 20em;
-        color: #4A4A4A;
-        background-color: white;
-        transition: transform .2s ease-out;
         transform-origin: 50% 50%;
+        transition: transform .2s ease-out;
+        width: 20em;
     }
 
     .message__container.is-active {
@@ -40,15 +40,15 @@
     }
 
     .message__close-btn {
-        display: block;
-        padding: .5em 1em;
-        font-size: 1em;
         background: #64929D;
         border: none;
-        outline: 0;
         color: white;
-        text-align: center;
         cursor: pointer;
+        display: block;
+        font-size: 1em;
+        outline: 0;
+        padding: .5em 1em;
+        text-align: center;
     }
 
     .message__close-btn:hover {
@@ -60,14 +60,14 @@
     }
 
     .message__btn {
-        color: white;
         background-color: #DC3C3F;
+        border: none;
+        color: white;
         cursor: pointer;
+        font-size: 1em;
+        padding: 1em;
         text-align: center;
         width: 100%;
-        padding: 1em;
-        font-size: 1em;
-        border: none;
     }
 
     .message__btn:hover {
