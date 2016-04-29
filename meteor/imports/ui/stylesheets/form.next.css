@@ -149,16 +149,16 @@ select {
 }
 
 
-#settings form div {
+form div {
     position: relative;
     margin: 0 0em 2.7em;
 }
 
-#settings form label {
+form label {
     display: block;
 }
 
-#settings output {
+output {
     height: 32px;
     width: 10%;
     right: 0;
@@ -172,7 +172,7 @@ select {
     border-radius: .2em;
 }
 
-#settings output:after {
+output:after {
     position: absolute;
     top: 8px;
     left: -10px;
