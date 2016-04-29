@@ -116,7 +116,6 @@ input[type=range]::-ms-thumb {
 
 input[type="submit"] {
     background-color:#BB2E31;
-    background-color: transparent;
     border: 0;
     border-radius: 6px;
     color: white;
