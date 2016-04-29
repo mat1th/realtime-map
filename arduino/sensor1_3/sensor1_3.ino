@@ -105,4 +105,11 @@ void loop ()
     client.println();
     Serial.println("Data send");
   }
+
+   if (!client.connect(host, httpPort)) {
+    Serial.println("connection failed!!");
+    return;
+  }
+
+  delay(60000);
  }

@@ -53,6 +53,8 @@ void setup() {
 
 // the loop function
 void loop() {
+  delay(60000);
+  
   sensorValue = analogRead (sensorPin);
   
   delay (100);
