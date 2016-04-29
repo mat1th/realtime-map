@@ -37,6 +37,7 @@ main .content {
 
 main.alt {
     flex: 0 1 100vw;
+    min-height: auto;
 }
 
 
