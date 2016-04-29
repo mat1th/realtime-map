@@ -51,6 +51,10 @@
         cursor: pointer;
     }
 
+    .message__close-btn:hover {
+        background: #DC3C3F;
+    }
+
     .message__content {
         padding: 2em;
     }

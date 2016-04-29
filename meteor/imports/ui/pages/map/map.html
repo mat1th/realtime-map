@@ -1,4 +1,21 @@
-<template name="map">
+<template name="map">    	
     <div id='map'></div>
+    <div class="message">
+
+            <div class="message__container">
+
+                <button class="message__close-btn">✖</button>
+
+                <div class="message__content" contentEditable="true">
+                    <p>Beste Matthias,</p>
+                    <p>Er is een voorval aan Eerste Atjehstraat in Amsterdam.</p>
+                    <p>Wij verzoeken u erheen te gaan.</p>
+                </div>
+
+                <button class="message__btn">Verzenden</button>
+
+            </div>
+
+        </div>
     {{> chart}}
 </template>
