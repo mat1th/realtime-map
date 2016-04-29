@@ -18,7 +18,7 @@ This app has a API where you can get the realtime data.
 
 ### Current status
 
-You can get the last status from my sensor from [iot.dolstra.me/api/status](http://iot.dolstra.me/api/status/). You will get the status of the different sensors.
+You can get the last status from my sensor from [project3.dolstra.me/api/status](http://project3.dolstra.me/api/status/). You will get the status of the different sensors.
 
 ```json
   {
@@ -31,7 +31,7 @@ You can get the last status from my sensor from [iot.dolstra.me/api/status](http
 
 ### History
 
-You can also get the history data from [iot.dolstra.me/api/data](http://iot.dolstra.me/api/data). You will get an array with the time and the sensor status.
+You can also get the history data from [project3.dolstra.me/api/data](http://project3.dolstra.me/api/data). You will get an array with the time and the sensor status.
 
 ```json
     [{
@@ -53,7 +53,7 @@ You can also get the history data from [iot.dolstra.me/api/data](http://iot.dols
       }]
 ```
 
-To get the data of one sensor add the sensor id to the path [iot.dolstra.me/api/data/a43153cf-93f3-4c82-947d-b9d993edab36](http://iot.dolstra.me/api/data/a43153cf-93f3-4c82-947d-b9d993edab36). You will get an array with the time and the sensor status.
+To get the data of one sensor add the sensor id to the path [project3.dolstra.me/api/data/a43153cf-93f3-4c82-947d-b9d993edab36](http://project3.dolstra.me/api/data/a43153cf-93f3-4c82-947d-b9d993edab36). You will get an array with the time and the sensor status.
 
 ```json
     [{
