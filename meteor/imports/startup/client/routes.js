@@ -30,6 +30,15 @@ function userLoggedIn(callback) {
     }
 }
 
+// Define login router
+Router.route('/login', function() {
+    this.render('login');
+});
+
+Router.route('/register', function() {
+    this.render('register');
+});
+
 // Define home router
 Router.route('/', {
     waitOn: function() {
@@ -44,22 +53,8 @@ Router.route('/', {
     }
 });
 
-// Define login router
-Router.route('/login', function() {
-
-    this.render('login');
-
-});
-
-Router.route('/register', function() {
-
-    this.render('register');
-
-});
-
 // Define settings router
 Router.route('/settings', function() {
-
     var _this = this;
 
     userLoggedIn(function() {
@@ -68,44 +63,42 @@ Router.route('/settings', function() {
     });
 });
 
-Router.route('/reportincident', {
-    waitOn: function() {
-        return Meteor.subscribe('sensors');
-    },
-    action: function() {
-        var _this = this;
-        //
-        // userLoggedIn(function() {
-        _this.layout('alternative');
-        _this.render('addincident');
-        // });
-    }
-});
 Router.route('/incidents', {
     waitOn: function() {
         return Meteor.subscribe('incidents');
     },
     action: function() {
         var _this = this;
-        //
-        // userLoggedIn(function() {
-        _this.layout('applicationLayout');
-        _this.render('incidents');
-        // });
+
+        userLoggedIn(function() {
+            _this.layout('applicationLayout');
+            _this.render('incidents');
+        });
     }
 });
 Router.route('/test', {
     action: function() {
         var _this = this;
-        //
-        // userLoggedIn(function() {
-        _this.layout('applicationLayout');
-        _this.render('test');
-        // });
+
+        userLoggedIn(function() {
+            _this.layout('applicationLayout');
+            _this.render('test');
+        });
     }
 });
-Router.route('/bedankt', function() {
 
+// For city nabors
+Router.route('/reportincident', {
+    waitOn: function() {
+        return Meteor.subscribe('sensors');
+    },
+    action: function() {
+        this.layout('alternative');
+        this.render('addincident');
+    }
+});
+
+Router.route('/bedankt', function() {
     this.layout('alternative');
     this.render('bedankt');
 });
