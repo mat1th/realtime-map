@@ -36,7 +36,7 @@ Template.map.onRendered(function() {
 
     var cycleMarker = L.marker([52.36632373281241, 4.912347793579102], {
         icon: cycleIcon
-    }).addTo(map);
+    }).bindPopup('Wijk Coatch Matthias. <br><br><button>Stuur bericht </button>').addTo(map);
 
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
         attribution: 'Project 3',
