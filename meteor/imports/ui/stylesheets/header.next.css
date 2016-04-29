@@ -26,7 +26,6 @@
 
     .header__options,
     .header__stats {
-        margin-left: 5rem;
         list-style: none;
     }
 
@@ -54,7 +53,7 @@
         font-weight: bold;
     }
 
-    @media (max-width: 72em) {
+    @media (max-width: 70em) {
         .header__stats {
             display: none;
         }

@@ -5,11 +5,14 @@
             <p>Hier kunt u een incident aangeven.</p>
         </section>
         <form action="post">
+          <label>Buurt:</label>
           <select id="buurt" name="buurt">
               {{#each data.buurten}}
               <option value="{{buurt}}" selected>{{buurt}}</option>
               {{/each}}
           </select>
+          <br />
+          <label>Plein:</label>
           <select id="plein" name="plein">
               {{#each data.pleinen}}
               <option value="{{plein}}" selected>{{plein}}</option>
