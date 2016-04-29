@@ -21,6 +21,13 @@ Router.route('/api/data', {
         this.response.end(database.get(100));
     });
 
+Router.route('/api/data/:id', {
+        where: 'server'
+    })
+    .get(function() {
+        this.response.end(database.get(100, this.params.id));
+    });
+
 Router.route('/api/status', {
         where: 'server'
     })

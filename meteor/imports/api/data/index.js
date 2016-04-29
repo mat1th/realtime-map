@@ -59,13 +59,25 @@ export const database = (function() {
         return JSON.stringify(status);
     }
 
-    function get(limit) {
+    function get(limit, id) {
+      if (!id) {
         return JSON.stringify(SensorData.find({}, {
             limit: limit,
             sort: {
                 date: -1
             }
         }).fetch({}));
+      }else {
+        return JSON.stringify(SensorData.find({
+          sensorId: id
+        }, {
+            limit: limit,
+            sort: {
+                date: -1
+            }
+        }).fetch({}));
+      }
+
     }
 
     return {
