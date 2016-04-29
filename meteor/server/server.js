@@ -1,6 +1,29 @@
 import '../imports/startup/server/index.js'
-// Sensors.remove({});
+Sensors.remove({});
 // SensorData.remove({});
+
+var sensors = [{
+    "_id": "zx96MspPEB9RqYBHK",
+    "date": "2016-04-29 08:55:15",
+    "buurt": "Amsterdam Oost",
+    "sensorId": "a43153cf-93f3-4c82-947d-b9d993edab36",
+    "plein": "Marionette plein",
+    "lon": "4.939410",
+    "lat": "52.351999",
+    "user": "acgE6Z9rrNaq8TwPH"
+}, {
+    "_id ": "zx96MspPEB9RqDSHK",
+    "date": "2016-04-29 09:10:15",
+    "buurt": "Amsterdam Oost",
+    "sensorId": "53180077-cfc9-49b7-b807-ec01cd02b4d4",
+    "plein": "Eerste Atjehstraat",
+    "lon": "4.934814",
+    "lat": "52.362796",
+    "user": "acgE6Z9rrNaq8TwPH"
+}];
+sensors.forEach(function(elemnt) {
+     Sensors.insert(elemnt);
+});
 
 // var data = [{
 // 	"_id":"aZortayZg3YSKm9Cox",
@@ -9,7 +32,7 @@ import '../imports/startup/server/index.js'
 // 	"sensorvalue":{
 // 		"value1":"200",
 // 		"value2":
-// 		"false" 
+// 		"false"
 // 		}
 // 	},
 // 	{
@@ -19,7 +42,7 @@ import '../imports/startup/server/index.js'
 // 	"sensorvalue":{
 // 		"value1":"150",
 // 		"value2":
-// 		"false" 
+// 		"false"
 // 		}
 // 	},
 // 	{"_id":"aZortayZg3YSKm9Coz",
@@ -28,7 +51,7 @@ import '../imports/startup/server/index.js'
 // 	"sensorvalue":{
 // 		"value1":"400",
 // 		"value2":
-// 		"false" 
+// 		"false"
 // 		}
 // 	},
 // 	{
@@ -38,7 +61,7 @@ import '../imports/startup/server/index.js'
 // 	"sensorvalue":{
 // 		"value1":"200",
 // 		"value2":
-// 		"false" 
+// 		"false"
 // 		}
 // 	},
 // 	{
@@ -48,7 +71,7 @@ import '../imports/startup/server/index.js'
 // 	"sensorvalue":{
 // 		"value1":"300",
 // 		"value2":
-// 		"false" 
+// 		"false"
 // 		}
 // 	},
 // 	{
@@ -58,7 +81,7 @@ import '../imports/startup/server/index.js'
 // 	"sensorvalue":{
 // 		"value1":"400",
 // 		"value2":
-// 		"false" 
+// 		"false"
 // 		}
 // 	},
 // 	{
