@@ -33,6 +33,11 @@ main {
 }
 main .content {
     padding: 2em;
+    background: #edeeee;
+    padding-top: 1.8em;
+    padding-bottom: 5em;
+    overflow-y: scroll;
+    height: 100vh;
 }
 
 main.alt {

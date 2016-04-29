@@ -1,0 +1,10 @@
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+    margin: 0;
+}
+
+h1 { font-size: 1.4em; color: #DC3C3F; }
+h2 { font-size: 1.3em; color: #666; }
+h3 { font-size: 1.2em; color: #1e1e1e; }
+h4 { font-size: 1.1em; }
+h5 { font-size: 1em; }

@@ -15,11 +15,13 @@
     }
 
     .header__logo {
-        margin: 0 2.3125rem;
+        width: 5.5rem;
     }
 
     .header__logo img {
         height: 4rem;
+        margin: 0 auto;
+        display: block;
     }
 
     .header__options,
@@ -33,18 +35,6 @@
         display: inline-block;
         margin-right: 1em;
         position: relative;
-    }
-
-    .header__options select {
-        background: url('../../../img/arrow-down.svg') center right no-repeat;
-        background-size: 1rem;
-        padding: 0.5em 1.2em 0.5em 0.5em;
-        background-color: transparent;
-        border: none;
-        font-size: 1rem;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
     }
 
     .header__stats {
