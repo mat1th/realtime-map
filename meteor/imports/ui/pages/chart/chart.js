@@ -133,11 +133,85 @@ function drawChart(sensorId, startDate, endDate) {
     //     .attr("height", height)
     //     .call(zoom);
 
-    var data = SensorData.find({
-        sensorId: sensorId
-    }, {  short: {
-        date: 1
-    }}).fetch({})
+    // var data = SensorData.find({
+    //     sensorId: sensorId
+    // }, {  short: {
+    //     date: 1
+    // }}).fetch({});
+
+    console.log(data);
+
+    var data = [{
+	"_id":"aZortayZg3YSKm9Cox",
+	"date":"2016-04-28 12:50:52",
+	"sensorId":"a43153cf-93f3-4c82-947d-b9d993edab36",
+	"sensorvalue":{
+		"value1":"200",
+		"value2":
+		"false"
+		}
+	},
+	{
+	"_id":"aZortayZg3YSKm9Cod",
+	"date":"2016-04-28 13:50:52",
+	"sensorId":"a43153cf-93f3-4c82-947d-b9d993edab36",
+	"sensorvalue":{
+		"value1":"150",
+		"value2":
+		"false"
+		}
+	},
+	{"_id":"aZortayZg3YSKm9Coz",
+	"date":"2016-04-28 14:50:52",
+	"sensorId":"a43153cf-93f3-4c82-947d-b9d993edab36",
+	"sensorvalue":{
+		"value1":"400",
+		"value2":
+		"false"
+		}
+	},
+	{
+	"_id":"aZortayZg3YSKm9Co2",
+	"date":"2016-04-28 15:50:52",
+	"sensorId":"a43153cf-93f3-4c82-947d-b9d993edab36",
+	"sensorvalue":{
+		"value1":"200",
+		"value2":
+		"false"
+		}
+	},
+	{
+	"_id":"aZortayZg3YSKm9Co5",
+	"date":"2016-04-28 16:50:52",
+	"sensorId":"a43153cf-93f3-4c82-947d-b9d993edab36",
+	"sensorvalue":{
+		"value1":"300",
+		"value2":
+		"false"
+		}
+	},
+	{
+	"_id":"aZortayZg3YSKm9Co9",
+	"date":"2016-04-28 17:50:52",
+	"sensorId":"a43153cf-93f3-4c82-947d-b9d993edab36",
+	"sensorvalue":{
+		"value1":"400",
+		"value2":
+		"false"
+		}
+	},
+	{
+	"_id":"aZortayZg3YSKm9Co11",
+	"date":"2016-04-28 18:50:52",
+	"sensorId":"a43153cf-93f3-4c82-947d-b9d993edab36",
+	"sensorvalue":{
+		"value1":"450",
+		"value2":
+		"false"
+	}
+}];
+
+    console.log(data);
 
     data.forEach(function(d) {
         d.date = parseDate(d.date);
@@ -233,8 +307,10 @@ function drawChart(sensorId, startDate, endDate) {
             x0 = x.invert(d3.mouse(this)[0]),
             i = bisectDate(data, x0, 1),
             d0 = data[i - 1],
-            d1 = data[i],
+            d1 = data[i];
             d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+
+            console.log(d0.date, d1.date);
 
         newFocus.select("circle.holder")
             .attr("transform",
@@ -291,7 +367,7 @@ Template.chart.rendered = function() {
     var todayPlusTwo = addDate(today, 2);
     var todayMinusWeek = subDate(today, 7);
 
-    drawChart("a43153cf-93f3-4c82-947d-b9d993edab36", new Date("2016-04-28 12:20:00"), new Date("2016-04-28 18:30:00"));
+    drawChart("a43153cf-93f3-4c82-947d-b9d993edab36", new Date("2016-04-28 12:50:56"), new Date("2016-04-28 18:50:00"));
 }
 
 function toggleMessage(opt_in) {
