@@ -11,7 +11,7 @@ var sensorsValue = {
 var testAmout = 0;
 export const database = (function() {
     function set(postData) {
-        var now = moment().format('YYYY-MM-DD HH:mm:ss');
+        var now = moment().add(2, 'hours').format('YYYY-MM-DD HH:mm:ss');
 
         sensorsValue.value1 = sensorsValue.sensor || postData.value1;
         sensorsValue.value2 = sensorsValue.sensor || postData.value2;
