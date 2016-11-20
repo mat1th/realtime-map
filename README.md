@@ -5,7 +5,7 @@ Gemeente Amsterdam-Oost
 
 ## Team
 - Dylan Vens: Meteor/Frontend
-- [Matthias Dolstra](http://dolstra/me): Server Side/API, Meteor/Frontend
+- [mat1th](https://github.com/mat1th/): Server Side/API, Meteor/Frontend
 - Heleen Snoeck: Design/UX Deel Front-end
 - [Senny Kalidien](http://directzichtbaar.nl): Design/Ux & Meteor Frontend
 - Fons Hettema: Meteor/Frontend
