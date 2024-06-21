@@ -1,5 +1,8 @@
 # Project 3
 
+> [!WARNING]
+> This project is no longer maintained. Only there for code reference. It contains multiple security issues in dependencies.
+
 ## Client
 Gemeente Amsterdam-Oost
 
